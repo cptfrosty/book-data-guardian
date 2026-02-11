@@ -1,0 +1,18 @@
+site_name: МДК 11.01
+site_url: https://cptfrosty.data-guardian.github.io/
+nav:
+  - Главная: Chapter_1/1.1-intro/index.md
+  - 1. Реализация структуры БД:
+    - Архитектура СУБД: Chapter_1/1.1-DBMS-architecture/index.md
+    - Типы данных: Chapter_1/1.2-data-types/index.md
+    - DDL-команды SQL: Chapter_1/1.3-DDL-SQL commands/index.md
+    - Практика. Создание таблиц: Chapter_1/practic-creating-tables/index.md
+    - Практика. Ограничения целостности: Chapter_1/practic-limitations-of-data-integrity/index.md
+    - Практика. Каскадные операции: Chapter_1/practic-cascading-operations/index.md
+  - 2. Язык SQL:
+    - SELECT, INSERT, UPDATE, DELETE: Chapter_2/2.1-SELECT-INSERT-UPDATE-DELETE/index.md
+theme:
+  name: material
+  features:
+    - navigation.instant # Навигационная панель слева
+    - navigation.tracking

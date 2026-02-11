@@ -1,0 +1,1605 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_1/1.3-DDL-SQL%20commands/">
+      
+      
+        <link rel="prev" href="../1.2-data-types/">
+      
+      
+        <link rel="next" href="../practic-creating-tables/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>DDL-команды SQL - МДК 11.01</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ddl-sql" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="МДК 11.01" class="md-header__button md-logo" aria-label="МДК 11.01" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            МДК 11.01
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DDL-команды SQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="МДК 11.01" class="md-nav__button md-logo" aria-label="МДК 11.01" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    МДК 11.01
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1-intro/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Реализация структуры БД
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Реализация структуры БД
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.1-DBMS-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектура СУБД
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2-data-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Типы данных
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DDL-команды SQL
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DDL-команды SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ddl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Назначение DDL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Назначение DDL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ddl-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основные DDL-команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. CREATE — создание объектов БД
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. CREATE — создание объектов БД">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CREATE DATABASE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CREATE TABLE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-table-if-not-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CREATE TABLE IF NOT EXISTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ddl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Ограничения в DDL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-alter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. ALTER — изменение структуры таблицы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. ALTER — изменение структуры таблицы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Добавление столбца
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Удаление столбца
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Добавление ограничений
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Удаление ограничений
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Изменение типа данных
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. DROP — удаление объектов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. DROP — удаление объектов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drop-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DROP TABLE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DROP с зависимостями
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop-restrict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DROP RESTRICT (по умолчанию)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-truncate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. TRUNCATE — очистка таблицы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. COMMENT — документирование схемы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ddl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Транзакции и DDL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-ddl-dml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Сравнение DDL и DML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание №1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание №2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание №3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practic-creating-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика. Создание таблиц
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practic-limitations-of-data-integrity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика. Ограничения целостности
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practic-cascading-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика. Каскадные операции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Язык SQL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Язык SQL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter_2/2.1-SELECT-INSERT-UPDATE-DELETE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SELECT, INSERT, UPDATE, DELETE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ddl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Назначение DDL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Назначение DDL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ddl-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основные DDL-команды
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. CREATE — создание объектов БД
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. CREATE — создание объектов БД">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CREATE DATABASE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CREATE TABLE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-table-if-not-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CREATE TABLE IF NOT EXISTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ddl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Ограничения в DDL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-alter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. ALTER — изменение структуры таблицы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. ALTER — изменение структуры таблицы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Добавление столбца
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Удаление столбца
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Добавление ограничений
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Удаление ограничений
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Изменение типа данных
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. DROP — удаление объектов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. DROP — удаление объектов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drop-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DROP TABLE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DROP с зависимостями
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop-restrict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DROP RESTRICT (по умолчанию)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-truncate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. TRUNCATE — очистка таблицы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. COMMENT — документирование схемы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ddl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Транзакции и DDL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-ddl-dml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Сравнение DDL и DML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание №1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание №2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание №3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ddl-sql">DDL-команды SQL</h1>
+<p><strong>Тип занятия:</strong> лекция</p>
+<p><strong>Объём:</strong> 2 академических часа</p>
+<h2 id="1-ddl">1. Назначение DDL</h2>
+<p>DDL (Data Definition Language) — подмножество SQL, предназначенное для:</p>
+<ul>
+<li>создания объектов базы данных</li>
+<li>изменения их структуры</li>
+<li>удаления объектов</li>
+</ul>
+<p>DDL работает со схемой, а не с данными.</p>
+<h3 id="ddl-">Основные DDL-команды</h3>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CREATE</td>
+<td>Создание объектов</td>
+</tr>
+<tr>
+<td>ALTER</td>
+<td>Изменение структуры</td>
+</tr>
+<tr>
+<td>DROP</td>
+<td>Удаление объектов</td>
+</tr>
+<tr>
+<td>TRUNCATE</td>
+<td>Очистка таблицы</td>
+</tr>
+<tr>
+<td>COMMENT</td>
+<td>Документирование</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-create">2. CREATE — создание объектов БД</h2>
+<h3 id="create-database">CREATE DATABASE</h3>
+<pre><code class="language-sql">CREATE DATABASE college_db;
+</code></pre>
+<p>Создаёт новую базу данных</p>
+<p>Выполняется вне транзакции</p>
+<h3 id="create-table">CREATE TABLE</h3>
+<pre><code class="language-sql">CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    full_name TEXT NOT NULL,
+    birth_date DATE,
+    email TEXT UNIQUE
+);
+</code></pre>
+<p>В момент создания таблицы:</p>
+<ul>
+<li>задаются типы данных</li>
+<li>задаются ограничения целостности</li>
+<li>формируется структура хранения</li>
+</ul>
+<h3 id="create-table-if-not-exists">CREATE TABLE IF NOT EXISTS</h3>
+<pre><code class="language-sql">CREATE TABLE IF NOT EXISTS groups (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL UNIQUE
+);
+</code></pre>
+<p>Защита от ошибки повторного создания</p>
+<h2 id="3-ddl">3. Ограничения в DDL</h2>
+<p>Ограничения — часть DDL, так как они определяют структуру данных.</p>
+<p>Виды ограничений</p>
+<ul>
+<li>PRIMARY KEY</li>
+<li>FOREIGN KEY</li>
+<li>UNIQUE</li>
+<li>NOT NULL</li>
+<li>CHECK</li>
+<li>DEFAULT</li>
+</ul>
+<pre><code class="language-sql">salary NUMERIC CHECK (salary &gt; 0) DEFAULT 30000
+</code></pre>
+<p>Ограничения можно:</p>
+<ul>
+<li>задавать на уровне столбца</li>
+<li>задавать на уровне таблицы</li>
+</ul>
+<h2 id="4-alter">4. ALTER — изменение структуры таблицы</h2>
+<h3 id="_1">Добавление столбца</h3>
+<pre><code class="language-sql">ALTER TABLE students
+ADD COLUMN phone TEXT;
+</code></pre>
+<h3 id="_2">Удаление столбца</h3>
+<pre><code class="language-sql">ALTER TABLE students
+DROP COLUMN phone;
+</code></pre>
+<blockquote>
+<p>Операция необратима без резервной копии</p>
+</blockquote>
+<h3 id="_3">Добавление ограничений</h3>
+<pre><code class="language-sql">ALTER TABLE students
+ADD CONSTRAINT students_email_check
+CHECK (email LIKE '%@%');
+</code></pre>
+<p>СУБД проверяет все существующие данные</p>
+<h3 id="_4">Удаление ограничений</h3>
+<pre><code class="language-sql">ALTER TABLE students
+DROP CONSTRAINT students_email_check;
+</code></pre>
+<h3 id="_5">Изменение типа данных</h3>
+<pre><code class="language-sql">ALTER TABLE students
+ALTER COLUMN phone TYPE VARCHAR(20);
+</code></pre>
+<blockquote>
+<p>Возможна ошибка, если данные несовместимы</p>
+</blockquote>
+<h2 id="5-drop">5. DROP — удаление объектов</h2>
+<h3 id="drop-table">DROP TABLE</h3>
+<pre><code class="language-sql">DROP TABLE students;
+</code></pre>
+<p>Удаляет:</p>
+<ul>
+<li>таблицу</li>
+<li>данные</li>
+<li>ограничения</li>
+<li>индексы</li>
+</ul>
+<h3 id="drop">DROP с зависимостями</h3>
+<pre><code class="language-sql">DROP TABLE students CASCADE;
+</code></pre>
+<p>Удаляет все зависимые объекты</p>
+<blockquote>
+<p>Потенциально опасная операция</p>
+</blockquote>
+<h3 id="drop-restrict">DROP RESTRICT (по умолчанию)</h3>
+<pre><code class="language-sql">DROP TABLE students RESTRICT;
+</code></pre>
+<p>Запрещает удаление при наличии зависимостей</p>
+<h2 id="6-truncate">6. TRUNCATE — очистка таблицы</h2>
+<pre><code class="language-sql">TRUNCATE TABLE students;
+</code></pre>
+<p>Отличия от DELETE:</p>
+<table>
+<thead>
+<tr>
+<th>DELETE</th>
+<th>TRUNCATE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DML</td>
+<td>DDL</td>
+</tr>
+<tr>
+<td>Можно откатить</td>
+<td>Нельзя</td>
+</tr>
+<tr>
+<td>Работает построчно</td>
+<td>Мгновенный</td>
+</tr>
+<tr>
+<td>Учитывает WHERE</td>
+<td>Удаляет всё</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>TRUNCATE игнорирует ON DELETE</p>
+</blockquote>
+<h2 id="7-comment">7. COMMENT — документирование схемы</h2>
+<pre><code class="language-sql">COMMENT ON TABLE students IS 'Таблица студентов колледжа';
+COMMENT ON COLUMN students.full_name IS 'ФИО студента';
+</code></pre>
+<p>Используется в промышленной разработке</p>
+<p>Повышает читаемость схемы БД</p>
+<h2 id="8-ddl">8. Транзакции и DDL</h2>
+<p>Особенность:</p>
+<ul>
+<li>многие DDL-команды автоматически фиксируются</li>
+<li>ROLLBACK может не сработать</li>
+</ul>
+<pre><code class="language-sql">BEGIN;
+CREATE TABLE test (id INT);
+ROLLBACK; -- в PostgreSQL не откатит CREATE TABLE
+</code></pre>
+<p>Это критически важно для администрирования.</p>
+<h2 id="_6">Типичные ошибки</h2>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Последствие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DROP без анализа зависимостей</td>
+<td>Потеря данных</td>
+</tr>
+<tr>
+<td>ALTER без проверки данных</td>
+<td>Ошибка выполнения</td>
+</tr>
+<tr>
+<td>Отсутствие имён ограничений</td>
+<td>Сложная поддержка</td>
+</tr>
+<tr>
+<td>TRUNCATE вместо DELETE</td>
+<td>Безвозвратная очистка</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-ddl-dml">10. Сравнение DDL и DML</h2>
+<table>
+<thead>
+<tr>
+<th>Критерий</th>
+<th>DDL</th>
+<th>DML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Назначение</td>
+<td>Структура</td>
+<td>Данные</td>
+</tr>
+<tr>
+<td>Транзакции</td>
+<td>Ограниченно</td>
+<td>Полно</td>
+</tr>
+<tr>
+<td>Примеры</td>
+<td>CREATE, ALTER</td>
+<td>SELECT, INSERT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="no1">Домашнее задание №1</h2>
+<p>Спроектируйте структуру БД для предметной области:</p>
+<p>Учёт студентов и учебных групп колледжа.</p>
+<p>Требуется (ТОЛЬКО DDL):</p>
+<p>Создать таблицы:</p>
+<ul>
+<li>groups</li>
+<li>students</li>
+</ul>
+<p>Реализовать:</p>
+<ul>
+<li>первичные ключи</li>
+<li>уникальность названия группы</li>
+<li>ФИО студента</li>
+<li>связь студент → группа (FOREIGN KEY)</li>
+<li>Задать осмысленные имена всем ограничениям</li>
+</ul>
+<p>Добавить COMMENT:</p>
+<ul>
+<li>к таблицам</li>
+<li>к минимум 3 столбцам</li>
+</ul>
+<p>Запрещено использовать INSERT, UPDATE, DELETE</p>
+<h2 id="no2">Домашнее задание №2</h2>
+<p>Дана таблица:</p>
+<pre><code class="language-sql">CREATE TABLE contracts (
+    id SERIAL,
+    number TEXT,
+    start_date DATE,
+    end_date DATE,
+    client_id INT
+);
+</code></pre>
+<p>Требуется:</p>
+<p>Добавить первичный ключ</p>
+<ul>
+<li>Сделать номер договора уникальным</li>
+<li>Запретить NULL в start_date</li>
+<li>Добавить проверку <code>end_date &gt; start_date</code></li>
+<li>Добавить внешний ключ на таблицу clients</li>
+<li>Переименовать таблицу в client_contracts</li>
+</ul>
+<p>Все изменения выполнить через ALTER TABLE</p>
+<p>Указать порядок команд и объяснить его</p>
+<h2 id="no3">Домашнее задание №3</h2>
+<p>Создайте таблицу logs и заполните её тестовыми данными.</p>
+<p>Затем:</p>
+<ul>
+<li>Очистите таблицу с помощью DELETE</li>
+<li>Повторно заполните таблицу</li>
+<li>Очистите таблицу с помощью TRUNCATE</li>
+<li>Попробуйте выполнить ROLLBACK в обоих случаях</li>
+</ul>
+<p>В отчёте указать:</p>
+<ul>
+<li>какие операции откатились</li>
+<li>какие — нет</li>
+<li>почему TRUNCATE считается опасной командой</li>
+</ul>
+<h2 id="_7">Контрольные вопросы</h2>
+<ol>
+<li>В чём принципиальное отличие DDL-команд от DML-команд?</li>
+<li>Что произойдёт при выполнении <code>CREATE TABLE</code> в транзакции и последующем <code>ROLLBACK</code>?</li>
+<li>Почему добавление ограничения через <code>ALTER TABLE</code> может завершиться ошибкой?</li>
+<li>В чём разница между <code>DELETE</code>, <code>TRUNCATE</code> и <code>DROP TABLE</code>?</li>
+<li>Зачем задавать имена ограничениям (<code>CONSTRAINT name</code>)?</li>
+<li>Чем опасно использование <code>DROP ... CASCADE</code>?</li>
+<li>Можно ли изменить тип столбца через <code>ALTER TABLE</code> без потери данных?</li>
+<li>Зачем использовать <code>COMMENT ON</code> в промышленной БД?</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

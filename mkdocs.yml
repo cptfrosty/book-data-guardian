@@ -6,11 +6,14 @@ nav:
     - Архитектура СУБД: Chapter_1/1.1-DBMS-architecture/index.md
     - Типы данных: Chapter_1/1.2-data-types/index.md
     - DDL-команды SQL: Chapter_1/1.3-DDL-SQL commands/index.md
-    - Практика. Создание таблиц: Chapter_1/practic-creating-tables/index.md
-    - Практика. Ограничения целостности: Chapter_1/practic-limitations-of-data-integrity/index.md
-    - Практика. Каскадные операции: Chapter_1/practic-cascading-operations/index.md
+    - Практика 1. Создание таблиц: Chapter_1/practic-creating-tables/index.md
+    - Практика 2. Ограничения целостности: Chapter_1/practic-limitations-of-data-integrity/index.md
+    - Практика 3. Каскадные операции: Chapter_1/practic-cascading-operations/index.md
   - 2. Язык SQL:
     - SELECT, INSERT, UPDATE, DELETE: Chapter_2/2.1-SELECT-INSERT-UPDATE-DELETE/index.md
+    - JOIN: Chapter_2/2.2-JOIN/index.md
+    - Агрегатные функции: Chapter_2/2.3-aggregate-functions/index.md
+    - Практика 4. Запросы к данным: Chapter_2/practic-queries-to-data/index.md
 theme:
   name: material
   features:

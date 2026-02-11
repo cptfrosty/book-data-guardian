@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_2/2.1-SELECT-INSERT-UPDATE-DELETE/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_2/practic-queries-to-data/">
       
       
-        <link rel="prev" href="../../Chapter_1/practic-cascading-operations/">
+        <link rel="prev" href="../2.3-aggregate-functions/">
       
-      
-        <link rel="next" href="../2.2-JOIN/">
       
       
         
@@ -25,7 +23,7 @@
     
     
       
-        <title>SELECT, INSERT, UPDATE, DELETE - МДК 11.01</title>
+        <title>Практика 4. Запросы к данным - МДК 11.01</title>
       
     
     
@@ -66,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#21-select-insert-update-delete" class="md-skip">
+        <a href="#4-select" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SELECT, INSERT, UPDATE, DELETE
+              Практика 4. Запросы к данным
             
           </span>
         </div>
@@ -493,37 +491,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    SELECT, INSERT, UPDATE, DELETE
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2.1-SELECT-INSERT-UPDATE-DELETE/" class="md-nav__link">
         
   
   
@@ -539,325 +510,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-sql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. SQL как язык управления данными
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. SELECT — выборка данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. SELECT — выборка данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Базовый синтаксис
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#where" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Фильтрация данных (WHERE)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#order-by" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Сортировка (ORDER BY)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ограничение количества строк
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-insert" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. INSERT — добавление данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. INSERT — добавление данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Вставка одной строки
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Вставка нескольких строк
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#insert-select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        INSERT с SELECT
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. UPDATE — изменение данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. UPDATE — изменение данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Базовый синтаксис
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Обновление нескольких столбцов
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UPDATE с подзапросом
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-delete" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. DELETE — удаление данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. DELETE — удаление данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Базовый синтаксис
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-where" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DELETE без WHERE
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DELETE и каскады
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Транзакционный аспект
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Типичные ошибки
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Сравнение операторов
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Выводы
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#no1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Домашнее задание №1
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#no2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Домашнее задание №2
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#no3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Домашнее задание №3
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -923,10 +575,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../practic-queries-to-data/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика 4. Запросы к данным
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -942,6 +621,276 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Исходная структура БД
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 1. Базовые выборки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Этап 1. Базовые выборки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 2. Условия и логические операторы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Этап 2. Условия и логические операторы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 7
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 3. Сортировка и ограничение
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Этап 3. Сортировка и ограничение">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 8
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 10
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 4. JOIN (связанные данные)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Этап 4. JOIN (связанные данные)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 12
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 5. Комплексный запрос
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Этап 5. Комплексный запрос">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 13
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Индивидуальные задания
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -981,55 +930,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-sql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. SQL как язык управления данными
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. SELECT — выборка данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. SELECT — выборка данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Базовый синтаксис
+        Исходная структура БД
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#where" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Фильтрация данных (WHERE)
+        Этап 1. Базовые выборки
       
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Этап 1. Базовые выборки">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#order-by" class="md-nav__link">
+  <a href="#1_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Сортировка (ORDER BY)
+        Задание 1
       
     </span>
   </a>
@@ -1037,242 +964,215 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 2. Условия и логические операторы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Этап 2. Условия и логические операторы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 7
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 3. Сортировка и ограничение
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Этап 3. Сортировка и ограничение">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 8
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 10
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 4. JOIN (связанные данные)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Этап 4. JOIN (связанные данные)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 12
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 5. Комплексный запрос
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Этап 5. Комплексный запрос">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 13
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ограничение количества строк
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-insert" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. INSERT — добавление данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. INSERT — добавление данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Вставка одной строки
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Вставка нескольких строк
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#insert-select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        INSERT с SELECT
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. UPDATE — изменение данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. UPDATE — изменение данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Базовый синтаксис
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Обновление нескольких столбцов
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UPDATE с подзапросом
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-delete" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. DELETE — удаление данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. DELETE — удаление данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Базовый синтаксис
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-where" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DELETE без WHERE
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DELETE и каскады
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Транзакционный аспект
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Типичные ошибки
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Сравнение операторов
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Выводы
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#no1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Домашнее задание №1
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#no2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Домашнее задание №2
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#no3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Домашнее задание №3
+        Индивидуальные задания
       
     </span>
   </a>
@@ -1296,264 +1196,117 @@
 
 
 
-<h1 id="21-select-insert-update-delete">Лекция 2.1. SELECT, INSERT, UPDATE, DELETE</h1>
-<p><strong>Тип занятия:</strong> лекция</p>
-<p><strong>Объём:</strong> 2 академических часа</p>
-<h2 id="1-sql">1. SQL как язык управления данными</h2>
-<p>SQL (Structured Query Language) — декларативный язык работы с реляционными базами данных.</p>
-<p>Ключевая идея:</p>
-<blockquote>
-<p>Мы не описываем, как получать данные,
-мы описываем, какие данные нужны.</p>
-</blockquote>
-<p>Операторы SELECT, INSERT, UPDATE, DELETE относятся к группе DML (Data Manipulation Language).</p>
-<h2 id="2-select">2. SELECT — выборка данных</h2>
-<p>Оператор SELECT используется для чтения данных из таблиц и представлений.</p>
-<p>Важно: SELECT не изменяет данные.</p>
-<h3 id="_1">Базовый синтаксис</h3>
-<pre><code class="language-sql">SELECT column1, column2
-FROM table_name;
-</code></pre>
-<p>или</p>
-<pre><code class="language-sql">SELECT *
-FROM table_name;
-</code></pre>
-<blockquote>
-<p><strong>Внимание:</strong></p>
-<p>использование * допустимо только в учебных примерах.</p>
-</blockquote>
-<h3 id="where">Фильтрация данных (WHERE)</h3>
-<pre><code class="language-sql">SELECT *
-FROM employees
-WHERE salary &gt; 50000;
-</code></pre>
-<p>Условия:</p>
-<ul>
-<li><code>=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code></li>
-<li><code>AND</code>, <code>OR</code>, <code>NOT</code></li>
-<li><code>IN</code>, <code>BETWEEN</code>, <code>LIKE</code>, <code>IS NULL</code></li>
-</ul>
-<h3 id="order-by">Сортировка (ORDER BY)</h3>
-<pre><code class="language-sql">SELECT full_name, salary
-FROM employees
-ORDER BY salary DESC;
-</code></pre>
-<p>Сортировка выполняется после фильтрации.</p>
-<h3 id="_2">Ограничение количества строк</h3>
-<pre><code class="language-sql">SELECT *
-FROM employees
-LIMIT 10 OFFSET 20;
-</code></pre>
-<h2 id="3-insert">3. INSERT — добавление данных</h2>
-<p>Оператор INSERT используется для вставки новых строк в таблицу.</p>
-<h3 id="_3">Вставка одной строки</h3>
-<pre><code class="language-sql">INSERT INTO employees (full_name, salary)
-VALUES ('Иванов Иван', 60000);
-</code></pre>
-<p>Если столбец не указан:</p>
-<ul>
-<li>используется DEFAULT</li>
-<li>либо возникает ошибка (NOT NULL)</li>
-</ul>
-<h3 id="_4">Вставка нескольких строк</h3>
-<pre><code class="language-sql">INSERT INTO employees (full_name, salary)
-VALUES
-('Петров Пётр', 55000),
-('Сидоров Сергей', 70000);
-</code></pre>
-<h3 id="insert-select">INSERT с SELECT</h3>
-<pre><code class="language-sql">INSERT INTO archive_employees (full_name, salary)
-SELECT full_name, salary
-FROM employees
-WHERE salary &lt; 40000;
-</code></pre>
-<p>Часто используется для архивирования данных.</p>
-<h2 id="4-update">4. UPDATE — изменение данных</h2>
-<p>Оператор UPDATE изменяет существующие строки.</p>
-<h3 id="_5">Базовый синтаксис</h3>
-<pre><code class="language-sql">UPDATE employees
-SET salary = 65000
-WHERE id = 3;
-</code></pre>
-<blockquote>
-<p><strong>Внимание</strong></p>
-<p>критическая ошибка: UPDATE без WHERE</p>
-</blockquote>
-<pre><code class="language-sql">UPDATE employees
-SET salary = 0;
-</code></pre>
-<p>Изменит все строки таблицы.</p>
-<h3 id="_6">Обновление нескольких столбцов</h3>
-<pre><code class="language-sql">UPDATE employees
-SET
-    salary = salary * 1.1,
-    updated_at = CURRENT_DATE
-WHERE department_id = 2;
-</code></pre>
-<h3 id="update">UPDATE с подзапросом</h3>
-<pre><code class="language-sql">UPDATE employees
-SET salary = salary * 1.05
-WHERE department_id IN (
-    SELECT id
-    FROM departments
-    WHERE name = 'IT'
+<h1 id="4-select">Практическое занятие 4. Запросы к данным (SELECT)</h1>
+<p><strong>Продолжительность:</strong> 2 академических часа (90 минут)</p>
+<p><strong>Тип:</strong> практическое занятие</p>
+<p><strong>Цель занятия:</strong> сформировать устойчивые навыки выборки данных из одной и нескольких таблиц; фильтрации (WHERE); сортировки (ORDER BY); ограничения выборки (LIMIT); работы с условиями (IN, BETWEEN, LIKE, IS NULL); соединения таблиц (JOIN)</p>
+<h2 id="_1">Исходная структура БД</h2>
+<pre><code class="language-sql">CREATE TABLE groups (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    full_name TEXT NOT NULL,
+    birth_date DATE,
+    group_id INT REFERENCES groups(id),
+    scholarship NUMERIC
+);
+
+CREATE TABLE teachers (
+    id SERIAL PRIMARY KEY,
+    full_name TEXT NOT NULL,
+    department TEXT
 );
 </code></pre>
-<h2 id="5-delete">5. DELETE — удаление данных</h2>
-<p>Оператор DELETE удаляет строки из таблицы.</p>
-<h3 id="_7">Базовый синтаксис</h3>
-<pre><code class="language-sql">DELETE FROM employees
-WHERE id = 5;
-</code></pre>
-<h3 id="delete-where">DELETE без WHERE</h3>
-<pre><code class="language-sql">DELETE FROM employees;
-</code></pre>
-<p>Удаляет все строки, но:</p>
-<ul>
-<li>структура таблицы сохраняется</li>
-<li>можно откатить в транзакции</li>
-</ul>
-<h3 id="delete">DELETE и каскады</h3>
-<pre><code class="language-sql">DELETE FROM departments
-WHERE id = 1;
-</code></pre>
-<p>Поведение зависит от:
-- <code>ON DELETE CASCADE</code>
-- <code>RESTRICT</code>
-- <code>SET NULL</code></p>
-<h2 id="_8">Транзакционный аспект</h2>
-<p>Все DML-операции могут выполняться в транзакции:</p>
-<pre><code class="language-sql">BEGIN;
-
-UPDATE accounts SET balance = balance - 100 WHERE id = 1;
-UPDATE accounts SET balance = balance + 100 WHERE id = 2;
-
-ROLLBACK; -- или COMMIT
-</code></pre>
-<p>Без COMMIT изменения не сохраняются.</p>
-<h2 id="_9">Типичные ошибки</h2>
-<table>
-<thead>
-<tr>
-<th>Ошибка</th>
-<th>Последствие</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UPDATE без WHERE</td>
-<td>Массовая порча данных</td>
-</tr>
-<tr>
-<td>DELETE без WHERE</td>
-<td>Потеря данных</td>
-</tr>
-<tr>
-<td>Несоответствие типов</td>
-<td>Ошибка выполнения</td>
-</tr>
-<tr>
-<td>Нарушение ограничений</td>
-<td>Ошибка целостности</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_10">Сравнение операторов</h2>
-<table>
-<thead>
-<tr>
-<th>Оператор</th>
-<th>Назначение</th>
-<th>Изменяет данные</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SELECT</td>
-<td>Чтение</td>
-<td>Нет</td>
-</tr>
-<tr>
-<td>INSERT</td>
-<td>Добавление</td>
-<td>Да</td>
-</tr>
-<tr>
-<td>UPDATE</td>
-<td>Изменение</td>
-<td>Да</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>Удаление</td>
-<td>Да</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_11">Выводы</h2>
-<p><code>SELECT</code> — самый сложный оператор логически</p>
-<p><code>INSERT</code> проверяет ограничения целостности</p>
-<p><code>UPDATE</code> и <code>DELETE</code> требуют строгого контроля</p>
-<p>Все операции должны выполняться осознанно</p>
-<h2 id="no1">Домашнее задание №1</h2>
-<p>Создайте таблицу employees (структуру можно взять из практики или задать самостоятельно).</p>
-<p>Требуется написать 5 запросов SELECT:</p>
-<ul>
-<li>Вывести всех сотрудников, у которых зарплата выше средней по таблице</li>
-<li>Вывести сотрудников без отдела (department_id IS NULL)</li>
-<li>Найти сотрудников, принятых за последний год</li>
-<li>Вывести топ-3 сотрудников по зарплате</li>
-<li>Вывести сотрудников, у которых имя начинается на одну букву и заканчивается на другую</li>
-</ul>
-<h2 id="no2">Домашнее задание №2</h2>
-<p>Даны таблицы:</p>
-<ul>
-<li>departments</li>
-<li>employees</li>
-</ul>
-<p>Требуется:</p>
-<ul>
-<li>Добавить новый отдел</li>
-<li>Добавить в него минимум 3 сотрудников</li>
-<li>Повысить зарплату всем сотрудникам отдела на 10%</li>
-<li>Перевести одного сотрудника в другой отдел</li>
-<li>Зафиксировать состояние таблиц до и после изменений</li>
-</ul>
-<p>Ограничение:</p>
-<ul>
-<li>все изменения выполнить в одной транзакции</li>
-<li>показать вариант с ROLLBACK и с COMMIT</li>
-</ul>
-<h2 id="no3">Домашнее задание №3</h2>
-<p>Дана предметная область:</p>
 <blockquote>
-<p>Увольнение сотрудника не должно приводить к потере истории.</p>
+<p>Перед началом занятия таблицы должны быть заполнены тестовыми данными (10–20 строк).</p>
 </blockquote>
-<p>Требуется:</p>
+<h2 id="1">Этап 1. Базовые выборки</h2>
+<h3 id="1_1">Задание 1</h3>
+<p>Вывести всех студентов.</p>
+<h3 id="2">Задание 2</h3>
+<p>Вывести:</p>
 <ul>
-<li>Реализовать таблицу employees_archive</li>
-<li>Скопировать туда данные уволенного сотрудника</li>
-<li>Удалить сотрудника из основной таблицы</li>
-<li>Убедиться, что данные сохранены в архиве</li>
+<li>ФИО</li>
+<li>дату рождения</li>
 </ul>
-<p>Запрещено:</p>
+<h3 id="3">Задание 3</h3>
+<p>Вывести студентов с стипендией больше 3000.</p>
+<h3 id="4">Задание 4</h3>
+<p>Вывести студентов без стипендии.</p>
+<blockquote>
+<p>Использовать IS NULL.</p>
+</blockquote>
+<h2 id="2_1">Этап 2. Условия и логические операторы</h2>
+<h3 id="5">Задание 5</h3>
+<p>Найти студентов:</p>
 <ul>
-<li>использовать триггеры</li>
-<li>использовать каскадное удаление</li>
+<li>из определённой группы</li>
+<li>со стипендией больше 2500</li>
+</ul>
+<h3 id="6">Задание 6</h3>
+<p>Вывести студентов, родившихся:</p>
+<ul>
+<li>между 2004 и 2006 годами.</li>
+<li>Использовать BETWEEN.</li>
+</ul>
+<h3 id="7">Задание 7</h3>
+<p>Найти студентов:</p>
+<ul>
+<li>у которых фамилия начинается на «И».</li>
+<li>Использовать LIKE.</li>
+</ul>
+<h2 id="3_1">Этап 3. Сортировка и ограничение</h2>
+<h3 id="8">Задание 8</h3>
+<p>Вывести студентов:</p>
+<ul>
+<li>отсортированных по стипендии по убыванию.</li>
+</ul>
+<h3 id="9">Задание 9</h3>
+<p>Вывести 5 студентов с самой высокой стипендией.</p>
+<blockquote>
+<p>Использовать ORDER BY + LIMIT.</p>
+</blockquote>
+<h3 id="10">Задание 10</h3>
+<p>Вывести 3–7 записи (использовать OFFSET).</p>
+<h2 id="4-join">Этап 4. JOIN (связанные данные)</h2>
+<h3 id="11">Задание 11</h3>
+<p>Вывести:</p>
+<ul>
+<li>ФИО студента</li>
+<li>название группы</li>
 </ul>
 <blockquote>
-<h1 id="_12">Подсказка:</h1>
-<p>используйте <code>INSERT INTO ... SELECT</code>
-затем <code>DELETE</code></p>
+<p>Использовать JOIN.</p>
 </blockquote>
-<h2 id="_13">Контрольные вопросы</h2>
-<ol>
-<li>Чем принципиально отличается <code>SELECT</code> от <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code> с точки зрения работы СУБД?</li>
-<li>Почему выполнение <code>UPDATE</code> или <code>DELETE</code> без условия <code>WHERE</code> считается критической ошибкой?</li>
-<li>В чём разница между <code>DELETE FROM table;</code> и <code>DELETE FROM table WHERE condition;</code>?</li>
-<li>Что произойдёт при выполнении <code>INSERT</code>, если нарушается ограничение целостности?</li>
-<li>Зачем выполнять DML-операции в транзакции?</li>
-</ol>
+<h3 id="12">Задание 12</h3>
+<p>Вывести всех студентов, включая тех, у кого нет группы.</p>
+<p>Использовать LEFT JOIN.</p>
+<blockquote>
+<p>Объяснить разницу между INNER и LEFT JOIN.</p>
+</blockquote>
+<h2 id="5_1">Этап 5. Комплексный запрос</h2>
+<h3 id="13">Задание 13</h3>
+<p>Вывести:</p>
+<ul>
+<li>ФИО студента</li>
+<li>название группы</li>
+<li>возраст (вычислить)</li>
+<li>стипендию</li>
+</ul>
+<p>Условия:</p>
+<ul>
+<li>стипендия больше средней по таблице</li>
+<li>отсортировать по возрасту</li>
+</ul>
+<h2 id="_2">Индивидуальные задания</h2>
+<p><strong>Вариант 1.</strong> Найти студента с минимальной стипендией.</p>
+<p><strong>Вариант 2.</strong> Найти студентов старше 20 лет.</p>
+<p><strong>Вариант 3.</strong> Найти группы без студентов.</p>
+<p><strong>Вариант 4.</strong> Найти студентов, чьё имя состоит более чем из 15 символов.</p>
+<p><strong>Вариант 5.</strong> Найти студентов, у которых стипендия выше средней по группе.</p>
 
 
 

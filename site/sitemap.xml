@@ -32,4 +32,20 @@
          <loc>https://cptfrosty.data-guardian.github.io/Chapter_2/2.1-SELECT-INSERT-UPDATE-DELETE/</loc>
          <lastmod>2026-02-11</lastmod>
     </url>
+    <url>
+         <loc>https://cptfrosty.data-guardian.github.io/Chapter_2/2.2-JOIN/</loc>
+         <lastmod>2026-02-11</lastmod>
+    </url>
+    <url>
+         <loc>https://cptfrosty.data-guardian.github.io/Chapter_2/2.3-aggregate-functions/</loc>
+         <lastmod>2026-02-11</lastmod>
+    </url>
+    <url>
+         <loc>https://cptfrosty.data-guardian.github.io/Chapter_2/practic-analytical-samples/</loc>
+         <lastmod>2026-02-11</lastmod>
+    </url>
+    <url>
+         <loc>https://cptfrosty.data-guardian.github.io/Chapter_2/practic-queries-to-data/</loc>
+         <lastmod>2026-02-11</lastmod>
+    </url>
 </urlset>

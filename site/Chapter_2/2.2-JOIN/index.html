@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_2/2.1-SELECT-INSERT-UPDATE-DELETE/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_2/2.2-JOIN/">
       
       
-        <link rel="prev" href="../../Chapter_1/practic-cascading-operations/">
+        <link rel="prev" href="../2.1-SELECT-INSERT-UPDATE-DELETE/">
       
       
-        <link rel="next" href="../2.2-JOIN/">
+        <link rel="next" href="../2.3-aggregate-functions/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>SELECT, INSERT, UPDATE, DELETE - МДК 11.01</title>
+        <title>JOIN - МДК 11.01</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#21-select-insert-update-delete" class="md-skip">
+        <a href="#join-sql" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SELECT, INSERT, UPDATE, DELETE
+              JOIN
             
           </span>
         </div>
@@ -493,6 +493,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1-SELECT-INSERT-UPDATE-DELETE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SELECT, INSERT, UPDATE, DELETE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -512,7 +540,7 @@
   <span class="md-ellipsis">
     
   
-    SELECT, INSERT, UPDATE, DELETE
+    JOIN
   
 
     
@@ -530,7 +558,7 @@
   <span class="md-ellipsis">
     
   
-    SELECT, INSERT, UPDATE, DELETE
+    JOIN
   
 
     
@@ -556,10 +584,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-sql" class="md-nav__link">
+  <a href="#1-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. SQL как язык управления данными
+        1. Зачем нужен JOIN
       
     </span>
   </a>
@@ -567,22 +595,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-select" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. SELECT — выборка данных
+        2. Исходная модель для примеров
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. SELECT — выборка данных">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Виды JOIN
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Виды JOIN">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#inner-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Базовый синтаксис
+        INNER JOIN
       
     </span>
   </a>
@@ -590,10 +629,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#where" class="md-nav__link">
+  <a href="#left-join-left-outer-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Фильтрация данных (WHERE)
+        LEFT JOIN (LEFT OUTER JOIN)
       
     </span>
   </a>
@@ -601,10 +640,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#order-by" class="md-nav__link">
+  <a href="#right-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Сортировка (ORDER BY)
+        RIGHT JOIN
       
     </span>
   </a>
@@ -612,10 +651,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#full-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ограничение количества строк
+        FULL JOIN
       
     </span>
   </a>
@@ -628,160 +667,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-insert" class="md-nav__link">
+  <a href="#4-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. INSERT — добавление данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. INSERT — добавление данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Вставка одной строки
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Вставка нескольких строк
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#insert-select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        INSERT с SELECT
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. UPDATE — изменение данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. UPDATE — изменение данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Базовый синтаксис
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Обновление нескольких столбцов
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UPDATE с подзапросом
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-delete" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. DELETE — удаление данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. DELETE — удаление данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Базовый синтаксис
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-where" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DELETE без WHERE
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DELETE и каскады
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Транзакционный аспект
+        4. Визуальная логика JOIN
       
     </span>
   </a>
@@ -789,10 +678,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#on" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Типичные ошибки
+        Условие соединения (ON)
       
     </span>
   </a>
@@ -800,10 +689,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#6-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Сравнение операторов
+        6. JOIN нескольких таблиц
       
     </span>
   </a>
@@ -811,10 +700,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#7-join-where" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Выводы
+        7. JOIN и WHERE — принципиальная разница
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-join-cross-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. JOIN без условия (CROSS JOIN)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Производительность JOIN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Итоги
       
     </span>
   </a>
@@ -854,38 +787,21 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2.2-JOIN/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    JOIN
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -981,10 +897,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-sql" class="md-nav__link">
+  <a href="#1-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. SQL как язык управления данными
+        1. Зачем нужен JOIN
       
     </span>
   </a>
@@ -992,22 +908,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-select" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. SELECT — выборка данных
+        2. Исходная модель для примеров
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. SELECT — выборка данных">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Виды JOIN
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Виды JOIN">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#inner-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Базовый синтаксис
+        INNER JOIN
       
     </span>
   </a>
@@ -1015,10 +942,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#where" class="md-nav__link">
+  <a href="#left-join-left-outer-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Фильтрация данных (WHERE)
+        LEFT JOIN (LEFT OUTER JOIN)
       
     </span>
   </a>
@@ -1026,10 +953,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#order-by" class="md-nav__link">
+  <a href="#right-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Сортировка (ORDER BY)
+        RIGHT JOIN
       
     </span>
   </a>
@@ -1037,10 +964,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#full-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ограничение количества строк
+        FULL JOIN
       
     </span>
   </a>
@@ -1053,160 +980,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-insert" class="md-nav__link">
+  <a href="#4-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. INSERT — добавление данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. INSERT — добавление данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Вставка одной строки
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Вставка нескольких строк
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#insert-select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        INSERT с SELECT
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. UPDATE — изменение данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. UPDATE — изменение данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Базовый синтаксис
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Обновление нескольких столбцов
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UPDATE с подзапросом
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-delete" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. DELETE — удаление данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. DELETE — удаление данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Базовый синтаксис
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-where" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DELETE без WHERE
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DELETE и каскады
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Транзакционный аспект
+        4. Визуальная логика JOIN
       
     </span>
   </a>
@@ -1214,10 +991,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#on" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Типичные ошибки
+        Условие соединения (ON)
       
     </span>
   </a>
@@ -1225,10 +1002,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#6-join" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Сравнение операторов
+        6. JOIN нескольких таблиц
       
     </span>
   </a>
@@ -1236,10 +1013,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#7-join-where" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Выводы
+        7. JOIN и WHERE — принципиальная разница
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-join-cross-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. JOIN без условия (CROSS JOIN)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Производительность JOIN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Итоги
       
     </span>
   </a>
@@ -1279,6 +1100,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1296,142 +1128,124 @@
 
 
 
-<h1 id="21-select-insert-update-delete">Лекция 2.1. SELECT, INSERT, UPDATE, DELETE</h1>
+<h1 id="join-sql">JOIN — соединение таблиц в SQL</h1>
 <p><strong>Тип занятия:</strong> лекция</p>
-<p><strong>Объём:</strong> 2 академических часа</p>
-<h2 id="1-sql">1. SQL как язык управления данными</h2>
-<p>SQL (Structured Query Language) — декларативный язык работы с реляционными базами данных.</p>
-<p>Ключевая идея:</p>
-<blockquote>
-<p>Мы не описываем, как получать данные,
-мы описываем, какие данные нужны.</p>
-</blockquote>
-<p>Операторы SELECT, INSERT, UPDATE, DELETE относятся к группе DML (Data Manipulation Language).</p>
-<h2 id="2-select">2. SELECT — выборка данных</h2>
-<p>Оператор SELECT используется для чтения данных из таблиц и представлений.</p>
-<p>Важно: SELECT не изменяет данные.</p>
-<h3 id="_1">Базовый синтаксис</h3>
-<pre><code class="language-sql">SELECT column1, column2
-FROM table_name;
-</code></pre>
-<p>или</p>
-<pre><code class="language-sql">SELECT *
-FROM table_name;
-</code></pre>
-<blockquote>
-<p><strong>Внимание:</strong></p>
-<p>использование * допустимо только в учебных примерах.</p>
-</blockquote>
-<h3 id="where">Фильтрация данных (WHERE)</h3>
-<pre><code class="language-sql">SELECT *
-FROM employees
-WHERE salary &gt; 50000;
-</code></pre>
-<p>Условия:</p>
-<ul>
-<li><code>=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code></li>
-<li><code>AND</code>, <code>OR</code>, <code>NOT</code></li>
-<li><code>IN</code>, <code>BETWEEN</code>, <code>LIKE</code>, <code>IS NULL</code></li>
-</ul>
-<h3 id="order-by">Сортировка (ORDER BY)</h3>
-<pre><code class="language-sql">SELECT full_name, salary
-FROM employees
-ORDER BY salary DESC;
-</code></pre>
-<p>Сортировка выполняется после фильтрации.</p>
-<h3 id="_2">Ограничение количества строк</h3>
-<pre><code class="language-sql">SELECT *
-FROM employees
-LIMIT 10 OFFSET 20;
-</code></pre>
-<h2 id="3-insert">3. INSERT — добавление данных</h2>
-<p>Оператор INSERT используется для вставки новых строк в таблицу.</p>
-<h3 id="_3">Вставка одной строки</h3>
-<pre><code class="language-sql">INSERT INTO employees (full_name, salary)
-VALUES ('Иванов Иван', 60000);
-</code></pre>
-<p>Если столбец не указан:</p>
-<ul>
-<li>используется DEFAULT</li>
-<li>либо возникает ошибка (NOT NULL)</li>
-</ul>
-<h3 id="_4">Вставка нескольких строк</h3>
-<pre><code class="language-sql">INSERT INTO employees (full_name, salary)
-VALUES
-('Петров Пётр', 55000),
-('Сидоров Сергей', 70000);
-</code></pre>
-<h3 id="insert-select">INSERT с SELECT</h3>
-<pre><code class="language-sql">INSERT INTO archive_employees (full_name, salary)
-SELECT full_name, salary
-FROM employees
-WHERE salary &lt; 40000;
-</code></pre>
-<p>Часто используется для архивирования данных.</p>
-<h2 id="4-update">4. UPDATE — изменение данных</h2>
-<p>Оператор UPDATE изменяет существующие строки.</p>
-<h3 id="_5">Базовый синтаксис</h3>
-<pre><code class="language-sql">UPDATE employees
-SET salary = 65000
-WHERE id = 3;
-</code></pre>
-<blockquote>
-<p><strong>Внимание</strong></p>
-<p>критическая ошибка: UPDATE без WHERE</p>
-</blockquote>
-<pre><code class="language-sql">UPDATE employees
-SET salary = 0;
-</code></pre>
-<p>Изменит все строки таблицы.</p>
-<h3 id="_6">Обновление нескольких столбцов</h3>
-<pre><code class="language-sql">UPDATE employees
-SET
-    salary = salary * 1.1,
-    updated_at = CURRENT_DATE
-WHERE department_id = 2;
-</code></pre>
-<h3 id="update">UPDATE с подзапросом</h3>
-<pre><code class="language-sql">UPDATE employees
-SET salary = salary * 1.05
-WHERE department_id IN (
-    SELECT id
-    FROM departments
-    WHERE name = 'IT'
+<p><strong>Продолжительность:</strong> 2 академических часа</p>
+<h2 id="1-join">1. Зачем нужен JOIN</h2>
+<p>Реляционная модель предполагает нормализацию данных, информация хранится в нескольких связанных таблицах.</p>
+<p>Чтобы получить связанную информацию, используется операция соединения — JOIN.</p>
+<p>JOIN объединяет строки из двух таблиц по условию связи.</p>
+<h2 id="2">2. Исходная модель для примеров</h2>
+<pre><code class="language-sql">CREATE TABLE departments (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE employees (
+    id SERIAL PRIMARY KEY,
+    full_name TEXT NOT NULL,
+    department_id INT REFERENCES departments(id)
 );
 </code></pre>
-<h2 id="5-delete">5. DELETE — удаление данных</h2>
-<p>Оператор DELETE удаляет строки из таблицы.</p>
-<h3 id="_7">Базовый синтаксис</h3>
-<pre><code class="language-sql">DELETE FROM employees
-WHERE id = 5;
+<h2 id="3-join">3. Виды JOIN</h2>
+<h3 id="inner-join">INNER JOIN</h3>
+<p>Возвращает только строки, для которых есть совпадение в обеих таблицах.</p>
+<pre><code class="language-sql">SELECT e.full_name, d.name
+FROM employees e
+INNER JOIN departments d
+    ON e.department_id = d.id;
 </code></pre>
-<h3 id="delete-where">DELETE без WHERE</h3>
-<pre><code class="language-sql">DELETE FROM employees;
+<p>Если сотрудник не привязан к отделу — он не попадёт в результат.</p>
+<h3 id="left-join-left-outer-join">LEFT JOIN (LEFT OUTER JOIN)</h3>
+<p>Возвращает все строки из левой таблицы + совпадения справа.</p>
+<pre><code class="language-sql">SELECT e.full_name, d.name
+FROM employees e
+LEFT JOIN departments d
+    ON e.department_id = d.id;
 </code></pre>
-<p>Удаляет все строки, но:</p>
+<p>Если отдела нет — <code>d.name = NULL</code>.</p>
+<h3 id="right-join">RIGHT JOIN</h3>
+<p>Возвращает все строки из правой таблицы.</p>
+<pre><code class="language-sql">SELECT e.full_name, d.name
+FROM employees e
+RIGHT JOIN departments d
+    ON e.department_id = d.id;
+</code></pre>
+<p>Используется редко — чаще таблицы меняют местами и используют LEFT JOIN.</p>
+<h3 id="full-join">FULL JOIN</h3>
+<p>Возвращает:</p>
 <ul>
-<li>структура таблицы сохраняется</li>
-<li>можно откатить в транзакции</li>
+<li>совпадающие строки</li>
+<li>несвязанные строки слева</li>
+<li>несвязанные строки справа</li>
 </ul>
-<h3 id="delete">DELETE и каскады</h3>
-<pre><code class="language-sql">DELETE FROM departments
-WHERE id = 1;
+<pre><code class="language-sql">SELECT e.full_name, d.name
+FROM employees e
+FULL JOIN departments d
+    ON e.department_id = d.id;
 </code></pre>
-<p>Поведение зависит от:
-- <code>ON DELETE CASCADE</code>
-- <code>RESTRICT</code>
-- <code>SET NULL</code></p>
-<h2 id="_8">Транзакционный аспект</h2>
-<p>Все DML-операции могут выполняться в транзакции:</p>
-<pre><code class="language-sql">BEGIN;
-
-UPDATE accounts SET balance = balance - 100 WHERE id = 1;
-UPDATE accounts SET balance = balance + 100 WHERE id = 2;
-
-ROLLBACK; -- или COMMIT
+<h2 id="4-join">4. Визуальная логика JOIN</h2>
+<table>
+<thead>
+<tr>
+<th>Тип JOIN</th>
+<th>Что возвращает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INNER</td>
+<td>Только пересечение</td>
+</tr>
+<tr>
+<td>LEFT</td>
+<td>Всё слева + совпадения</td>
+</tr>
+<tr>
+<td>RIGHT</td>
+<td>Всё справа + совпадения</td>
+</tr>
+<tr>
+<td>FULL</td>
+<td>Всё</td>
+</tr>
+</tbody>
+</table>
+<h2 id="on">Условие соединения (ON)</h2>
+<p>Критически важный элемент:</p>
+<pre><code class="language-sql">ON e.department_id = d.id
 </code></pre>
-<p>Без COMMIT изменения не сохраняются.</p>
-<h2 id="_9">Типичные ошибки</h2>
+<p>Ошибка в условии = логическая ошибка в результате.</p>
+<h2 id="6-join">6. JOIN нескольких таблиц</h2>
+<pre><code class="language-sql">SELECT e.full_name, d.name, f.name
+FROM employees e
+JOIN departments d ON e.department_id = d.id
+JOIN faculties f ON d.faculty_id = f.id;
+</code></pre>
+<p>Соединения выполняются последовательно.</p>
+<h2 id="7-join-where">7. JOIN и WHERE — принципиальная разница</h2>
+<pre><code class="language-sql">SELECT *
+FROM employees e
+LEFT JOIN departments d
+    ON e.department_id = d.id
+WHERE d.name = 'IT';
+</code></pre>
+<p>Такой запрос фактически превращается в INNER JOIN.</p>
+<p>Почему?
+Потому что строки с NULL отфильтруются в WHERE.</p>
+<p>Правильный вариант:</p>
+<pre><code class="language-sql">LEFT JOIN departments d
+    ON e.department_id = d.id
+    AND d.name = 'IT';
+</code></pre>
+<h2 id="8-join-cross-join">8. JOIN без условия (CROSS JOIN)</h2>
+<pre><code class="language-sql">SELECT *
+FROM employees
+CROSS JOIN departments;
+</code></pre>
+<p>Возвращает декартово произведение.</p>
+<p>Опасно при больших таблицах.</p>
+<h2 id="9">9. Типичные ошибки</h2>
 <table>
 <thead>
 <tr>
@@ -1441,118 +1255,106 @@ ROLLBACK; -- или COMMIT
 </thead>
 <tbody>
 <tr>
-<td>UPDATE без WHERE</td>
-<td>Массовая порча данных</td>
+<td>Отсутствие ON</td>
+<td>Декартово произведение</td>
 </tr>
 <tr>
-<td>DELETE без WHERE</td>
-<td>Потеря данных</td>
+<td>Фильтрация в WHERE вместо ON</td>
+<td>Потеря строк</td>
 </tr>
 <tr>
-<td>Несоответствие типов</td>
-<td>Ошибка выполнения</td>
+<td>Неправильный порядок JOIN</td>
+<td>Логическая ошибка</td>
 </tr>
 <tr>
-<td>Нарушение ограничений</td>
-<td>Ошибка целостности</td>
+<td>SELECT *</td>
+<td>Избыточные данные</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_10">Сравнение операторов</h2>
-<table>
-<thead>
-<tr>
-<th>Оператор</th>
-<th>Назначение</th>
-<th>Изменяет данные</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SELECT</td>
-<td>Чтение</td>
-<td>Нет</td>
-</tr>
-<tr>
-<td>INSERT</td>
-<td>Добавление</td>
-<td>Да</td>
-</tr>
-<tr>
-<td>UPDATE</td>
-<td>Изменение</td>
-<td>Да</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>Удаление</td>
-<td>Да</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_11">Выводы</h2>
-<p><code>SELECT</code> — самый сложный оператор логически</p>
-<p><code>INSERT</code> проверяет ограничения целостности</p>
-<p><code>UPDATE</code> и <code>DELETE</code> требуют строгого контроля</p>
-<p>Все операции должны выполняться осознанно</p>
-<h2 id="no1">Домашнее задание №1</h2>
-<p>Создайте таблицу employees (структуру можно взять из практики или задать самостоятельно).</p>
-<p>Требуется написать 5 запросов SELECT:</p>
+<h2 id="10-join">10. Производительность JOIN</h2>
+<p>JOIN опирается на:</p>
 <ul>
-<li>Вывести всех сотрудников, у которых зарплата выше средней по таблице</li>
-<li>Вывести сотрудников без отдела (department_id IS NULL)</li>
-<li>Найти сотрудников, принятых за последний год</li>
-<li>Вывести топ-3 сотрудников по зарплате</li>
-<li>Вывести сотрудников, у которых имя начинается на одну букву и заканчивается на другую</li>
+<li>индексы</li>
+<li>план выполнения (<code>EXPLAIN</code>)</li>
+<li>размер таблиц</li>
+</ul>
+<p>Отсутствие индекса по внешнему ключу замедляет запрос.</p>
+<h2 id="11">11. Итоги</h2>
+<p>JOIN:</p>
+<ul>
+<li>связывает нормализованные данные</li>
+<li>формирует логическое представление</li>
+<li>требует точного условия соединения</li>
+<li>влияет на производительность</li>
+</ul>
+<h2 id="no1">Домашнее задание №1</h2>
+<p>Создайте таблицы:</p>
+<ul>
+<li>students (id, full_name, group_id)</li>
+<li>groups (id, name, curator)</li>
+<li>teachers (id, full_name)</li>
+</ul>
+<p>Свяжите:</p>
+<ul>
+<li>students.group_id → groups.id</li>
+</ul>
+<p>Напишите запросы:</p>
+<ul>
+<li>Вывести список студентов с названием группы.</li>
+<li>Вывести всех студентов, включая тех, у кого нет группы.</li>
+<li>Вывести группы без студентов.</li>
+<li>Вывести количество студентов в каждой группе.</li>
+<li>Вывести группы, где больше 2 студентов.</li>
 </ul>
 <h2 id="no2">Домашнее задание №2</h2>
-<p>Даны таблицы:</p>
+<p>Создайте таблицы:</p>
 <ul>
-<li>departments</li>
-<li>employees</li>
+<li>orders</li>
+<li>clients</li>
 </ul>
-<p>Требуется:</p>
+<p>Связь: заказ принадлежит клиенту.</p>
+<p>Выполните:</p>
 <ul>
-<li>Добавить новый отдел</li>
-<li>Добавить в него минимум 3 сотрудников</li>
-<li>Повысить зарплату всем сотрудникам отдела на 10%</li>
-<li>Перевести одного сотрудника в другой отдел</li>
-<li>Зафиксировать состояние таблиц до и после изменений</li>
+<li>Запрос с INNER JOIN</li>
+<li>Запрос с LEFT JOIN</li>
+<li>Добавьте условие фильтрации клиента в WHERE</li>
+<li>Перенесите это же условие в ON</li>
 </ul>
-<p>Ограничение:</p>
+<p>Ответьте:</p>
 <ul>
-<li>все изменения выполнить в одной транзакции</li>
-<li>показать вариант с ROLLBACK и с COMMIT</li>
+<li>Почему результат отличается?</li>
+<li>Когда LEFT JOIN фактически превращается в INNER JOIN?</li>
 </ul>
 <h2 id="no3">Домашнее задание №3</h2>
-<p>Дана предметная область:</p>
-<blockquote>
-<p>Увольнение сотрудника не должно приводить к потере истории.</p>
-</blockquote>
-<p>Требуется:</p>
+<p>Создайте модель:</p>
 <ul>
-<li>Реализовать таблицу employees_archive</li>
-<li>Скопировать туда данные уволенного сотрудника</li>
-<li>Удалить сотрудника из основной таблицы</li>
-<li>Убедиться, что данные сохранены в архиве</li>
+<li>faculties</li>
+<li>departments</li>
+<li>teachers</li>
+<li>courses</li>
 </ul>
-<p>Запрещено:</p>
+<p>Связи:</p>
+<p>факультет → кафедра → преподаватель → курс</p>
+<p>Напишите запрос:</p>
+<p>Получить список:</p>
 <ul>
-<li>использовать триггеры</li>
-<li>использовать каскадное удаление</li>
+<li>курс</li>
+<li>преподаватель</li>
+<li>кафедра</li>
+<li>факультет</li>
 </ul>
-<blockquote>
-<h1 id="_12">Подсказка:</h1>
-<p>используйте <code>INSERT INTO ... SELECT</code>
-затем <code>DELETE</code></p>
-</blockquote>
-<h2 id="_13">Контрольные вопросы</h2>
+<p>Найти курсы без преподавателей.</p>
+<p>Найти факультеты без кафедр.</p>
+<p>Обязательное условие использовать минимум 3 JOIN в одном запросе.</p>
+<h2 id="_1">Контрольные вопросы</h2>
 <ol>
-<li>Чем принципиально отличается <code>SELECT</code> от <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code> с точки зрения работы СУБД?</li>
-<li>Почему выполнение <code>UPDATE</code> или <code>DELETE</code> без условия <code>WHERE</code> считается критической ошибкой?</li>
-<li>В чём разница между <code>DELETE FROM table;</code> и <code>DELETE FROM table WHERE condition;</code>?</li>
-<li>Что произойдёт при выполнении <code>INSERT</code>, если нарушается ограничение целостности?</li>
-<li>Зачем выполнять DML-операции в транзакции?</li>
+<li>В чём логическая разница между INNER JOIN и LEFT JOIN?</li>
+<li>Почему условие в WHERE может изменить поведение LEFT JOIN?</li>
+<li>Что произойдёт, если выполнить JOIN без условия ON?</li>
+<li>Почему RIGHT JOIN используется редко?</li>
+<li>Как JOIN влияет на производительность запроса?</li>
+<li>Можно ли соединить таблицы без внешнего ключа?</li>
 </ol>
 
 

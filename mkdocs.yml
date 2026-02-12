@@ -1,5 +1,22 @@
 site_name: МДК 11.01
 site_url: https://cptfrosty.data-guardian.github.io/
+
+theme:
+  name: material
+  features:
+    - navigation.instant # Навигационная панель слева
+    - navigation.tracking
+
+copyright: "© 2026 Alexey Dmitriev"
+
+extra:
+  # Убирает надпись "Made with Material for MkDocs"
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cptfrosty
+      name: GitHub
+
 nav:
   - Главная: Chapter_1/1.1-intro/index.md
   - 1. Реализация структуры БД:
@@ -14,8 +31,9 @@ nav:
     - JOIN: Chapter_2/2.2-JOIN/index.md
     - Агрегатные функции: Chapter_2/2.3-aggregate-functions/index.md
     - Практика 4. Запросы к данным: Chapter_2/practic-queries-to-data/index.md
-theme:
-  name: material
-  features:
-    - navigation.instant # Навигационная панель слева
-    - navigation.tracking
+    - Практика 5. Аналитические выборки: Chapter_2/practic-analycal-samples/index.md
+    - Практика 6. Комплексные SELECT: Chapter_2/practic-complex-SELECT-queries/index.md
+  - 3. Расширенный SQL:
+    - Подзапросы: Chapter_3/3.1-subqueries/index.md
+    - CTE: Chapter_3/3.2-CTE/index.md
+    - Представления: Chapter_3/3.3-presentations/index.md

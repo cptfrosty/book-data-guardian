@@ -31,7 +31,7 @@ nav:
     - JOIN: Chapter_2/2.2-JOIN/index.md
     - Агрегатные функции: Chapter_2/2.3-aggregate-functions/index.md
     - Практика 4. Запросы к данным: Chapter_2/practic-queries-to-data/index.md
-    - Практика 5. Аналитические выборки: Chapter_2/practic-analycal-samples/index.md
+    - Практика 5. Аналитические выборки: Chapter_2/practic-analytical-samples/index.md
     - Практика 6. Комплексные SELECT: Chapter_2/practic-complex-SELECT-queries/index.md
   - 3. Расширенный SQL:
     - Подзапросы: Chapter_3/3.1-subqueries/index.md

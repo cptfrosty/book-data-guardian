@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_2/practic-analytical-samples/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>Практическое занятия 5. Аналитические выборки (GROUP BY, HAVING, подзапросы, базовая аналитика) - МДК 11.01</title>
+        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#5-group-by-having" class="md-skip">
+        <a href="#7" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятия 5. Аналитические выборки (GROUP BY, HAVING, подзапросы, базовая аналитика)
+              Практическое занятие 7. Сложные аналитические запросы
             
           </span>
         </div>
@@ -490,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.1-SELECT-INSERT-UPDATE-DELETE/" class="md-nav__link">
+      <a href="../../Chapter_2/2.1-SELECT-INSERT-UPDATE-DELETE/" class="md-nav__link">
         
   
   
@@ -518,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.2-JOIN/" class="md-nav__link">
+      <a href="../../Chapter_2/2.2-JOIN/" class="md-nav__link">
         
   
   
@@ -546,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.3-aggregate-functions/" class="md-nav__link">
+      <a href="../../Chapter_2/2.3-aggregate-functions/" class="md-nav__link">
         
   
   
@@ -574,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practic-queries-to-data/" class="md-nav__link">
+      <a href="../../Chapter_2/practic-queries-to-data/" class="md-nav__link">
         
   
   
@@ -602,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practic-analycal-samples/index.md" class="md-nav__link">
+      <a href="../../Chapter_2/practic-analycal-samples/index.md" class="md-nav__link">
         
   
   
@@ -630,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practic-complex-SELECT-queries/" class="md-nav__link">
+      <a href="../../Chapter_2/practic-complex-SELECT-queries/" class="md-nav__link">
         
   
   
@@ -712,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
+      <a href="../3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
+      <a href="../3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
+      <a href="../3.3-presentations/" class="md-nav__link">
         
   
   
@@ -837,26 +837,14 @@
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Этап 1. Базовая агрегированная аналитика
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 1. Базовая агрегированная аналитика">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         Задание 1
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -866,8 +854,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -877,25 +865,8 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#2-group-by" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 2. GROUP BY
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 2. GROUP BY">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -905,8 +876,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -916,8 +887,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -927,26 +898,9 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 3. Подзапросы в аналитике
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 3. Подзапросы в аналитике">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
+  <a href="#7_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Задание 7
@@ -955,8 +909,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#8" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -966,8 +920,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#9" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -977,25 +931,8 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#4-join" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 4. Аналитика с JOIN
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 4. Аналитика с JOIN">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#10" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1005,59 +942,15 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 5. Сложная аналитическая выборка
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 5. Сложная аналитическая выборка">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 11
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 12
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Индивидуальные задания (на оценку)
+        Индивидуальные задания
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1078,23 +971,23 @@
 
 
 
-<h1 id="5-group-by-having">Практическое занятия 5. Аналитические выборки (GROUP BY, HAVING, подзапросы, базовая аналитика)</h1>
-<p><strong>Продолжительность:</strong> 2 академических часа</p>
-<p><strong>Тип:</strong> практическое занятие</p>
-<p><strong>Цель:</strong> Научить студентов выполнять агрегированные выборки; использовать GROUP BY и HAVING; применять подзапросы в аналитике; сравнивать показатели (больше среднего, максимум в группе и т.д.); анализировать данные. </p>
+<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
+<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
 <h2 id="_1">Исходная предметная область</h2>
-<pre><code class="language-sql">CREATE TABLE clients (
+<p>Модель продаж</p>
+<pre><code class="language-sql">clients (
     id SERIAL PRIMARY KEY,
-    full_name TEXT NOT NULL
+    full_name TEXT,
+    city TEXT
 );
 
-CREATE TABLE orders (
+orders (
     id SERIAL PRIMARY KEY,
     client_id INT REFERENCES clients(id),
     order_date DATE
 );
 
-CREATE TABLE order_items (
+order_items (
     id SERIAL PRIMARY KEY,
     order_id INT REFERENCES orders(id),
     product_name TEXT,
@@ -1103,63 +996,86 @@ CREATE TABLE order_items (
 );
 </code></pre>
 <blockquote>
-<p>Таблицы необходимо предварительно заполнить тестовыми данными.</p>
+<p>Заполните таблицы тестовыми данными</p>
 </blockquote>
-<h2 id="1">Этап 1. Базовая агрегированная аналитика</h2>
-<h3 id="1_1">Задание 1</h3>
-<p>Определить общее количество заказов.</p>
-<h3 id="2">Задание 2</h3>
-<p>Определить общую сумму продаж.</p>
-<p>Подсказка:</p>
-<pre><code class="language-sql">SUM(quantity * price)
-</code></pre>
-<h3 id="3">Задание 3</h3>
-<p>Найти среднюю сумму одного заказа.</p>
-<h2 id="2-group-by">Этап 2. GROUP BY</h2>
-<h3 id="4">Задание 4</h3>
-<p>Вывести количество заказов по каждому клиенту.</p>
-<h3 id="5">Задание 5</h3>
-<p>Вывести общую сумму заказов по каждому клиенту.</p>
-<h3 id="6">Задание 6</h3>
-<p>Найти клиентов у которых сумма заказов больше 100 000.</p>
-<blockquote>
-<p>Использовать HAVING.</p>
-</blockquote>
-<h2 id="3_1">Этап 3. Подзапросы в аналитике</h2>
-<h3 id="7">Задание 7</h3>
-<p>Найти клиентов у которых сумма заказов больше средней по всем клиентам.</p>
-<blockquote>
-<p>Использовать подзапрос.</p>
-</blockquote>
-<h3 id="8">Задание 8</h3>
-<p>Найти заказ с максимальной суммой.</p>
-<h3 id="9">Задание 9</h3>
-<p>Найти клиента с наибольшей общей выручкой.</p>
-<h2 id="4-join">Этап 4. Аналитика с JOIN</h2>
-<h3 id="10">Задание 10</h3>
+<h2 id="1">Задание 1</h2>
 <p>Вывести:</p>
 <ul>
-<li>ФИО клиента</li>
+<li>клиента</li>
 <li>количество заказов</li>
 <li>общую сумму</li>
 <li>средний чек</li>
 </ul>
+<p>Требования:</p>
+<ul>
+<li>минимум 2 JOIN</li>
+<li>GROUP BY</li>
+<li>минимум 2 агрегатные функции</li>
+</ul>
+<h2 id="2">Задание 2</h2>
+<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
+<p>Использовать подзапрос или CTE</p>
+<h2 id="3">Задание 3</h2>
+<p>Вывести:</p>
+<ul>
+<li>месяц</li>
+<li>общую выручку</li>
+<li>количество заказов</li>
+</ul>
+<p>Использовать:</p>
+<pre><code class="language-sql">DATE_TRUNC('month', order_date)
+</code></pre>
+<h2 id="4">Задание 4</h2>
+<p>Найти месяц с максимальной выручкой</p>
 <blockquote>
-<p>Использовать минимум:</p>
-<p>1 JOIN</p>
-<p>2 агрегатные функции</p>
+<p>Использовать вложенный запрос или CTE.</p>
 </blockquote>
-<h2 id="5_1">Этап 5. Сложная аналитическая выборка</h2>
-<h3 id="11">Задание 11</h3>
-<p>Вывести клиентов, у которых количество заказов выше среднего, отсортировать по сумме покупок.</p>
-<h3 id="12">Задание 12</h3>
-<p>Найти товары, которые продавались более чем в 5 заказах.</p>
-<h3 id="_2">Индивидуальные задания (на оценку)</h3>
-<p><strong>Вариант 1.</strong> Найти клиента с минимальной суммой заказов.</p>
-<p><strong>Вариант 2.</strong> Найти месяц с наибольшей выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти клиентов без заказов.</p>
-<p><strong>Вариант 4.</strong> Найти средний чек по месяцам.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, у которых последний заказ был более года назад.</p>
+<h2 id="5">Задание 5</h2>
+<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
+<blockquote>
+<p>Подсказка:</p>
+<p>CTE с агрегацией по городу, затем сравнение</p>
+</blockquote>
+<h2 id="6">Задание 6</h2>
+<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
+<h2 id="7_1">Задание 7</h2>
+<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
+<blockquote>
+<p>Использовать EXISTS.</p>
+</blockquote>
+<h2 id="8">Задание 8</h2>
+<p>Найти клиентов у которых не было заказов за последний год</p>
+<blockquote>
+<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
+</blockquote>
+<p>Сравнить подходы.</p>
+<h2 id="9">Задание 9</h2>
+<p>Вывести:
+- город
+- количество клиентов
+- общую выручку
+- средний чек
+- долю города в общей выручке (%)</p>
+<blockquote>
+<p>Использовать: CTE минимум 2 уровня агрегации</p>
+</blockquote>
+<h2 id="10">Задание 10</h2>
+<p>Вывести:</p>
+<ul>
+<li>клиента</li>
+<li>дату последнего заказа</li>
+<li>сумму последнего заказа</li>
+<li>общее количество заказов</li>
+</ul>
+<blockquote>
+<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
+</blockquote>
+<h2 id="_2">Индивидуальные задания</h2>
+<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
+<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
+<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
+<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
+<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
 
 
 

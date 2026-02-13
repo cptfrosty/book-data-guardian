@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_2/practic-analytical-samples/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/3.2-CTE/">
       
       
+        <link rel="prev" href="../3.1-subqueries/">
+      
+      
+        <link rel="next" href="../3.3-presentations/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятия 5. Аналитические выборки (GROUP BY, HAVING, подзапросы, базовая аналитика) - МДК 11.01</title>
+        <title>CTE - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#5-group-by-having" class="md-skip">
+        <a href="#cte-common-table-expressions-with" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятия 5. Аналитические выборки (GROUP BY, HAVING, подзапросы, базовая аналитика)
+              CTE
             
           </span>
         </div>
@@ -490,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.1-SELECT-INSERT-UPDATE-DELETE/" class="md-nav__link">
+      <a href="../../Chapter_2/2.1-SELECT-INSERT-UPDATE-DELETE/" class="md-nav__link">
         
   
   
@@ -518,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.2-JOIN/" class="md-nav__link">
+      <a href="../../Chapter_2/2.2-JOIN/" class="md-nav__link">
         
   
   
@@ -546,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.3-aggregate-functions/" class="md-nav__link">
+      <a href="../../Chapter_2/2.3-aggregate-functions/" class="md-nav__link">
         
   
   
@@ -574,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practic-queries-to-data/" class="md-nav__link">
+      <a href="../../Chapter_2/practic-queries-to-data/" class="md-nav__link">
         
   
   
@@ -602,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practic-analycal-samples/index.md" class="md-nav__link">
+      <a href="../../Chapter_2/practic-analycal-samples/index.md" class="md-nav__link">
         
   
   
@@ -630,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practic-complex-SELECT-queries/" class="md-nav__link">
+      <a href="../../Chapter_2/practic-complex-SELECT-queries/" class="md-nav__link">
         
   
   
@@ -662,18 +666,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -694,7 +700,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -712,7 +718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
+      <a href="../3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -737,10 +743,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CTE
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -756,6 +789,230 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Что такое CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем нужен CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Базовый синтаксис
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Простой пример
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Несколько CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cte-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. CTE vs Подзапрос
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cte-update-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTE в UPDATE и DELETE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CTE в UPDATE и DELETE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        В UPDATE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Рекурсивный CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Порядок выполнения CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Когда использовать CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-cte-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. CTE в UPDATE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -768,7 +1025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
+      <a href="../3.3-presentations/" class="md-nav__link">
         
   
   
@@ -823,10 +1080,159 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#1-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Что такое CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Зачем нужен CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Базовый синтаксис
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Простой пример
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Несколько CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cte-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. CTE vs Подзапрос
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cte-update-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTE в UPDATE и DELETE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CTE в UPDATE и DELETE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        В UPDATE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Рекурсивный CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Порядок выполнения CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Когда использовать CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Исходная предметная область
+        Домашнее задание
       
     </span>
   </a>
@@ -837,26 +1243,14 @@
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Этап 1. Базовая агрегированная аналитика
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 1. Базовая агрегированная аналитика">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         Задание 1
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -866,198 +1260,26 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#3-cte-update" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 3
+        Задание 3. CTE в UPDATE
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-group-by" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 2. GROUP BY
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 2. GROUP BY">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 4
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 5
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 6
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 3. Подзапросы в аналитике
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 3. Подзапросы в аналитике">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 7
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 8
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 9
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-join" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 4. Аналитика с JOIN
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 4. Аналитика с JOIN">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 10
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 5. Сложная аналитическая выборка
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 5. Сложная аналитическая выборка">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 11
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 12
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Индивидуальные задания (на оценку)
+        Контрольные вопросы
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1078,88 +1300,287 @@
 
 
 
-<h1 id="5-group-by-having">Практическое занятия 5. Аналитические выборки (GROUP BY, HAVING, подзапросы, базовая аналитика)</h1>
+<h1 id="cte-common-table-expressions-with">CTE (Common Table Expressions) — конструкция WITH</h1>
+<p><strong>Тип занятия:</strong> лекция</p>
 <p><strong>Продолжительность:</strong> 2 академических часа</p>
-<p><strong>Тип:</strong> практическое занятие</p>
-<p><strong>Цель:</strong> Научить студентов выполнять агрегированные выборки; использовать GROUP BY и HAVING; применять подзапросы в аналитике; сравнивать показатели (больше среднего, максимум в группе и т.д.); анализировать данные. </p>
-<h2 id="_1">Исходная предметная область</h2>
-<pre><code class="language-sql">CREATE TABLE clients (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT NOT NULL
-);
-
-CREATE TABLE orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-CREATE TABLE order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
-);
-</code></pre>
+<h2 id="1-cte">1. Что такое CTE</h2>
+<p><strong>CTE (Common Table Expression)</strong> — это именованный временный результат запроса, объявляемый с помощью конструкции WITH.</p>
 <blockquote>
-<p>Таблицы необходимо предварительно заполнить тестовыми данными.</p>
+<p>CTE — это «временная таблица внутри запроса», которая существует только во время его выполнения.</p>
 </blockquote>
-<h2 id="1">Этап 1. Базовая агрегированная аналитика</h2>
-<h3 id="1_1">Задание 1</h3>
-<p>Определить общее количество заказов.</p>
-<h3 id="2">Задание 2</h3>
-<p>Определить общую сумму продаж.</p>
-<p>Подсказка:</p>
-<pre><code class="language-sql">SUM(quantity * price)
-</code></pre>
-<h3 id="3">Задание 3</h3>
-<p>Найти среднюю сумму одного заказа.</p>
-<h2 id="2-group-by">Этап 2. GROUP BY</h2>
-<h3 id="4">Задание 4</h3>
-<p>Вывести количество заказов по каждому клиенту.</p>
-<h3 id="5">Задание 5</h3>
-<p>Вывести общую сумму заказов по каждому клиенту.</p>
-<h3 id="6">Задание 6</h3>
-<p>Найти клиентов у которых сумма заказов больше 100 000.</p>
-<blockquote>
-<p>Использовать HAVING.</p>
-</blockquote>
-<h2 id="3_1">Этап 3. Подзапросы в аналитике</h2>
-<h3 id="7">Задание 7</h3>
-<p>Найти клиентов у которых сумма заказов больше средней по всем клиентам.</p>
-<blockquote>
-<p>Использовать подзапрос.</p>
-</blockquote>
-<h3 id="8">Задание 8</h3>
-<p>Найти заказ с максимальной суммой.</p>
-<h3 id="9">Задание 9</h3>
-<p>Найти клиента с наибольшей общей выручкой.</p>
-<h2 id="4-join">Этап 4. Аналитика с JOIN</h2>
-<h3 id="10">Задание 10</h3>
-<p>Вывести:</p>
+<h2 id="cte">Зачем нужен CTE</h2>
+<p>CTE используется для:</p>
 <ul>
-<li>ФИО клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
+<li>улучшения читаемости сложных запросов</li>
+<li>разбиения логики на этапы</li>
+<li>замены вложенных подзапросов</li>
+<li>повторного использования результата</li>
+<li>построения рекурсивных запросов</li>
+</ul>
+<h2 id="3">3. Базовый синтаксис</h2>
+<pre><code class="language-sql">WITH cte_name AS (
+    SELECT ...
+)
+SELECT *
+FROM cte_name;
+</code></pre>
+<h2 id="4">4. Простой пример</h2>
+<p>Найти клиентов, у которых сумма заказов выше 100 000.</p>
+<p>Без CTE:</p>
+<pre><code class="language-sql">SELECT c.full_name, SUM(oi.quantity * oi.price)
+FROM clients c
+JOIN orders o ON o.client_id = c.id
+JOIN order_items oi ON oi.order_id = o.id
+GROUP BY c.full_name
+HAVING SUM(oi.quantity * oi.price) &gt; 100000;
+</code></pre>
+<p>С CTE:</p>
+<pre><code class="language-sql">WITH client_totals AS (
+    SELECT c.id, c.full_name,
+           SUM(oi.quantity * oi.price) AS total
+    FROM clients c
+    JOIN orders o ON o.client_id = c.id
+    JOIN order_items oi ON oi.order_id = o.id
+    GROUP BY c.id, c.full_name
+)
+SELECT *
+FROM client_totals
+WHERE total &gt; 100000;
+</code></pre>
+<blockquote>
+<p>Преимущество — логика разделена на этапы.</p>
+</blockquote>
+<h2 id="5-cte">5. Несколько CTE</h2>
+<p>Можно объявлять несколько выражений:</p>
+<pre><code class="language-sql">WITH
+order_totals AS (
+    SELECT order_id,
+           SUM(quantity * price) AS total
+    FROM order_items
+    GROUP BY order_id
+),
+client_totals AS (
+    SELECT o.client_id,
+           SUM(ot.total) AS total
+    FROM orders o
+    JOIN order_totals ot ON ot.order_id = o.id
+    GROUP BY o.client_id
+)
+SELECT *
+FROM client_totals;
+</code></pre>
+<p>CTE могут ссылаться друг на друга.</p>
+<h2 id="6-cte-vs">6. CTE vs Подзапрос</h2>
+<table>
+<thead>
+<tr>
+<th>CTE</th>
+<th>Подзапрос</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Улучшает читаемость</td>
+<td>Может быть вложенным и сложным</td>
+</tr>
+<tr>
+<td>Логика по этапам</td>
+<td>Всё в одном блоке</td>
+</tr>
+<tr>
+<td>Повторное использование</td>
+<td>Нет</td>
+</tr>
+<tr>
+<td>Может быть рекурсивным</td>
+<td>Нет</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>В PostgreSQL оптимизатор часто обрабатывает CTE как подзапрос.</p>
+</blockquote>
+<h2 id="cte-update-delete">CTE в UPDATE и DELETE</h2>
+<h3 id="update">В UPDATE</h3>
+<pre><code class="language-sql">WITH high_value_clients AS (
+    SELECT id
+    FROM clients
+    WHERE city = 'Москва'
+)
+UPDATE clients
+SET status = 'VIP'
+WHERE id IN (
+    SELECT id FROM high_value_clients
+);
+</code></pre>
+<p>В DELETE</p>
+<pre><code class="language-sql">WITH old_orders AS (
+    SELECT id
+    FROM orders
+    WHERE order_date &lt; '2020-01-01'
+)
+DELETE FROM orders
+WHERE id IN (
+    SELECT id FROM old_orders
+);
+</code></pre>
+<h2 id="8-cte">8. Рекурсивный CTE</h2>
+<p>Используется для:</p>
+<ul>
+<li>иерархий</li>
+<li>деревьев</li>
+<li>организационных структур</li>
+<li>категорий</li>
+</ul>
+<p>Синтаксис:</p>
+<pre><code class="language-sql">WITH RECURSIVE cte_name AS (
+    -- начальный запрос
+    SELECT ...
+    UNION ALL
+    -- рекурсивная часть
+    SELECT ...
+    FROM table
+    JOIN cte_name ON ...
+)
+SELECT * FROM cte_name;
+</code></pre>
+<p>Пример: иерархия сотрудников</p>
+<pre><code class="language-sql">WITH RECURSIVE subordinates AS (
+    SELECT id, full_name, manager_id
+    FROM employees
+    WHERE manager_id IS NULL
+
+    UNION ALL
+
+    SELECT e.id, e.full_name, e.manager_id
+    FROM employees e
+    JOIN subordinates s ON e.manager_id = s.id
+)
+SELECT * FROM subordinates;
+</code></pre>
+<p>Рекурсивная часть выполняется до тех пор, пока есть новые строки.</p>
+<h2 id="9-cte">9. Порядок выполнения CTE</h2>
+<ol>
+<li>Выполняется CTE</li>
+<li>Результат сохраняется как временная структура</li>
+<li>Выполняется основной запрос</li>
+</ol>
+<blockquote>
+<p>В старых версиях PostgreSQL CTE всегда материализовался (влияет на производительность).</p>
+</blockquote>
+<h2 id="10">10. Типичные ошибки</h2>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Причины</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Забытый псевдоним</td>
+<td>Синтаксическая ошибка</td>
+</tr>
+<tr>
+<td>Рекурсия без условия остановки</td>
+<td>Бесконечный цикл</td>
+</tr>
+<tr>
+<td>Лишнее использование CTE</td>
+<td>Снижение производительности</td>
+</tr>
+<tr>
+<td>Непонимание области видимости</td>
+<td>CTE существует только в одном запросе</td>
+</tr>
+</tbody>
+</table>
+<h2 id="11-cte">11. Когда использовать CTE</h2>
+<p>Используйте CTE, если:</p>
+<ul>
+<li>запрос трудно читать</li>
+<li>требуется многоэтапная аналитика</li>
+<li>нужно несколько промежуточных вычислений</li>
+<li>требуется рекурсия</li>
+</ul>
+<p>Не используйте CTE, если:</p>
+<ul>
+<li>простой запрос</li>
+<li>нет логического разделения</li>
+<li>производительность критична</li>
+</ul>
+<h2 id="12">12. Выводы</h2>
+<p>CTE:</p>
+<ul>
+<li>делает сложные запросы читаемыми</li>
+<li>структурирует SQL</li>
+<li>позволяет строить многоэтапную аналитику</li>
+<li>поддерживает рекурсивные запросы</li>
+<li>является мощным инструментом аналитического SQL</li>
+</ul>
+<h2 id="_1">Домашнее задание</h2>
+<p>Работаем с моделью:</p>
+<ul>
+<li>clients</li>
+<li>orders</li>
+<li>order_items</li>
+<li>employees (id, full_name, manager_id)</li>
+</ul>
+<h2 id="1">Задание 1</h2>
+<p>Создать CTE, который вычисляет сумму заказов по каждому клиенту.</p>
+<p>Из полученного результата вывести клиентов:</p>
+<ul>
+<li>у которых сумма больше 100 000</li>
+<li>отсортировать по убыванию суммы</li>
 </ul>
 <blockquote>
-<p>Использовать минимум:</p>
-<p>1 JOIN</p>
-<p>2 агрегатные функции</p>
+<p>Запрещено писать агрегат повторно во внешнем запросе.</p>
 </blockquote>
-<h2 id="5_1">Этап 5. Сложная аналитическая выборка</h2>
-<h3 id="11">Задание 11</h3>
-<p>Вывести клиентов, у которых количество заказов выше среднего, отсортировать по сумме покупок.</p>
-<h3 id="12">Задание 12</h3>
-<p>Найти товары, которые продавались более чем в 5 заказах.</p>
-<h3 id="_2">Индивидуальные задания (на оценку)</h3>
-<p><strong>Вариант 1.</strong> Найти клиента с минимальной суммой заказов.</p>
-<p><strong>Вариант 2.</strong> Найти месяц с наибольшей выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти клиентов без заказов.</p>
-<p><strong>Вариант 4.</strong> Найти средний чек по месяцам.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, у которых последний заказ был более года назад.</p>
+<h2 id="2">Задание 2</h2>
+<p>Создать CTE order_totals (сумма по каждому заказу).</p>
+<p>Создать CTE client_totals (сумма по каждому клиенту на основе order_totals).</p>
+<p>Найти клиентов:</p>
+<ul>
+<li>у которых количество заказов выше среднего.</li>
+</ul>
+<blockquote>
+<p>Использовать минимум 2 CTE.</p>
+</blockquote>
+<h2 id="3-cte-update">Задание 3. CTE в UPDATE</h2>
+<p>Создать CTE, выбирающий клиентов с суммой заказов выше средней.</p>
+<p>Обновить их статус на 'VIP'.</p>
+<blockquote>
+<p>Объяснить, почему CTE удобнее подзапроса в этом случае.</p>
+</blockquote>
+<p>Задание 4. Рекурсивный CTE</p>
+<pre><code class="language-sql">employees (id, full_name, manager_id)
+</code></pre>
+<ol>
+<li>
+<p>Вывести всех подчинённых конкретного руководителя.</p>
+</li>
+<li>
+<p>Вывести всю иерархию компании.</p>
+</li>
+</ol>
+<p>Использовать <code>WITH RECURSIVE</code>.</p>
+<p>Объяснить:</p>
+<ul>
+<li>что является базовой частью</li>
+<li>что является рекурсивной частью</li>
+<li>как происходит завершение рекурсии</li>
+</ul>
+<h2 id="_2">Контрольные вопросы</h2>
+<ol>
+<li>Что такое CTE и чем он отличается от подзапроса?</li>
+<li>Когда использование CTE улучшает читаемость запроса?</li>
+<li>Можно ли объявить несколько CTE в одном запросе?</li>
+<li>В чём разница между обычным CTE и рекурсивным?</li>
+<li>Как работает <code>WITH RECURSIVE</code>?</li>
+<li>Почему чрезмерное использование CTE может повлиять на производительность?</li>
+<li>В каких DML-операциях можно использовать CTE?</li>
+<li>В каком порядке логически выполняется запрос с CTE?</li>
+</ol>
 
 
 

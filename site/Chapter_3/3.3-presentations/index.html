@@ -8,8 +8,10 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_2/practic-analytical-samples/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/3.3-presentations/">
       
+      
+        <link rel="prev" href="../3.2-CTE/">
       
       
       
@@ -21,7 +23,7 @@
     
     
       
-        <title>Практическое занятия 5. Аналитические выборки (GROUP BY, HAVING, подзапросы, базовая аналитика) - МДК 11.01</title>
+        <title>Представления - МДК 11.01</title>
       
     
     
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#5-group-by-having" class="md-skip">
+        <a href="#view-sql" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятия 5. Аналитические выборки (GROUP BY, HAVING, подзапросы, базовая аналитика)
+              Представления
             
           </span>
         </div>
@@ -490,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.1-SELECT-INSERT-UPDATE-DELETE/" class="md-nav__link">
+      <a href="../../Chapter_2/2.1-SELECT-INSERT-UPDATE-DELETE/" class="md-nav__link">
         
   
   
@@ -518,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.2-JOIN/" class="md-nav__link">
+      <a href="../../Chapter_2/2.2-JOIN/" class="md-nav__link">
         
   
   
@@ -546,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.3-aggregate-functions/" class="md-nav__link">
+      <a href="../../Chapter_2/2.3-aggregate-functions/" class="md-nav__link">
         
   
   
@@ -574,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practic-queries-to-data/" class="md-nav__link">
+      <a href="../../Chapter_2/practic-queries-to-data/" class="md-nav__link">
         
   
   
@@ -602,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practic-analycal-samples/index.md" class="md-nav__link">
+      <a href="../../Chapter_2/practic-analycal-samples/index.md" class="md-nav__link">
         
   
   
@@ -630,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practic-complex-SELECT-queries/" class="md-nav__link">
+      <a href="../../Chapter_2/practic-complex-SELECT-queries/" class="md-nav__link">
         
   
   
@@ -662,18 +664,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -694,7 +698,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
+      <a href="../3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
+      <a href="../3.2-CTE/" class="md-nav__link">
         
   
   
@@ -765,10 +769,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Представления
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -784,6 +815,252 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Что такое представление (VIEW)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Зачем нужны представления
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Синтаксис создания VIEW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Логика работы VIEW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Обновляемые представления
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Когда VIEW нельзя обновлять
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-view-vs-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. VIEW vs CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. VIEW и безопасность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-materialized-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. MATERIALIZED VIEW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Изменение и удаление VIEW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Когда использовать VIEW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Архитектурный аспект
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -823,10 +1100,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Исходная предметная область
+        1. Что такое представление (VIEW)
       
     </span>
   </a>
@@ -834,19 +1111,162 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Этап 1. Базовая агрегированная аналитика
+        2. Зачем нужны представления
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Этап 1. Базовая агрегированная аналитика">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Синтаксис создания VIEW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Логика работы VIEW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Обновляемые представления
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Когда VIEW нельзя обновлять
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-view-vs-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. VIEW vs CTE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. VIEW и безопасность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-materialized-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. MATERIALIZED VIEW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Изменение и удаление VIEW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Когда использовать VIEW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Архитектурный аспект
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Задание 1
@@ -857,7 +1277,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Задание 2
@@ -878,23 +1298,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-group-by" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 2. GROUP BY
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 2. GROUP BY">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
@@ -906,158 +1309,19 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 5
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 6
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 3. Подзапросы в аналитике
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 3. Подзапросы в аналитике">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 7
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 8
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 9
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-join" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 4. Аналитика с JOIN
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 4. Аналитика с JOIN">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 10
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 5. Сложная аналитическая выборка
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 5. Сложная аналитическая выборка">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 11
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 12
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Индивидуальные задания (на оценку)
+        Контрольные вопросы
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1078,88 +1342,271 @@
 
 
 
-<h1 id="5-group-by-having">Практическое занятия 5. Аналитические выборки (GROUP BY, HAVING, подзапросы, базовая аналитика)</h1>
+<h1 id="view-sql">Представления (VIEW) в SQL</h1>
+<p><strong>Тип занятия:</strong> лекция</p>
 <p><strong>Продолжительность:</strong> 2 академических часа</p>
-<p><strong>Тип:</strong> практическое занятие</p>
-<p><strong>Цель:</strong> Научить студентов выполнять агрегированные выборки; использовать GROUP BY и HAVING; применять подзапросы в аналитике; сравнивать показатели (больше среднего, максимум в группе и т.д.); анализировать данные. </p>
-<h2 id="_1">Исходная предметная область</h2>
-<pre><code class="language-sql">CREATE TABLE clients (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT NOT NULL
-);
-
-CREATE TABLE orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-CREATE TABLE order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
-);
-</code></pre>
+<h2 id="1-view">1. Что такое представление (VIEW)</h2>
+<p><strong>Представление (VIEW)</strong> — это виртуальная таблица, основанная на результате SELECT-запроса.</p>
 <blockquote>
-<p>Таблицы необходимо предварительно заполнить тестовыми данными.</p>
+<p>VIEW не хранит данные, а хранит SQL-запрос.</p>
 </blockquote>
-<h2 id="1">Этап 1. Базовая агрегированная аналитика</h2>
-<h3 id="1_1">Задание 1</h3>
-<p>Определить общее количество заказов.</p>
-<h3 id="2">Задание 2</h3>
-<p>Определить общую сумму продаж.</p>
-<p>Подсказка:</p>
-<pre><code class="language-sql">SUM(quantity * price)
-</code></pre>
-<h3 id="3">Задание 3</h3>
-<p>Найти среднюю сумму одного заказа.</p>
-<h2 id="2-group-by">Этап 2. GROUP BY</h2>
-<h3 id="4">Задание 4</h3>
-<p>Вывести количество заказов по каждому клиенту.</p>
-<h3 id="5">Задание 5</h3>
-<p>Вывести общую сумму заказов по каждому клиенту.</p>
-<h3 id="6">Задание 6</h3>
-<p>Найти клиентов у которых сумма заказов больше 100 000.</p>
-<blockquote>
-<p>Использовать HAVING.</p>
-</blockquote>
-<h2 id="3_1">Этап 3. Подзапросы в аналитике</h2>
-<h3 id="7">Задание 7</h3>
-<p>Найти клиентов у которых сумма заказов больше средней по всем клиентам.</p>
-<blockquote>
-<p>Использовать подзапрос.</p>
-</blockquote>
-<h3 id="8">Задание 8</h3>
-<p>Найти заказ с максимальной суммой.</p>
-<h3 id="9">Задание 9</h3>
-<p>Найти клиента с наибольшей общей выручкой.</p>
-<h2 id="4-join">Этап 4. Аналитика с JOIN</h2>
-<h3 id="10">Задание 10</h3>
-<p>Вывести:</p>
+<p>При обращении к представлению СУБД выполняет его запрос.</p>
+<h2 id="2">2. Зачем нужны представления</h2>
+<p>VIEW используются для:</p>
 <ul>
-<li>ФИО клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
+<li>упрощения сложных запросов</li>
+<li>повторного использования логики</li>
+<li>ограничения доступа к данным</li>
+<li>абстрагирования структуры БД</li>
+<li>создания слоя логики внутри БД</li>
 </ul>
+<h2 id="3-view">3. Синтаксис создания VIEW</h2>
+<pre><code class="language-sql">CREATE VIEW view_name AS
+SELECT ...
+FROM ...
+WHERE ...;
+</code></pre>
+<p>Пример:</p>
+<pre><code class="language-sql">CREATE VIEW client_totals AS
+SELECT c.id,
+       c.full_name,
+       SUM(oi.quantity * oi.price) AS total
+FROM clients c
+JOIN orders o ON o.client_id = c.id
+JOIN order_items oi ON oi.order_id = o.id
+GROUP BY c.id, c.full_name;
+</code></pre>
+<p>Теперь можно:</p>
+<pre><code class="language-sql">SELECT *
+FROM client_totals
+WHERE total &gt; 100000;
+</code></pre>
+<h2 id="4-view">4. Логика работы VIEW</h2>
+<p>Когда выполняется:</p>
+<pre><code class="language-sql">SELECT * FROM client_totals;
+</code></pre>
+<p>СУБД фактически выполняет исходный SELECT, прописанный в VIEW.</p>
 <blockquote>
-<p>Использовать минимум:</p>
-<p>1 JOIN</p>
-<p>2 агрегатные функции</p>
+<p>VIEW — это «сохранённый SELECT»</p>
 </blockquote>
-<h2 id="5_1">Этап 5. Сложная аналитическая выборка</h2>
-<h3 id="11">Задание 11</h3>
-<p>Вывести клиентов, у которых количество заказов выше среднего, отсортировать по сумме покупок.</p>
-<h3 id="12">Задание 12</h3>
-<p>Найти товары, которые продавались более чем в 5 заказах.</p>
-<h3 id="_2">Индивидуальные задания (на оценку)</h3>
-<p><strong>Вариант 1.</strong> Найти клиента с минимальной суммой заказов.</p>
-<p><strong>Вариант 2.</strong> Найти месяц с наибольшей выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти клиентов без заказов.</p>
-<p><strong>Вариант 4.</strong> Найти средний чек по месяцам.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, у которых последний заказ был более года назад.</p>
+<h2 id="5">5. Обновляемые представления</h2>
+<p>В PostgreSQL представление может быть обновляемым, если:</p>
+<ul>
+<li>используется одна таблица</li>
+<li>нет агрегатов</li>
+<li>нет GROUP BY</li>
+<li>нет DISTINCT</li>
+<li>нет JOIN</li>
+</ul>
+<p>Пример обновляемого VIEW:</p>
+<pre><code class="language-sql">CREATE VIEW active_clients AS
+SELECT *
+FROM clients
+WHERE status = 'active';
+</code></pre>
+<p>Можно выполнить:</p>
+<pre><code class="language-sql">UPDATE active_clients
+SET city = 'Москва'
+WHERE id = 5;
+</code></pre>
+<h2 id="6-view">6. Когда VIEW нельзя обновлять</h2>
+<p>Если представление содержит:</p>
+<ul>
+<li>JOIN</li>
+<li>агрегаты</li>
+<li>GROUP BY</li>
+<li>HAVING</li>
+<li>подзапросы</li>
+</ul>
+<p>то оно становится только для чтения.</p>
+<h2 id="7-view-vs-cte">7. VIEW vs CTE</h2>
+<table>
+<thead>
+<tr>
+<th>VIEW</th>
+<th>CTE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Сохраняется в БД</td>
+<td>Существует в рамках одного запроса</td>
+</tr>
+<tr>
+<td>Повторно используется</td>
+<td>Временная конструкция</td>
+</tr>
+<tr>
+<td>Подходит для логического слоя</td>
+<td>Подходит для этапов запроса</td>
+</tr>
+<tr>
+<td>Может использоваться для прав доступа</td>
+<td>Нет</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-view">8. VIEW и безопасность</h2>
+<p>Можно предоставить доступ:</p>
+<pre><code class="language-sql">GRANT SELECT ON client_totals TO analyst;
+</code></pre>
+<p>Пользователь получит доступ к представлению, но не к исходным таблицам.</p>
+<blockquote>
+<p>Это способ ограничения данных.</p>
+</blockquote>
+<h2 id="9-materialized-view">9. MATERIALIZED VIEW</h2>
+<p>В PostgreSQL существует материализованное представление:</p>
+<pre><code class="language-sql">CREATE MATERIALIZED VIEW sales_summary AS
+SELECT ...
+</code></pre>
+<p>Отличие:</p>
+<table>
+<thead>
+<tr>
+<th>VIEW</th>
+<th>MATERIALIZED VIEW</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Данные не хранятся</td>
+<td>Данные сохраняются</td>
+</tr>
+<tr>
+<td>Всегда актуальны</td>
+<td></td>
+</tr>
+<tr>
+<td>Быстрее создание</td>
+<td>Быстрее чтение</td>
+</tr>
+</tbody>
+</table>
+<p>Обновление:</p>
+<pre><code class="language-sql">REFRESH MATERIALIZED VIEW sales_summary;
+</code></pre>
+<h2 id="10-view">10. Изменение и удаление VIEW</h2>
+<p>Изменение</p>
+<pre><code class="language-sql">CREATE OR REPLACE VIEW view_name AS
+SELECT ...
+</code></pre>
+<p>Удаление</p>
+<pre><code class="language-sql">DROP VIEW view_name;
+</code></pre>
+<h2 id="11">11. Типичные ошибки</h2>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Причина</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ожидание хранения данных</td>
+<td>VIEW — не таблица</td>
+</tr>
+<tr>
+<td>Попытка UPDATE сложного VIEW</td>
+<td>Ограничения</td>
+</tr>
+<tr>
+<td>Игнорирование производительности</td>
+<td>Сложный SELECT</td>
+</tr>
+<tr>
+<td>Злоупотребление VIEW</td>
+<td>Усложнение схемы</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-view">12. Когда использовать VIEW</h2>
+<p>Использовать, если:</p>
+<ul>
+<li>сложный аналитический запрос используется часто</li>
+<li>требуется логическое разделение слоёв</li>
+<li>нужно ограничить доступ</li>
+<li>нужно скрыть структуру БД</li>
+</ul>
+<p>Не использовать, если:</p>
+<ul>
+<li>запрос используется один раз</li>
+<li>требуется максимальная производительность</li>
+<li>логика часто меняется</li>
+</ul>
+<h2 id="13">13. Архитектурный аспект</h2>
+<p>В промышленной разработке VIEW часто:</p>
+<ul>
+<li>формируют аналитический слой</li>
+<li>используются BI-инструментами</li>
+<li>служат интерфейсом между БД и приложением</li>
+</ul>
+<h2 id="14">14. Выводы</h2>
+<p>Представления:</p>
+<ul>
+<li>упрощают сложные SELECT</li>
+<li>позволяют строить логический слой БД</li>
+<li>помогают управлять доступом</li>
+<li>не хранят данные (кроме materialized view)</li>
+<li>являются важным инструментом архитектуры</li>
+</ul>
+<h2 id="_1">Домашнее задание</h2>
+<p>Представленная модель:</p>
+<ul>
+<li>clients</li>
+<li>orders</li>
+<li>order_items</li>
+</ul>
+<h3 id="1">Задание 1</h3>
+<p>Создать представление client_totals, которое содержит:</p>
+<ul>
+<li>id клиента</li>
+<li>ФИО</li>
+<li>количество заказов</li>
+<li>общую сумму заказов</li>
+</ul>
+<p>Выполнить запрос: вывести клиентов с суммой более 100 000.</p>
+<blockquote>
+<p>Запрещено повторно писать агрегатный запрос во внешнем SELECT.</p>
+</blockquote>
+<h3 id="2_1">Задание 2</h3>
+<p>Создать представление client_public_info, которое содержит:</p>
+<ul>
+<li>id</li>
+<li>ФИО</li>
+<li>город</li>
+</ul>
+<p>Объясните почему это безопаснее, чем давать доступ к таблице clients.</p>
+<p>Предложить, какие столбцы нельзя включать в публичное представление.</p>
+<h3 id="3">Задание 3</h3>
+<p>Создать представление active_clients только клиенты со статусом 'active'.</p>
+<p>Выполнить через представление:</p>
+<ul>
+<li>UPDATE одного клиента.</li>
+</ul>
+<p>Проверить, изменилась ли исходная таблица.</p>
+<blockquote>
+<p>Объяснить, почему представление обновляемое.</p>
+</blockquote>
+<h3 id="4">Задание 4</h3>
+<p>Создать MATERIALIZED VIEW sales_summary, которая содержит сумму продаж по месяцам.</p>
+<p>Добавить новые данные в таблицы.</p>
+<p>Проверить, изменился ли результат в materialized view.</p>
+<p>Выполнить REFRESH MATERIALIZED VIEW.</p>
+<blockquote>
+<p>Объяснить разницу между VIEW и MATERIALIZED VIEW.</p>
+</blockquote>
+<h2 id="_2">Контрольные вопросы</h2>
+<ol>
+<li>Что такое представление и хранит ли оно данные?</li>
+<li>В чём отличие VIEW от CTE?</li>
+<li>Когда представление становится необновляемым?</li>
+<li>Чем отличается VIEW от MATERIALIZED VIEW?</li>
+<li>Как представления используются для ограничения доступа к данным?</li>
+<li>Можно ли изменить представление?</li>
+<li>Почему чрезмерное использование VIEW может ухудшить производительность?</li>
+<li>В каком случае лучше использовать CTE вместо VIEW?</li>
+</ol>
 
 
 

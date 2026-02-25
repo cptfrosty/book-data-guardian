@@ -37,3 +37,26 @@ nav:
     - Подзапросы: Chapter_3/3.1-subqueries/index.md
     - CTE: Chapter_3/3.2-CTE/index.md
     - Представления: Chapter_3/3.3-presentations/index.md
+  - 4. Бизнес-логика в БД:
+    - Хранимые функции: Chapter_4/4.1-stored-functions/index.md
+    - PL/pgSQL: Chapter_4/4.2-PL-pgSQL/index.md
+    - Триггеры: Chapter_4/4.3-triggers/index.md
+    - Практика 7. Функции с параметрами: Chapter_4/practic-functions-with-parameters/index.md
+    - Практика 8. Триггеры контроля данных: Chapter_4/practic-data-control-triggers/index.md
+    - Практика 9. Триггеры бизнес-логики: Chapter_4/practic-business-logic-triggers/index.md
+  - 5. Производительность и транзакции: 
+    - Транзакции и ACID: Chapter_5/5.1-transactions-and-ACID/index.md
+    - Уровни изоляции: Chapter_5/5.2-Isolation-levels/index.md
+    - Индексы: Chapter_5/5.3-indexes/index.md
+    - EXPLAIN ANALYZE: Chapter_5/5.4-explane-analyze/index.md
+    - Практика 10. Работа с транзакциями: Chapter_5/practic-12-working-with-transactions/index.md
+    - Практика 11. Оптимизация запросов: Chapter_5/practic-13-query-optimization/index.md
+  - 6. Защита и администрирование:
+    - Пользователи и роли: Chapter_6/6.1-users-and-roles/index.md
+    - Права доступа: Chapter_6/6.2-access-rights/index.md
+    - Резервное копирование: Chapter_6/6.3-backup/index.md
+    - Практика 12. Настройка прав: Chapter_6/practic-14-setting-up-access-rights/index.md
+    - Практика 13. Бэкап и восстановление: Chapter_6/practic-15-backup-and-recovery/index.md
+  - 7. Итоговый кейс:
+    - Практика 14. Реализация и защита БД: Chapter_7/practic-16-database-implementation-and-protection/index.md
+    - Практика 15. SQL, функция или триггер: Chapter_7/practic-17-SQL-function or trigger/index.md

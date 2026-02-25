@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_5/5.2-Isolation-levels/">
       
       
+        <link rel="prev" href="../5.1-transactions-and-ACID/">
+      
+      
+        <link rel="next" href="../5.3-indexes/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>Уровни изоляции - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              Уровни изоляции
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -1022,18 +1026,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1054,7 +1060,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1072,7 +1078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.1-transactions-and-ACID/" class="md-nav__link">
+      <a href="../5.1-transactions-and-ACID/" class="md-nav__link">
         
   
   
@@ -1097,10 +1103,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_5/5.2-Isolation-levels/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Уровни изоляции
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1116,6 +1149,358 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Зачем нужны уровни изоляции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Проблемы конкурентного доступа
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Проблемы конкурентного доступа">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Грязное чтение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Неповторяемое чтение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Фантомное чтение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sql-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Стандартные уровни изоляции (SQL Standard)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Уровни изоляции в PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-read-committed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Read Committed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Read Committed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Поведение:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-repeatable-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Repeatable Read
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Repeatable Read">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Поведение:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshot-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot Isolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-serializable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Serializable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-mvcc-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. MVCC — механизм PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Блокировки и изоляция
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Сравнение уровней
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Когда использовать каждый уровень
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Архитектурный вывод
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-read-committed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Read Committed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-repeatable-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Repeatable Read
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-serializable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Serializable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Анализ фантомного чтения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1128,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.3-indexes/" class="md-nav__link">
+      <a href="../5.3-indexes/" class="md-nav__link">
         
   
   
@@ -1156,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.4-explane-analyze/" class="md-nav__link">
+      <a href="../5.4-explane-analyze/" class="md-nav__link">
         
   
   
@@ -1184,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/practic-12-working-with-transactions/" class="md-nav__link">
+      <a href="../practic-12-working-with-transactions/" class="md-nav__link">
         
   
   
@@ -1212,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/practic-13-query-optimization/" class="md-nav__link">
+      <a href="../practic-13-query-optimization/" class="md-nav__link">
         
   
   
@@ -1571,21 +1956,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Исходная предметная область
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 1
+        1. Зачем нужны уровни изоляции
       
     </span>
   </a>
@@ -1596,7 +1970,57 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 2
+        2. Проблемы конкурентного доступа
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Проблемы конкурентного доступа">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Грязное чтение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Неповторяемое чтение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Фантомное чтение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sql-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Стандартные уровни изоляции (SQL Standard)
       
     </span>
   </a>
@@ -1604,10 +2028,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#4-postgresql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 3
+        4. Уровни изоляции в PostgreSQL
       
     </span>
   </a>
@@ -1615,10 +2039,88 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#5-read-committed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 4
+        5. Read Committed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Read Committed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Поведение:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-repeatable-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Repeatable Read
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Repeatable Read">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Поведение:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshot-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot Isolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-serializable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Serializable
       
     </span>
   </a>
@@ -1626,43 +2128,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#8-mvcc-postgresql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 5
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 6
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 7
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 8
+        8. MVCC — механизм PostgreSQL
       
     </span>
   </a>
@@ -1673,7 +2142,7 @@
   <a href="#9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 9
+        9. Блокировки и изоляция
       
     </span>
   </a>
@@ -1684,7 +2153,7 @@
   <a href="#10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 10
+        10. Сравнение уровней
       
     </span>
   </a>
@@ -1692,10 +2161,126 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Индивидуальные задания
+        11. Когда использовать каждый уровень
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Архитектурный вывод
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-read-committed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Read Committed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-repeatable-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Repeatable Read
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-serializable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Serializable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Анализ фантомного чтения
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
       
     </span>
   </a>
@@ -1719,111 +2304,336 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
-<h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
-<pre><code class="language-sql">clients (
+<h1 id="_1">Уровни изоляции транзакций</h1>
+<h2 id="1">1. Зачем нужны уровни изоляции</h2>
+<p>В многопользовательской системе несколько транзакций могут выполняться одновременно.</p>
+<p>Если не управлять их взаимодействием, возникают проблемы:</p>
+<ul>
+<li>чтение незафиксированных данных</li>
+<li>изменение данных между чтениями</li>
+<li>появление «фантомных» строк</li>
+</ul>
+<blockquote>
+<p>Уровень изоляции определяет, насколько транзакции видят изменения друг друга.</p>
+</blockquote>
+<h2 id="2">2. Проблемы конкурентного доступа</h2>
+<h3 id="_2">Грязное чтение</h3>
+<p>Транзакция читает данные, которые другая транзакция ещё не зафиксировала.</p>
+<blockquote>
+<p>В PostgreSQL невозможно (не поддерживается).</p>
+</blockquote>
+<h3 id="22">2.2 Неповторяемое чтение</h3>
+<p>Одна и та же строка читается дважды, но между чтениями была изменена другой транзакцией.</p>
+<h3 id="23">2.3 Фантомное чтение</h3>
+<p>Повторный SELECT возвращает новые строки, которых раньше не было.</p>
+<h2 id="3-sql-standard">3. Стандартные уровни изоляции (SQL Standard)</h2>
+<table>
+<thead>
+<tr>
+<th>Уровень</th>
+<th>Грязное чтение</th>
+<th>Неповторяемое чтение</th>
+<th>Фантомное чтение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read Uncommitted</td>
+<td>Возможен</td>
+<td>Возможен</td>
+<td>Возможен</td>
+</tr>
+<tr>
+<td>Read Committed</td>
+<td>Нет</td>
+<td>Возможен</td>
+<td>Возможен</td>
+</tr>
+<tr>
+<td>Repeatable Read</td>
+<td>Нет</td>
+<td>Нет</td>
+<td>Возможен</td>
+</tr>
+<tr>
+<td>Serializable</td>
+<td>Нет</td>
+<td>Нет</td>
+<td>Нет</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-postgresql">4. Уровни изоляции в PostgreSQL</h2>
+<p>PostgreSQL поддерживает:</p>
+<ul>
+<li>Read Committed (по умолчанию)</li>
+<li>Repeatable Read</li>
+<li>Serializable</li>
+</ul>
+<blockquote>
+<p>Read Uncommitted фактически работает как Read Committed.</p>
+</blockquote>
+<h2 id="5-read-committed">5. Read Committed</h2>
+<p>Устанавливается по умолчанию.</p>
+<pre><code class="language-sql">SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+</code></pre>
+<h3 id="_3">Поведение:</h3>
+<ul>
+<li>Каждое <code>SELECT</code> видит только зафиксированные данные</li>
+<li>Между двумя <code>SELECT</code> внутри одной транзакции данные могут измениться</li>
+</ul>
+<blockquote>
+<p>Возможны:</p>
+</blockquote>
+<ul>
+<li>неповторяемые чтения</li>
+<li>фантомы</li>
+</ul>
+<h3 id="_4">Пример</h3>
+<p>Транзакция A:</p>
+<pre><code class="language-sql">BEGIN;
+SELECT balance FROM accounts WHERE id = 1;
+</code></pre>
+<p>Транзакция B:</p>
+<pre><code class="language-sql">UPDATE accounts SET balance = 5000 WHERE id = 1;
+COMMIT;
+</code></pre>
+<p>Транзакция A повторяет SELECT → увидит новое значение.</p>
+<h2 id="6-repeatable-read">6. Repeatable Read</h2>
+<pre><code class="language-sql">SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+</code></pre>
+<h3 id="_5">Поведение:</h3>
+<ul>
+<li>Все <code>SELECT</code> внутри транзакции видят снимок данных на момент <code>BEGIN</code></li>
+<li>Повторное чтение даёт тот же результат</li>
+</ul>
+<blockquote>
+<p>Non-repeatable read невозможен.</p>
+<p>Phantom read в PostgreSQL также предотвращается благодаря MVCC.</p>
+</blockquote>
+<h3 id="snapshot-isolation">Snapshot Isolation</h3>
+<p>PostgreSQL использует механизм MVCC (Multi-Version Concurrency Control).</p>
+<blockquote>
+<p>Каждая транзакция видит свою «версию» данных.</p>
+</blockquote>
+<h2 id="7-serializable">7. Serializable</h2>
+<pre><code class="language-sql">SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+</code></pre>
+<p>Поведение:</p>
+<ul>
+<li>Транзакции работают так, как будто выполняются последовательно</li>
+<li>Если возникает конфликт — одна из транзакций завершится ошибкой</li>
+</ul>
+<p>Ошибка:</p>
+<pre><code class="language-sql">ERROR: could not serialize access due to concurrent update
+</code></pre>
+<blockquote>
+<p>Требуется повторить транзакцию.</p>
+</blockquote>
+<h2 id="8-mvcc-postgresql">8. MVCC — механизм PostgreSQL</h2>
+<p>PostgreSQL не блокирует чтение при записи.</p>
+<p>Каждая строка имеет:</p>
+<ul>
+<li>xmin — кто создал</li>
+<li>xmax — кто удалил</li>
+</ul>
+<blockquote>
+<p>Транзакции видят только «свои» допустимые версии строк.</p>
+</blockquote>
+<h2 id="9">9. Блокировки и изоляция</h2>
+<p>Уровень изоляции влияет на:</p>
+<ul>
+<li>частоту блокировок</li>
+<li>вероятность конфликтов</li>
+<li>производительность</li>
+</ul>
+<p>Чем выше изоляция → тем:</p>
+<ul>
+<li>выше безопасность</li>
+<li>ниже производительность</li>
+</ul>
+<h2 id="10">10. Сравнение уровней</h2>
+<table>
+<thead>
+<tr>
+<th>Уровень</th>
+<th>Безопасность</th>
+<th>Производительность</th>
+<th>Риск ошибок</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read Committed</td>
+<td>Средняя</td>
+<td>Высокая</td>
+<td>Логические</td>
+</tr>
+<tr>
+<td>Repeatable Read</td>
+<td>Высокая</td>
+<td>Средняя</td>
+<td>Конфликты</td>
+</tr>
+<tr>
+<td>Serializable</td>
+<td>Максимальная</td>
+<td>Ниже</td>
+<td>Ошибки сериализации</td>
+</tr>
+</tbody>
+</table>
+<h2 id="11">11. Когда использовать каждый уровень</h2>
+<p>Read Committed:</p>
+<ul>
+<li>стандартные CRUD-операции</li>
+<li>отчётность</li>
+<li>не критичные расчёты</li>
+</ul>
+<p>Repeatable Read:</p>
+<ul>
+<li>аналитика</li>
+<li>расчёт балансов</li>
+<li>операции, требующие стабильного набора данных</li>
+</ul>
+<p>Serializable:</p>
+<ul>
+<li>финансовые системы</li>
+<li>критические бизнес-процессы</li>
+<li>расчёты с жёсткой согласованностью</li>
+</ul>
+<h2 id="12">12. Типичные ошибки</h2>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Причина</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ожидание Dirty Read</td>
+<td>PostgreSQL его не поддерживает</td>
+</tr>
+<tr>
+<td>Непонимание snapshot</td>
+<td>Логические ошибки</td>
+</tr>
+<tr>
+<td>Игнорирование сериализации</td>
+<td>Ошибки выполнения</td>
+</tr>
+<tr>
+<td>Повышение уровня без необходимости</td>
+<td>Падение производительности</td>
+</tr>
+</tbody>
+</table>
+<h2 id="13">13. Архитектурный вывод</h2>
+<p>Уровень изоляции — это компромисс между:</p>
+<ul>
+<li>безопасностью</li>
+<li>согласованностью</li>
+<li>производительностью</li>
+</ul>
+<blockquote>
+<p>Правильный выбор зависит от типа системы.</p>
+</blockquote>
+<h2 id="14">14. Выводы</h2>
+<p>Уровни изоляции:</p>
+<ul>
+<li>регулируют взаимодействие транзакций</li>
+<li>предотвращают проблемы конкурентного доступа</li>
+<li>основаны на механизме MVCC</li>
+<li>требуют осознанного выбора</li>
+</ul>
+<h2 id="_6">Домашнее задание</h2>
+<p>Предметная область:</p>
+<pre><code class="language-sql">accounts (
     id SERIAL PRIMARY KEY,
-    full_name TEXT,
-    city TEXT
-);
-
-orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
+    owner TEXT,
+    balance NUMERIC
 );
 </code></pre>
 <blockquote>
-<p>Заполните таблицы тестовыми данными</p>
+<p>Предварительно добавьте тестовые данные.</p>
 </blockquote>
-<h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
-<ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
-</ul>
-<p>Требования:</p>
-<ul>
-<li>минимум 2 JOIN</li>
-<li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
-</ul>
-<h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
-<ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
-</ul>
-<p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
+<h3 id="1-read-committed">Задание 1. Read Committed</h3>
+<p>Открыть две сессии (A и B).</p>
+<p>Сессия A:</p>
+<pre><code class="language-sql">BEGIN;
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+SELECT balance FROM accounts WHERE id = 1;
 </code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
-<blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
-</blockquote>
-<h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
-<blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
-</blockquote>
-<h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
-<blockquote>
-<p>Использовать EXISTS.</p>
-</blockquote>
-<h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
-<blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
+<p>Сессия B:</p>
+<pre><code class="language-sql">UPDATE accounts SET balance = 9999 WHERE id = 1;
+COMMIT;
+</code></pre>
+<p>Сессия A:</p>
 <ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
+<li>Повторить SELECT.</li>
 </ul>
 <blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
+<p>Ответить: изменилось ли значение и почему?</p>
 </blockquote>
-<h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<h3 id="2-repeatable-read">Задание 2. Repeatable Read</h3>
+<p>Повторить эксперимент, но с уровнем:</p>
+<pre><code class="language-sql">SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+</code></pre>
+<blockquote>
+<p>Ответить: изменилось ли значение? почему поведение отличается?</p>
+</blockquote>
+<h3 id="3-serializable">Задание 3. Serializable</h3>
+<p>Создать две транзакции, которые одновременно уменьшают баланс одного счёта затем фиксируются</p>
+<p>Использовать уровень:</p>
+<pre><code class="language-sql">SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+</code></pre>
+<blockquote>
+<p>Ответить: возникает ли ошибка? какая именно? почему?</p>
+</blockquote>
+<h3 id="4">Задание 4. Анализ фантомного чтения</h3>
+<p>Создать таблицу:</p>
+<pre><code class="language-sql">orders (id SERIAL, total NUMERIC);
+</code></pre>
+<p>В двух сессиях:</p>
+<ul>
+<li>одна транзакция считает количество заказов &gt; 1000</li>
+<li>другая добавляет новый заказ</li>
+</ul>
+<p>Проверить поведение при:</p>
+<ul>
+<li>Read Committed</li>
+<li>Repeatable Read</li>
+</ul>
+<blockquote>
+<p>Объяснить результат.</p>
+</blockquote>
+<h3 id="5">Задание 5</h3>
+<p>Смоделировать конфликт:</p>
+<ul>
+<li>
+<p>две транзакции обновляют одну и ту же строку</p>
+</li>
+<li>
+<p>не фиксируются сразу</p>
+</li>
+</ul>
+<blockquote>
+<p>Ответить: что происходит? что такое блокировка? что такое deadlock?</p>
+</blockquote>
+<h2 id="_7">Контрольные вопросы</h2>
+<ol>
+<li>Что регулирует уровень изоляции транзакции?</li>
+<li>Какие уровни изоляции поддерживает PostgreSQL?</li>
+<li>Что такое Dirty Read и почему в PostgreSQL он невозможен?</li>
+<li>В чём разница между Read Committed и Repeatable Read?</li>
+<li>Как работает механизм MVCC?</li>
+<li>Почему Serializable может завершиться ошибкой?</li>
+<li>Что такое snapshot данных?</li>
+<li>Как уровень изоляции влияет на производительность?</li>
+<li>В каком случае следует использовать Serializable?</li>
+<li>Почему чрезмерно высокий уровень изоляции может быть вреден?</li>
+</ol>
 
 
 

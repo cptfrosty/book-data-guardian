@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_6/6.1-users-and-roles/">
       
       
+        <link rel="prev" href="../../Chapter_5/practic-13-query-optimization/">
+      
+      
+        <link rel="next" href="../6.2-access-rights/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>Пользователи и роли - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#postgresql" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              Пользователи и роли
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -1244,18 +1248,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1276,7 +1282,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1291,10 +1297,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_6/6.1-users-and-roles/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пользователи и роли
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1310,6 +1341,338 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пользователи и роли в PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Основы модели безопасности PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Что такое роль
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Основные атрибуты ролей
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Изменение роли
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Удаление роли
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Владение объектами
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Владение объектами">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Права на таблицу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Права на все таблицы схемы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-revoke" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. REVOKE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Групповые роли
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-public" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. PUBLIC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. По умолчанию
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-row-level-security-rls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Row Level Security (RLS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Проверка прав
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Принцип наименьших привилегий
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Типичная архитектура ролей
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Частые ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Безопасность и функции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Создание ролей
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Групповая модель доступа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Назначение привилегий
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Ограничение доступа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5. Владение объектами
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-execute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 6. EXECUTE для функции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 7
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1322,7 +1685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/6.2-access-rights/" class="md-nav__link">
+      <a href="../6.2-access-rights/" class="md-nav__link">
         
   
   
@@ -1350,7 +1713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/6.3-backup/" class="md-nav__link">
+      <a href="../6.3-backup/" class="md-nav__link">
         
   
   
@@ -1378,7 +1741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/practic-14-setting-up-access-rights/" class="md-nav__link">
+      <a href="../practic-14-setting-up-access-rights/" class="md-nav__link">
         
   
   
@@ -1406,7 +1769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/practic-15-backup-and-recovery/" class="md-nav__link">
+      <a href="../practic-15-backup-and-recovery/" class="md-nav__link">
         
   
   
@@ -1561,8 +1924,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1571,10 +1932,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#postgresql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Исходная предметная область
+        Пользователи и роли в PostgreSQL
       
     </span>
   </a>
@@ -1582,10 +1943,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#1-postgresql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 1
+        1. Основы модели безопасности PostgreSQL
       
     </span>
   </a>
@@ -1596,18 +1957,7 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 2
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 3
+        2. Что такое роль
       
     </span>
   </a>
@@ -1618,7 +1968,7 @@
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 4
+        4. Основные атрибуты ролей
       
     </span>
   </a>
@@ -1629,7 +1979,7 @@
   <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 5
+        5. Изменение роли
       
     </span>
   </a>
@@ -1640,7 +1990,244 @@
   <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 6
+        6. Удаление роли
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Владение объектами
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Владение объектами">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Права на таблицу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Права на все таблицы схемы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-revoke" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. REVOKE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Групповые роли
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-public" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. PUBLIC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. По умолчанию
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-row-level-security-rls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Row Level Security (RLS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Проверка прав
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Принцип наименьших привилегий
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Типичная архитектура ролей
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Частые ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Безопасность и функции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Создание ролей
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Групповая модель доступа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Назначение привилегий
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Ограничение доступа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5. Владение объектами
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-execute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 6. EXECUTE для функции
       
     </span>
   </a>
@@ -1652,50 +2239,6 @@
     <span class="md-ellipsis">
       
         Задание 7
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 8
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 9
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 10
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Индивидуальные задания
       
     </span>
   </a>
@@ -1719,111 +2262,317 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
-<h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
-<pre><code class="language-sql">clients (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT,
-    city TEXT
-);
+  <h1>Пользователи и роли</h1>
 
-orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
-);
+<h2 id="postgresql">Пользователи и роли в PostgreSQL</h2>
+<p><strong>Тип:</strong> лекция</p>
+<h2 id="1-postgresql">1. Основы модели безопасности PostgreSQL</h2>
+<p>В PostgreSQL используется ролевая модель доступа (Role-Based Access Control, RBAC).</p>
+<blockquote>
+<p>Ключевое понятие:</p>
+<p>В PostgreSQL нет отдельного объекта “пользователь” — есть роли.</p>
+</blockquote>
+<p>Роль может:</p>
+<ul>
+<li>входить в систему</li>
+<li>быть группой ролей</li>
+<li>владеть объектами</li>
+<li>иметь права доступа</li>
+</ul>
+<h2 id="2">2. Что такое роль</h2>
+<p><strong>Роль</strong> — это объект, которому можно:</p>
+<ul>
+<li>назначать привилегии</li>
+<li>передавать владение объектами</li>
+<li>
+<p>давать право входа в систему</p>
+</li>
+<li>
+<p>Создание роли</p>
+</li>
+</ul>
+<pre><code class="language-sql">CREATE ROLE analyst;
+</code></pre>
+<p>Роль без возможности входа.</p>
+<p>Роль с правом входа</p>
+<pre><code class="language-sql">CREATE ROLE manager
+WITH LOGIN
+PASSWORD 'secure_password';
 </code></pre>
 <blockquote>
-<p>Заполните таблицы тестовыми данными</p>
+<p>Теперь это фактически пользователь.</p>
 </blockquote>
-<h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
+<h2 id="4">4. Основные атрибуты ролей</h2>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGIN</td>
+<td>Разрешает подключение</td>
+</tr>
+<tr>
+<td>SUPERUSER</td>
+<td>Полный доступ</td>
+</tr>
+<tr>
+<td>CREATEDB</td>
+<td>Может создавать БД</td>
+</tr>
+<tr>
+<td>CREATEROLE</td>
+<td>Может создавать роли</td>
+</tr>
+<tr>
+<td>REPLICATION</td>
+<td>Для репликации</td>
+</tr>
+<tr>
+<td>BYPASSRLS</td>
+<td>Обход Row Level Security</td>
+</tr>
+</tbody>
+</table>
+<p>Пример:</p>
+<pre><code class="language-sql">CREATE ROLE admin
+WITH LOGIN
+SUPERUSER;
+</code></pre>
+<h2 id="5">5. Изменение роли</h2>
+<pre><code class="language-sql">ALTER ROLE manager WITH CREATEDB;
+</code></pre>
+<h2 id="6">6. Удаление роли</h2>
+<pre><code class="language-sql">DROP ROLE analyst;
+</code></pre>
+<blockquote>
+<p>Нельзя удалить роль, если она владеет объектами.</p>
+</blockquote>
+<h2 id="7">7. Владение объектами</h2>
+<p>Каждый объект БД имеет владельца.</p>
+<pre><code class="language-sql">ALTER TABLE employees OWNER TO manager;
+</code></pre>
+<p>Владелец может:</p>
 <ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
+<li>изменять структуру</li>
+<li>удалять объект</li>
+<li>
+<p>передавать права</p>
+</li>
+<li>
+<p>Привилегии (GRANT)</p>
+</li>
 </ul>
-<p>Требования:</p>
+<p>Основная команда:</p>
+<pre><code class="language-sql">GRANT privilege
+ON object
+TO role;
+</code></pre>
+<h3 id="_1">Права на таблицу</h3>
+<table>
+<thead>
+<tr>
+<th>Привилегия</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT</td>
+<td>Чтение</td>
+</tr>
+<tr>
+<td>INSERT</td>
+<td>Вставка</td>
+</tr>
+<tr>
+<td>UPDATE</td>
+<td>Обновление</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>Удаление</td>
+</tr>
+<tr>
+<td>TRUNCATE</td>
+<td>Очистка</td>
+</tr>
+<tr>
+<td>REFERENCES</td>
+<td>Создание FK</td>
+</tr>
+<tr>
+<td>TRIGGER</td>
+<td>Создание триггеров</td>
+</tr>
+</tbody>
+</table>
+<p>Пример:</p>
+<pre><code class="language-sql">GRANT SELECT ON employees TO analyst;
+</code></pre>
+<h3 id="_2">Права на все таблицы схемы</h3>
+<pre><code class="language-sql">GRANT SELECT ON ALL TABLES IN SCHEMA public TO analyst;
+</code></pre>
+<h2 id="9-revoke">9. REVOKE</h2>
+<p>Отзыв прав:</p>
+<pre><code class="language-sql">REVOKE SELECT ON employees FROM analyst;
+</code></pre>
+<h2 id="10">10. Групповые роли</h2>
+<p>Можно создавать роль-группу:</p>
+<pre><code class="language-sql">CREATE ROLE developers;
+</code></pre>
+<p>Добавить пользователя в группу:</p>
+<pre><code class="language-sql">GRANT developers TO manager;
+</code></pre>
+<blockquote>
+<p>Удобно для управления доступом.</p>
+</blockquote>
+<h2 id="11-public">11. PUBLIC</h2>
+<p>PUBLIC — специальная роль.</p>
+<p>Права, выданные PUBLIC, получают все пользователи.</p>
+<blockquote>
+<p>Часто нужно ограничивать PUBLIC.</p>
+</blockquote>
+<h2 id="12">12. По умолчанию</h2>
+<p>При создании таблицы:</p>
 <ul>
-<li>минимум 2 JOIN</li>
-<li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
+<li>доступ есть только у владельца</li>
+<li>PUBLIC может иметь некоторые базовые права</li>
 </ul>
-<h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
+<p>Рекомендуется:</p>
+<pre><code class="language-sql">REVOKE ALL ON SCHEMA public FROM PUBLIC;
+</code></pre>
+<h2 id="13-row-level-security-rls">13. Row Level Security (RLS)</h2>
+<p>Позволяет ограничить доступ к строкам таблицы.</p>
+<p>Включение:</p>
+<pre><code class="language-sql">ALTER TABLE employees ENABLE ROW LEVEL SECURITY;
+</code></pre>
+<p>Создание политики:</p>
+<pre><code class="language-sql">CREATE POLICY employee_policy
+ON employees
+FOR SELECT
+USING (department = current_user);
+</code></pre>
+<blockquote>
+<p>Пользователь видит только свои данные.</p>
+</blockquote>
+<h2 id="14">14. Проверка прав</h2>
+<p>Посмотреть роли:</p>
+<pre><code class="language-sql">\du
+</code></pre>
+<p>Посмотреть права на таблицу:</p>
+<pre><code class="language-sql">\z table_name
+</code></pre>
+<h2 id="15">15. Принцип наименьших привилегий</h2>
+<p>Пользователь должен иметь только те права, которые ему необходимы.</p>
+<p>Это снижает риск:</p>
 <ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
+<li>утечки данных</li>
+<li>случайного удаления</li>
+<li>злоупотребления доступом</li>
+</ul>
+<h2 id="16">16. Типичная архитектура ролей</h2>
+<p>В реальной системе создаются:</p>
+<ul>
+<li>admin — администрирование</li>
+<li>app_user — доступ приложению</li>
+<li>analyst — только SELECT</li>
+<li>readonly — только чтение</li>
+</ul>
+<h2 id="17">17. Частые ошибки</h2>
+<p>|Ошибка Причина
+|Использование SUPERUSER    Опасно
+|Права через PUBLIC Нарушение безопасности
+|Отсутствие групповых ролей Сложность администрирования
+|Игнорирование RLS  Утечка данных</p>
+<h2 id="18">18. Безопасность и функции</h2>
+<p>Можно дать доступ только к функции:</p>
+<pre><code class="language-sql">GRANT EXECUTE ON FUNCTION get_client_total(INT) TO analyst;
+</code></pre>
+<blockquote>
+<p>Пользователь выполняет функцию, не имея доступа к таблице.</p>
+</blockquote>
+<h2 id="19">19. Выводы</h2>
+<p>Роли и пользователи:</p>
+<ul>
+<li>реализуют модель RBAC</li>
+<li>управляются через CREATE ROLE / GRANT / REVOKE</li>
+<li>поддерживают иерархию</li>
+<li>позволяют ограничивать доступ к объектам и строкам</li>
+<li>являются основой безопасности БД</li>
+</ul>
+<h2 id="_3">Домашнее задание</h2>
+<p>Предметная область:</p>
+<ul>
+<li>employees</li>
+<li>clients</li>
+<li>orders</li>
+</ul>
+<h2 id="1">Задание 1. Создание ролей</h2>
+<p>Создать роли:</p>
+<ul>
+<li>admin_role</li>
+<li>analyst_role</li>
+<li>app_user_role</li>
+</ul>
+<p>Назначить:</p>
+<ul>
+<li>admin_role → LOGIN, CREATEDB</li>
+<li>analyst_role → без LOGIN</li>
+<li>app_user_role → LOGIN</li>
+</ul>
+<p>Проверить список ролей через <code>\du</code>.</p>
+<h2 id="2_1">Задание 2. Групповая модель доступа</h2>
+<p>Добавить пользователя ivan в роль analyst_role.</p>
+<p>Добавить пользователя app_service в app_user_role.</p>
+<blockquote>
+<p>Объяснить: зачем использовать групповые роли</p>
+</blockquote>
+<h2 id="3">Задание 3. Назначение привилегий</h2>
+<p>Дать <code>analyst_role</code> права:</p>
+<pre><code class="language-sql">SELECT
+</code></pre>
+<p>на таблицы:</p>
+<ul>
+<li><code>employees</code></li>
+<li><code>clients</code></li>
+<li><code>orders</code></li>
+</ul>
+<p>Проверить доступ под пользователем ivan.</p>
+<p>Попробовать выполнить INSERT — зафиксировать ошибку.</p>
+<h2 id="4_1">Задание 4. Ограничение доступа</h2>
+<p>Отозвать у PUBLIC все права на схему public.</p>
+<p>Проверить, что новый пользователь не может получить доступ без GRANT.</p>
+<blockquote>
+<p>Объяснить принцип наименьших привилегий.</p>
+</blockquote>
+<h2 id="5_1">Задание 5. Владение объектами</h2>
+<p>Передать владение таблицей <code>orders</code> роли <code>admin_role</code>.</p>
+<p>Проверить, кто является владельцем.</p>
+<blockquote>
+<p>Объяснить разницу между владельцем и пользователем с правами <code>SELECT</code>.</p>
+</blockquote>
+<h2 id="6-execute">Задание 6. EXECUTE для функции</h2>
+<p>Создать функцию <code>get_total_orders()</code>.</p>
+<p>Дать <code>analyst_role</code> право <code>EXECUTE</code>.</p>
+<p>Отозвать прямой доступ к таблице <code>orders</code>.</p>
+<p>Проверить, может ли аналитик выполнять функцию.</p>
+<h2 id="7_1">Задание 7</h2>
+<p>Включить RLS для таблицы employees.</p>
+<p>Создать политику:</p>
+<ul>
+<li>пользователь видит только сотрудников своего отдела.</li>
 </ul>
 <p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
+<pre><code class="language-sql">ENABLE ROW LEVEL SECURITY;
+CREATE POLICY ...
 </code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
 <blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
+<p>Объяснить, как работает фильтрация строк.</p>
 </blockquote>
-<h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
-<blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
-</blockquote>
-<h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
-<blockquote>
-<p>Использовать EXISTS.</p>
-</blockquote>
-<h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
-<blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
-<ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
-</ul>
-<blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
-</blockquote>
-<h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
 
 
 

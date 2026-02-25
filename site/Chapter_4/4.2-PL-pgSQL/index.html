@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_4/4.2-PL-pgSQL/">
       
       
+        <link rel="prev" href="../4.1-stored-functions/">
+      
+      
+        <link rel="next" href="../4.3-triggers/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>PL/pgSQL - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#plpgsql" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              PL/pgSQL
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -800,18 +804,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -832,7 +838,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -850,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/4.1-stored-functions/" class="md-nav__link">
+      <a href="../4.1-stored-functions/" class="md-nav__link">
         
   
   
@@ -875,10 +881,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_4/4.2-PL-pgSQL/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PL/pgSQL
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -894,6 +927,414 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-plpgsql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Что такое PL/pgSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-plpgsql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Общая структура функции на PL/pgSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-plpgsql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Блоки PL/pgSQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Блоки PL/pgSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DECLARE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#begin-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BEGIN ... END
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Работа с переменными
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Работа с переменными">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Присваивание
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-into" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SELECT INTO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Условные конструкции
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Условные конструкции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IF
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Циклы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Циклы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LOOP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WHILE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FOR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Обработка ошибок
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Возврат значений
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Возврат значений">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RETURN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RETURNS TABLE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-raise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. RAISE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-sql-plpgsql-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Отличие SQL-функции от PL/pgSQL-функции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-plpgsql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Когда использовать PL/pgSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Производительность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Архитектурный аспект
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Условная логика
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -906,7 +1347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/4.3-triggers/" class="md-nav__link">
+      <a href="../4.3-triggers/" class="md-nav__link">
         
   
   
@@ -934,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-functions-with-parameters/" class="md-nav__link">
+      <a href="../practic-functions-with-parameters/" class="md-nav__link">
         
   
   
@@ -962,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-data-control-triggers/" class="md-nav__link">
+      <a href="../practic-data-control-triggers/" class="md-nav__link">
         
   
   
@@ -990,7 +1431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-business-logic-triggers/" class="md-nav__link">
+      <a href="../practic-business-logic-triggers/" class="md-nav__link">
         
   
   
@@ -1571,10 +2012,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1-plpgsql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Исходная предметная область
+        1. Что такое PL/pgSQL
       
     </span>
   </a>
@@ -1582,10 +2023,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#2-plpgsql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 1
+        2. Общая структура функции на PL/pgSQL
       
     </span>
   </a>
@@ -1593,24 +2034,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#3-plpgsql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 2
+        3. Блоки PL/pgSQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Блоки PL/pgSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DECLARE
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#begin-end" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 3
+        BEGIN ... END
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1618,10 +2076,38 @@
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 4
+        4. Работа с переменными
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4. Работа с переменными">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Присваивание
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-into" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SELECT INTO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1629,10 +2115,27 @@
   <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 5
+        5. Условные конструкции
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5. Условные конструкции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IF
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1640,18 +2143,57 @@
   <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 6
+        6. Циклы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Циклы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LOOP
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 7
+        WHILE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FOR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Обработка ошибок
       
     </span>
   </a>
@@ -1662,7 +2204,46 @@
   <a href="#8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 8
+        8. Возврат значений
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Возврат значений">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RETURN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RETURNS TABLE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-raise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. RAISE
       
     </span>
   </a>
@@ -1670,10 +2251,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
+  <a href="#10-sql-plpgsql-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 9
+        10. Отличие SQL-функции от PL/pgSQL-функции
       
     </span>
   </a>
@@ -1681,10 +2262,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
+  <a href="#11-plpgsql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 10
+        11. Когда использовать PL/pgSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Производительность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Архитектурный аспект
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Выводы
       
     </span>
   </a>
@@ -1695,10 +2320,82 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Индивидуальные задания
+        Домашнее задание
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Условная логика
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1719,111 +2416,309 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
-<h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
-<pre><code class="language-sql">clients (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT,
-    city TEXT
-);
-
-orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
-);
+<h1 id="plpgsql">PL/pgSQL</h1>
+<p><strong>Тип занятия:</strong> лекция</p>
+<p><strong>Продолжительность:</strong> 2 академических часа</p>
+<h2 id="1-plpgsql">1. Что такое PL/pgSQL</h2>
+<p><strong>PL/pgSQL</strong> — это встроенный процедурный язык PostgreSQL, который:</p>
+<ul>
+<li>используется внутри функций и триггеров</li>
+<li>позволяет писать логику с переменными, условиями и циклами</li>
+<li>выполняется на стороне сервера БД</li>
+</ul>
+<blockquote>
+<p>Если обычный SQL — декларативный язык, то PL/pgSQL — процедурный.</p>
+</blockquote>
+<p>Используется для:</p>
+<ul>
+<li>реализации бизнес-логики</li>
+<li>сложных вычислений</li>
+<li>многошаговых операций</li>
+<li>проверок данных</li>
+<li>автоматизации операций</li>
+</ul>
+<h2 id="2-plpgsql">2. Общая структура функции на PL/pgSQL</h2>
+<pre><code class="language-sql">CREATE FUNCTION function_name(parameters)
+RETURNS return_type
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    -- объявление переменных
+BEGIN
+    -- тело функции
+END;
+$$;
+</code></pre>
+<h2 id="3-plpgsql">3. Блоки PL/pgSQL</h2>
+<h3 id="declare">DECLARE</h3>
+<p>Объявление переменных:</p>
+<pre><code class="language-sql">DECLARE
+    total NUMERIC;
+    emp_count INT := 0;
+</code></pre>
+<h3 id="begin-end">BEGIN ... END</h3>
+<p>Основной блок выполнения:</p>
+<pre><code class="language-sql">BEGIN
+    -- действия
+END;
+</code></pre>
+<h2 id="4">4. Работа с переменными</h2>
+<h3 id="_1">Присваивание</h3>
+<pre><code class="language-sql">total := 1000;
+</code></pre>
+<h3 id="select-into">SELECT INTO</h3>
+<pre><code class="language-sql">SELECT SUM(salary)
+INTO total
+FROM employees;
 </code></pre>
 <blockquote>
-<p>Заполните таблицы тестовыми данными</p>
+<p>В PL/pgSQL обязательно использовать INTO для записи результата в переменную.</p>
 </blockquote>
-<h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
+<h2 id="5">5. Условные конструкции</h2>
+<h3 id="if">IF</h3>
+<pre><code class="language-sql">IF total &gt; 100000 THEN
+    RETURN 'VIP';
+ELSIF total &gt; 50000 THEN
+    RETURN 'Regular';
+ELSE
+    RETURN 'New';
+END IF;
+</code></pre>
+<h2 id="6">6. Циклы</h2>
+<h3 id="loop">LOOP</h3>
+<pre><code class="language-sql">LOOP
+    -- действия
+    EXIT WHEN condition;
+END LOOP;
+</code></pre>
+<h3 id="while">WHILE</h3>
+<pre><code class="language-sql">WHILE total &lt; 100000 LOOP
+    total := total + 1000;
+END LOOP;
+</code></pre>
+<h3 id="for">FOR</h3>
+<pre><code class="language-sql">FOR emp_record IN
+    SELECT * FROM employees
+LOOP
+    RAISE NOTICE 'Employee: %', emp_record.full_name;
+END LOOP;
+</code></pre>
+<blockquote>
+<p>Часто используется для обработки набора строк.</p>
+</blockquote>
+<h2 id="7">7. Обработка ошибок</h2>
+<pre><code class="language-sql">BEGIN
+    -- код
+EXCEPTION
+    WHEN division_by_zero THEN
+        RAISE NOTICE 'Ошибка деления на ноль';
+END;
+</code></pre>
+<blockquote>
+<p>Позволяет перехватывать исключения.</p>
+</blockquote>
+<h2 id="8">8. Возврат значений</h2>
+<h3 id="return">RETURN</h3>
+<pre><code class="language-sql">RETURN total;
+</code></pre>
+<h3 id="returns-table">RETURNS TABLE</h3>
+<pre><code class="language-sql">CREATE FUNCTION get_employees()
+RETURNS TABLE(id INT, full_name TEXT)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT id, full_name
+    FROM employees;
+END;
+$$;
+</code></pre>
+<h2 id="9-raise">9. RAISE</h2>
+<p>Используется для вывода сообщений:</p>
+<pre><code class="language-sql">RAISE NOTICE 'Текущая сумма: %', total;
+</code></pre>
+<p>Варианты:</p>
 <ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
+<li>NOTICE</li>
+<li>WARNING</li>
+<li>EXCEPTION</li>
 </ul>
-<p>Требования:</p>
+<h2 id="10-sql-plpgsql-">10. Отличие SQL-функции от PL/pgSQL-функции</h2>
+<table>
+<thead>
+<tr>
+<th>SQL</th>
+<th>PL/pgSQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Один SELECT</td>
+<td>Многошаговая логика</td>
+</tr>
+<tr>
+<td>Нет переменных</td>
+<td>Есть переменные</td>
+</tr>
+<tr>
+<td>Нет циклов</td>
+<td>Есть циклы</td>
+</tr>
+<tr>
+<td>Проще</td>
+<td>Мощнее</td>
+</tr>
+</tbody>
+</table>
+<h2 id="11-plpgsql">11. Когда использовать PL/pgSQL</h2>
+<p>Использовать, если:</p>
 <ul>
-<li>минимум 2 JOIN</li>
-<li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
+<li>требуется сложная логика</li>
+<li>есть ветвления</li>
+<li>есть несколько SQL-операций</li>
+<li>нужна проверка и обработка ошибок</li>
 </ul>
-<h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
+<p>Не использовать, если:</p>
 <ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
+<li>можно решить одной SQL-командой</li>
+<li>логика принадлежит приложению</li>
+</ul>
+<h2 id="12">12. Производительность</h2>
+<p>PL/pgSQL:</p>
+<ul>
+<li>выполняется на сервере</li>
+<li>уменьшает сетевой трафик</li>
+<li>может ускорять пакетные операции</li>
+</ul>
+<p>Но:</p>
+<ul>
+<li>чрезмерная логика усложняет поддержку</li>
+<li>не заменяет оптимизацию SQL</li>
+</ul>
+<h2 id="13">13. Типичные ошибки</h2>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Причина</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT без INTO</td>
+<td>Синтаксическая ошибка</td>
+</tr>
+<tr>
+<td>Отсутствие RETURN</td>
+<td>Ошибка выполнения</td>
+</tr>
+<tr>
+<td>Неправильный тип переменной</td>
+<td>Несоответствие типов</td>
+</tr>
+<tr>
+<td>Избыточные циклы</td>
+<td>Потеря производительности</td>
+</tr>
+</tbody>
+</table>
+<h2 id="14">14. Архитектурный аспект</h2>
+<p>PL/pgSQL:</p>
+<ul>
+<li>используется в триггерах</li>
+<li>применяется для контроля данных</li>
+<li>формирует слой бизнес-логики внутри БД</li>
+<li>требует аккуратного проектирования</li>
+</ul>
+<h2 id="15">15. Выводы</h2>
+<p>PL/pgSQL:</p>
+<ul>
+<li>расширяет SQL процедурной логикой</li>
+<li>позволяет писать сложные функции</li>
+<li>поддерживает переменные, условия, циклы</li>
+<li>используется в триггерах и бизнес-правилах</li>
+<li>является мощным инструментом серверной логики</li>
+</ul>
+<h2 id="_2">Домашнее задание</h2>
+<p>Таблицы:</p>
+<ul>
+<li>employees (id, full_name, salary, department)</li>
+<li>clients</li>
+<li>orders</li>
+<li>order_items</li>
+</ul>
+<h3 id="1">Задание 1.</h3>
+<p>Создать функцию <code>get_department_total_salary(p_department TEXT)</code></p>
+<p>Которая:</p>
+<ul>
+<li>вычисляет сумму зарплат по отделу</li>
+<li>возвращает 0, если сотрудников нет</li>
+</ul>
+<blockquote>
+<p>Использовать: переменную <code>SELECT INTO</code> обработку <code>NULL</code></p>
+</blockquote>
+<h3 id="2">Задание 2. Условная логика</h3>
+<p>Создать функцию <code>get_employee_level(p_salary NUMERIC)</code></p>
+<p>Которая возвращает:</p>
+<ul>
+<li>'Junior' — если зарплата &lt; 50 000</li>
+<li>'Middle' — если 50 000–100 000</li>
+<li>'Senior' — если &gt; 100 000</li>
+</ul>
+<blockquote>
+<p>Использовать IF / ELSIF / ELSE.</p>
+</blockquote>
+<h3 id="3">Задание 3.</h3>
+<p>Создать функцию <code>increase_salary_for_department(p_department TEXT, p_percent NUMERIC)</code></p>
+<p>Которая:</p>
+<ul>
+<li>проходит по всем сотрудникам отдела</li>
+<li>увеличивает зарплату</li>
+<li>выводит через RAISE NOTICE имя сотрудника</li>
+</ul>
+<blockquote>
+<p>Использовать: <code>FOR record IN SELECT</code>, <code>UPDATE</code>, переменную-счётчик</p>
+</blockquote>
+<h3 id="4_1">Задание 4.</h3>
+<p>Создать функцию: <code>safe_divide(a NUMERIC, b NUMERIC)</code></p>
+<p>Которая:</p>
+<ul>
+<li>выполняет деление</li>
+<li>если b = 0, перехватывает ошибку</li>
+<li>возвращает NULL (когда это необходимо)</li>
+<li>выводит сообщение через RAISE NOTICE</li>
+</ul>
+<blockquote>
+<p>Использовать блок EXCEPTION.</p>
+</blockquote>
+<h3 id="5_1">Задание 5</h3>
+<p>Создать функцию <code>assign_client_status(p_client_id INT)</code></p>
+<p>Которая:</p>
+<ul>
+<li>Вычисляет сумму заказов клиента</li>
+<li>Определяет статус (VIP, Regular, New)</li>
+<li>Обновляет поле status в таблице clients</li>
+<li>Возвращает новый статус</li>
 </ul>
 <p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
-</code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
-<blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
-</blockquote>
-<h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
-<blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
-</blockquote>
-<h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
-<blockquote>
-<p>Использовать EXISTS.</p>
-</blockquote>
-<h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
-<blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
 <ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
+<li>переменные</li>
+<li>SELECT INTO</li>
+<li>IF</li>
+<li>UPDATE</li>
+<li>RETURN</li>
 </ul>
-<blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
-</blockquote>
-<h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<h3 id="_3">Контрольные вопросы</h3>
+<ol>
+<li>Что такое PL/pgSQL и чем он отличается от обычного SQL?</li>
+<li>Из каких блоков состоит функция на PL/pgSQL?</li>
+<li>Зачем используется DECLARE?</li>
+<li>Почему в PL/pgSQL нельзя писать просто SELECT без INTO?</li>
+<li>Как работает цикл FOR record IN SELECT?</li>
+<li>Что делает блок EXCEPTION?</li>
+<li>В чём опасность избыточного использования циклов в БД?</li>
+<li>Когда логика должна находиться в БД, а когда — в приложении?</li>
+</ol>
 
 
 

@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_4/practic-functions-with-parameters/">
       
       
+        <link rel="prev" href="../4.3-triggers/">
+      
+      
+        <link rel="next" href="../practic-data-control-triggers/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>Практика 7. Функции с параметрами - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#9" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              Практика 7. Функции с параметрами
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -800,18 +804,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -832,7 +838,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -850,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/4.1-stored-functions/" class="md-nav__link">
+      <a href="../4.1-stored-functions/" class="md-nav__link">
         
   
   
@@ -878,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/4.2-PL-pgSQL/" class="md-nav__link">
+      <a href="../4.2-PL-pgSQL/" class="md-nav__link">
         
   
   
@@ -906,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/4.3-triggers/" class="md-nav__link">
+      <a href="../4.3-triggers/" class="md-nav__link">
         
   
   
@@ -931,10 +937,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-functions-with-parameters/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика 7. Функции с параметрами
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -950,6 +983,136 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Исходная модель данных
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 6
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 7
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 8
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Индивидуальные задания
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -962,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-data-control-triggers/" class="md-nav__link">
+      <a href="../practic-data-control-triggers/" class="md-nav__link">
         
   
   
@@ -990,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-business-logic-triggers/" class="md-nav__link">
+      <a href="../practic-business-logic-triggers/" class="md-nav__link">
         
   
   
@@ -1574,7 +1737,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Исходная предметная область
+        Исходная модель данных
       
     </span>
   </a>
@@ -1585,7 +1748,7 @@
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 1
+        Задание 1.
       
     </span>
   </a>
@@ -1648,7 +1811,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
         Задание 7
@@ -1663,28 +1826,6 @@
     <span class="md-ellipsis">
       
         Задание 8
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 9
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 10
       
     </span>
   </a>
@@ -1719,111 +1860,106 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
-<h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
-<pre><code class="language-sql">clients (
+<h1 id="9">Практическое занятие 9. Функции с параметрами</h1>
+<p><strong>Цель:</strong> сформировать навыки создания функций с входными параметрами; использования параметров в SQL и PL/pgSQL; работы с типами возврата; обработки NULL; возврата таблиц из функций</p>
+<h2 id="_1">Исходная модель данных</h2>
+<pre><code class="language-sql">employees (
     id SERIAL PRIMARY KEY,
     full_name TEXT,
-    city TEXT
+    salary NUMERIC,
+    department TEXT
+);
+
+clients (
+    id SERIAL PRIMARY KEY,
+    full_name TEXT,
+    city TEXT,
+    status TEXT
 );
 
 orders (
     id SERIAL PRIMARY KEY,
     client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
+    order_date DATE,
+    total_amount NUMERIC
 );
 </code></pre>
+<h2 id="1">Задание 1.</h2>
+<p>Создать функцию <code>get_employee_salary(p_id INT)</code></p>
+<p>Которая:</p>
+<ul>
+<li>возвращает зарплату сотрудника по id</li>
+<li>если сотрудник не найден — возвращает NULL</li>
+</ul>
 <blockquote>
-<p>Заполните таблицы тестовыми данными</p>
+<p>Использовать LANGUAGE SQL.</p>
 </blockquote>
-<h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
-<ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
-</ul>
-<p>Требования:</p>
-<ul>
-<li>минимум 2 JOIN</li>
-<li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
-</ul>
 <h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
-<ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
-</ul>
-<p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
-</code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
+<p>Создать функцию <code>get_department_avg_salary(p_department TEXT)</code></p>
+<p>Которая возвращает среднюю зарплату отдела, если сотрудников нет — возвращает 0</p>
 <blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
+<p>Обработать NULL.</p>
+</blockquote>
+<h2 id="3">Задание 3</h2>
+<p>Создать функцию <code>get_client_total(p_client_id INT)</code></p>
+<p>Которая вычисляет сумму заказов клиента, если заказов нет — возвращает 0</p>
+<p>Использовать:</p>
+<ul>
+<li>переменную</li>
+<li>SELECT INTO</li>
+<li>RETURN</li>
+</ul>
+<h2 id="4">Задание 4</h2>
+<p>Создать функцию get_client_level(p_client_id INT)</p>
+<p>Которая:</p>
+<ul>
+<li>если сумма заказов &gt; 100 000 → 'VIP'</li>
+<li>если &gt; 50 000 → 'Regular'
+иначе → 'New'</li>
+</ul>
+<blockquote>
+<p>Использовать IF / ELSIF.</p>
 </blockquote>
 <h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
-<blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
-</blockquote>
-<h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
-<blockquote>
-<p>Использовать EXISTS.</p>
-</blockquote>
-<h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
-<blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
+<p>Создать функцию <code>increase_salary(p_department TEXT, p_percent NUMERIC)</code></p>
+<p>Которая:</p>
 <ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
+<li>увеличивает зарплату сотрудникам указанного отдела</li>
+<li>возвращает количество изменённых строк</li>
 </ul>
-<blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
-</blockquote>
+<p>Использовать <code>UPDATE</code>; <code>GET DIAGNOSTICS</code> или <code>RETURNING</code></p>
+<h2 id="6">Задание 6</h2>
+<p>Создать функцию <code>get_orders_by_period(p_date_from DATE, p_date_to DATE)</code></p>
+<p>Которая возвращает таблицу заказов за указанный период</p>
+<p>Использовать:</p>
+<ul>
+<li>RETURNS TABLE</li>
+<li>RETURN QUERY</li>
+</ul>
+<h2 id="7">Задание 7</h2>
+<p>Создать функцию <code>safe_update_salary(p_id INT, p_new_salary NUMERIC)</code></p>
+<p>Которая запрещает устанавливать зарплату меньше 30 000 при нарушении — выбрасывает EXCEPTION</p>
+<h2 id="8">Задание 8</h2>
+<p>Создать функцию <code>assign_client_status(p_client_id INT)</code></p>
+<p>Которая:</p>
+<ul>
+<li>Вычисляет сумму заказов</li>
+<li>Определяет статус</li>
+<li>Обновляет таблицу clients</li>
+<li>Возвращает новый статус</li>
+</ul>
+<p>Использовать:
+- переменные
+- SELECT INTO
+- UPDATE
+- IF
+- RETURN</p>
 <h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<p><strong>Вариант 1.</strong> Функция расчёта годовой премии сотрудника.
+<strong>Вариант 2.</strong> Функция, возвращающая сотрудников отдела с зарплатой выше среднего.
+<strong>Вариант 3.</strong> Функция, возвращающая количество заказов клиента за год.
+<strong>Вариант 4.</strong> Функция изменения статуса клиента в зависимости от города.
+<strong>Вариант 5.</strong> Функция, возвращающая максимальный заказ клиента.</p>
 
 
 

@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_5/practic-13-query-optimization/">
       
       
+        <link rel="prev" href="../practic-12-working-with-transactions/">
+      
+      
+        <link rel="next" href="../../Chapter_6/6.1-users-and-roles/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>Практика 11. Оптимизация запросов - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#13" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              Практика 11. Оптимизация запросов
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -1022,18 +1026,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1054,7 +1060,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1072,7 +1078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.1-transactions-and-ACID/" class="md-nav__link">
+      <a href="../5.1-transactions-and-ACID/" class="md-nav__link">
         
   
   
@@ -1100,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.2-Isolation-levels/" class="md-nav__link">
+      <a href="../5.2-Isolation-levels/" class="md-nav__link">
         
   
   
@@ -1128,7 +1134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.3-indexes/" class="md-nav__link">
+      <a href="../5.3-indexes/" class="md-nav__link">
         
   
   
@@ -1156,7 +1162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.4-explane-analyze/" class="md-nav__link">
+      <a href="../5.4-explane-analyze/" class="md-nav__link">
         
   
   
@@ -1184,7 +1190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/practic-12-working-with-transactions/" class="md-nav__link">
+      <a href="../practic-12-working-with-transactions/" class="md-nav__link">
         
   
   
@@ -1209,10 +1215,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_5/practic-13-query-optimization/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика 11. Оптимизация запросов
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1228,6 +1261,175 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Исходная предметная область
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задание 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 6
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 7
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 8
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 9
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 10
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 11
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Индивидуальные задания (на оценку)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1612,9 +1814,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Задание 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1622,6 +1825,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1648,7 +1856,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
         Задание 7
@@ -1692,10 +1900,21 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 11
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Индивидуальные задания
+        Индивидуальные задания (на оценку)
       
     </span>
   </a>
@@ -1719,20 +1938,21 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
+<h1 id="13">Практическое занятие 13. Оптимизация запросов</h1>
+<p><strong>Цель:</strong> Научить студентов: находить узкие места в запросах; читать план выполнения; выбирать индексы осознанно; переписывать неэффективные запросы; понимать влияние JOIN и агрегатов</p>
 <h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
 <pre><code class="language-sql">clients (
     id SERIAL PRIMARY KEY,
     full_name TEXT,
-    city TEXT
+    city TEXT,
+    status TEXT
 );
 
 orders (
     id SERIAL PRIMARY KEY,
     client_id INT REFERENCES clients(id),
-    order_date DATE
+    order_date DATE,
+    total_amount NUMERIC
 );
 
 order_items (
@@ -1744,86 +1964,126 @@ order_items (
 );
 </code></pre>
 <blockquote>
-<p>Заполните таблицы тестовыми данными</p>
+<p>Заполнить данными 20 000 - 50 000 строк</p>
 </blockquote>
 <h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
+<p>Выполнить:</p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT * FROM orders
+WHERE total_amount &gt; 100000;
+</code></pre>
+<p>Зафиксировать:</p>
 <ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
-</ul>
-<p>Требования:</p>
-<ul>
-<li>минимум 2 JOIN</li>
-<li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
+<li>тип сканирования</li>
+<li>время выполнения</li>
+<li>количество строк</li>
 </ul>
 <h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
-<ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
-</ul>
-<p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
+<p>Создать индекс:</p>
+<pre><code class="language-sql">CREATE INDEX idx_orders_total
+ON orders (total_amount);
 </code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
+<p>Повторить анализ.</p>
 <blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
+<p>Сравнить: Seq Scan vs Index Scan и время выполнения</p>
+</blockquote>
+<h2 id="3">Задание 3</h2>
+<p>Выполнить:</p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT c.full_name, o.total_amount
+FROM clients c
+JOIN orders o ON o.client_id = c.id
+WHERE c.city = 'Москва';
+</code></pre>
+<p>Определить:</p>
+<ul>
+<li>тип <code>JOIN</code></li>
+<li>используется ли индекс</li>
+</ul>
+<h3 id="4">Задание 4</h3>
+<p>Создать индекс на:</p>
+<pre><code class="language-sql">clients(city);
+orders(client_id);
+</code></pre>
+<p>Повторить анализ.</p>
+<blockquote>
+<p>Объяснить изменения в плане.</p>
 </blockquote>
 <h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
+<p>Неэффективный запрос:</p>
+<pre><code class="language-sql">SELECT *
+FROM clients
+WHERE id IN (
+    SELECT client_id FROM orders
+);
+</code></pre>
 <blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
+<p>Проанализировать план.</p>
 </blockquote>
 <h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
+<p>Переписать через EXISTS:</p>
+<pre><code class="language-sql">SELECT *
+FROM clients c
+WHERE EXISTS (
+    SELECT 1
+    FROM orders o
+    WHERE o.client_id = c.id
+);
+</code></pre>
 <blockquote>
-<p>Использовать EXISTS.</p>
+<p>Сравнить планы выполнения.</p>
 </blockquote>
+<h2 id="7">Задание 7</h2>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT client_id, COUNT(*)
+FROM orders
+GROUP BY client_id;
+</code></pre>
+<p>Определить:</p>
+<ul>
+<li>используется ли индекс</li>
+<li>тип агрегирования</li>
+</ul>
 <h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
-<blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
+<p>Создать индекс на <code>orders(client_id)</code> и повторить анализ.</p>
 <h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
+<pre><code class="language-sql">SELECT * FROM clients
+WHERE LOWER(full_name) = 'ivan ivanov';
+</code></pre>
 <blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
+<p>Почему индекс не используется?</p>
 </blockquote>
 <h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
+<p>Создать функциональный индекс:</p>
+<pre><code class="language-sql">CREATE INDEX idx_lower_name
+ON clients (LOWER(full_name));
+</code></pre>
+<p>Повторить анализ.</p>
+<h2 id="11">Задание 11</h2>
+<p>Медленный запрос:</p>
+<pre><code class="language-sql">SELECT c.city, SUM(o.total_amount)
+FROM clients c
+JOIN orders o ON o.client_id = c.id
+GROUP BY c.city
+ORDER BY SUM(o.total_amount) DESC;
+</code></pre>
+<p>Требуется:</p>
 <ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
+<li>Проанализировать план.</li>
+<li>Определить узкое место.</li>
 </ul>
-<blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
-</blockquote>
-<h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<p>Предложить:</p>
+<ul>
+<li>индексы</li>
+<li>переписывание</li>
+<li>изменение структуры</li>
+</ul>
+<h2 id="_2">Индивидуальные задания (на оценку)</h2>
+<p><strong>Вариант 1.</strong> Найти и оптимизировать самый медленный запрос.</p>
+<p><strong>Вариант 2.</strong> Объяснить выбор типа JOIN.</p>
+<p><strong>Вариант 3.</strong> Оптимизировать аналитический запрос с GROUP BY.</p>
+<p><strong>Вариант 4.</strong> Убрать избыточные индексы.</p>
+<p><strong>Вариант 5.</strong> Объяснить влияние ORDER BY на план выполнения.</p>
 
 
 

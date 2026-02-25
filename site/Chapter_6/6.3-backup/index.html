@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_6/6.3-backup/">
       
       
+        <link rel="prev" href="../6.2-access-rights/">
+      
+      
+        <link rel="next" href="../practic-14-setting-up-access-rights/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>Резервное копирование - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#postgresql" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              Резервное копирование
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -1244,18 +1248,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1276,7 +1282,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1294,7 +1300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/6.1-users-and-roles/" class="md-nav__link">
+      <a href="../6.1-users-and-roles/" class="md-nav__link">
         
   
   
@@ -1322,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/6.2-access-rights/" class="md-nav__link">
+      <a href="../6.2-access-rights/" class="md-nav__link">
         
   
   
@@ -1347,10 +1353,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_6/6.3-backup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Резервное копирование
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1366,6 +1399,335 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Зачем нужно резервное копирование
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Основные цели резервного копирования
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Типы резервного копирования
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pg_dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Логический бэкап (pg_dump)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Восстановление логического бэкапа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Особенности логического бэкапа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Физический бэкап
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-wal-write-ahead-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. WAL (Write-Ahead Log)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-wal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Архивирование WAL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Стратегии резервного копирования
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Стратегии резервного копирования">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Полный бэкап
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Инкрементальный бэкап
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Дифференциальный
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Горячий и холодный бэкап
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Проверка бэкапа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Ротация резервных копий
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Когда использовать каждый тип
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Архитектурный вывод
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pg_dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Логический бэкап (pg_dump)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Восстановление
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Частичное восстановление
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Анализ стратегии
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1378,7 +1740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/practic-14-setting-up-access-rights/" class="md-nav__link">
+      <a href="../practic-14-setting-up-access-rights/" class="md-nav__link">
         
   
   
@@ -1406,7 +1768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/practic-15-backup-and-recovery/" class="md-nav__link">
+      <a href="../practic-15-backup-and-recovery/" class="md-nav__link">
         
   
   
@@ -1571,21 +1933,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Исходная предметная область
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 1
+        1. Зачем нужно резервное копирование
       
     </span>
   </a>
@@ -1596,7 +1947,7 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 2
+        2. Основные цели резервного копирования
       
     </span>
   </a>
@@ -1607,7 +1958,7 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 3
+        3. Типы резервного копирования
       
     </span>
   </a>
@@ -1615,10 +1966,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#4-pg_dump" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 4
+        4. Логический бэкап (pg_dump)
       
     </span>
   </a>
@@ -1629,7 +1980,7 @@
   <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 5
+        5. Восстановление логического бэкапа
       
     </span>
   </a>
@@ -1640,7 +1991,7 @@
   <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 6
+        6. Особенности логического бэкапа
       
     </span>
   </a>
@@ -1648,10 +1999,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 7
+        7. Физический бэкап
       
     </span>
   </a>
@@ -1659,10 +2010,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
+  <a href="#8-wal-write-ahead-log" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 8
+        8. WAL (Write-Ahead Log)
       
     </span>
   </a>
@@ -1670,10 +2021,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
+  <a href="#9-wal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 9
+        9. Архивирование WAL
       
     </span>
   </a>
@@ -1684,7 +2035,68 @@
   <a href="#10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 10
+        10. Стратегии резервного копирования
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Стратегии резервного копирования">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Полный бэкап
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Инкрементальный бэкап
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Дифференциальный
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Горячий и холодный бэкап
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Проверка бэкапа
       
     </span>
   </a>
@@ -1692,10 +2104,137 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Ротация резервных копий
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Когда использовать каждый тип
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Архитектурный вывод
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pg_dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Логический бэкап (pg_dump)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Восстановление
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Частичное восстановление
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Анализ стратегии
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Индивидуальные задания
+        Контрольные вопросы
       
     </span>
   </a>
@@ -1719,111 +2258,304 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
-<h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
-<pre><code class="language-sql">clients (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT,
-    city TEXT
-);
-
-orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
-);
+<h1 id="postgresql">Резервное копирование в PostgreSQL</h1>
+<p><strong>Тип:</strong> лекция</p>
+<h2 id="1">1. Зачем нужно резервное копирование</h2>
+<p><strong>Резервное копирование (Backup)</strong> — это создание копии данных для их восстановления в случае:</p>
+<ul>
+<li>аппаратного сбоя</li>
+<li>ошибки администратора</li>
+<li>логической ошибки приложения</li>
+<li>повреждения данных</li>
+<li>атаки или удаления</li>
+</ul>
+<blockquote>
+<p>Бэкап — основа надёжности БД.</p>
+</blockquote>
+<h2 id="2">2. Основные цели резервного копирования</h2>
+<p>Администратор должен понимать два параметра:</p>
+<ul>
+<li>RPO (Recovery Point Objective) — допустимая потеря данных</li>
+<li>RTO (Recovery Time Objective) — допустимое время восстановления</li>
+</ul>
+<h2 id="3">3. Типы резервного копирования</h2>
+<p>В PostgreSQL используются:</p>
+<ul>
+<li>Логический бэкап</li>
+<li>Физический бэкап</li>
+<li>Непрерывное архивирование (WAL)</li>
+</ul>
+<h2 id="4-pg_dump">4. Логический бэкап (pg_dump)</h2>
+<p>Создаёт SQL-дамп или архив.</p>
+<p>Команда:</p>
+<pre><code class="language-sql">pg_dump -U user -d database_name &gt; backup.sql
 </code></pre>
-<blockquote>
-<p>Заполните таблицы тестовыми данными</p>
-</blockquote>
-<h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
-<ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
-</ul>
-<p>Требования:</p>
-<ul>
-<li>минимум 2 JOIN</li>
-<li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
-</ul>
-<h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
-<ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
-</ul>
-<p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
+<p>Варианты формата:</p>
+<table>
+<thead>
+<tr>
+<th>Формат</th>
+<th>Ключ</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plain SQL</td>
+<td>(по умолчанию)</td>
+<td>Текстовый файл</td>
+</tr>
+<tr>
+<td>Custom</td>
+<td>-Fc</td>
+<td>Для pg_restore</td>
+</tr>
+<tr>
+<td>Directory</td>
+<td>-Fd</td>
+<td>Многофайловый архив</td>
+</tr>
+<tr>
+<td>Tar</td>
+<td>-Ft</td>
+<td>Архив tar</td>
+</tr>
+</tbody>
+</table>
+<p>Пример:</p>
+<pre><code class="language-sql">pg_dump -U postgres -Fc mydb -f backup.dump
 </code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
-<blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
-</blockquote>
-<h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
-<blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
-</blockquote>
-<h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
-<blockquote>
-<p>Использовать EXISTS.</p>
-</blockquote>
-<h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
-<blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
+<h2 id="5">5. Восстановление логического бэкапа</h2>
+<p>Из SQL-файла:</p>
+<pre><code class="language-sql">psql -U postgres -d mydb &lt; backup.sql
+</code></pre>
+<p>Из custom-формата:</p>
+<pre><code class="language-sql">pg_restore -U postgres -d mydb backup.dump
+</code></pre>
+<h2 id="6">6. Особенности логического бэкапа</h2>
+<p>Плюсы:</p>
 <ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
+<li>Переносим между версиями</li>
+<li>Можно восстановить отдельную таблицу</li>
+<li>Читаемый формат</li>
+</ul>
+<p>Минусы: </p>
+<ul>
+<li>Медленнее на больших БД</li>
+<li>Не подходит для больших нагрузок</li>
+</ul>
+<h2 id="7">7. Физический бэкап</h2>
+<p>Создаётся копированием файлов кластера PostgreSQL.</p>
+<p>Используется инструмент:</p>
+<p><code>pg_basebackup</code></p>
+<p>Пример:</p>
+<pre><code class="language-sql">pg_basebackup -U postgres -D /backup_directory -Fp -Xs -P
+</code></pre>
+<p>Параметры:</p>
+<p>-D — каталог назначения
+-Fp — формат plain
+-Xs — включить WAL
+-P — прогресс</p>
+<h2 id="8-wal-write-ahead-log">8. WAL (Write-Ahead Log)</h2>
+<p>PostgreSQL использует журналирование.</p>
+<p>Все изменения записываются в WAL до записи в таблицу.</p>
+<p>WAL обеспечивает:</p>
+<ul>
+<li>Durability (долговечность)</li>
+<li>восстановление после сбоя</li>
+</ul>
+<h2 id="9-wal">9. Архивирование WAL</h2>
+<p>Для непрерывного резервирования:</p>
+<pre><code class="language-sql">archive_mode = on
+archive_command = 'cp %p /archive/%f'
+</code></pre>
+<p>Позволяет выполнять Point-In-Time Recovery (PITR) — восстановление к конкретному моменту времени.</p>
+<h2 id="10">10. Стратегии резервного копирования</h2>
+<h3 id="101">10.1 Полный бэкап</h3>
+<ul>
+<li>копия всей БД</li>
+<li>обычно ежедневно</li>
+</ul>
+<h3 id="102">10.2 Инкрементальный бэкап</h3>
+<ul>
+<li>копируются только изменения</li>
+<li>реализуется через WAL</li>
+</ul>
+<h3 id="103">10.3 Дифференциальный</h3>
+<ul>
+<li>копируются изменения с момента последнего полного бэкапа</li>
+</ul>
+<h3 id="11">11. Горячий и холодный бэкап</h3>
+<table>
+<thead>
+<tr>
+<th>Тип</th>
+<th>Особенность</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cold Backup</td>
+<td>БД остановлена</td>
+</tr>
+<tr>
+<td>Hot Backup</td>
+<td>БД работает</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>PostgreSQL поддерживает горячее резервирование.</p>
+</blockquote>
+<h2 id="12">12. Проверка бэкапа</h2>
+<p>Бэкап без проверки — бесполезен.</p>
+<p>Рекомендуется:</p>
+<ul>
+<li>регулярно тестировать восстановление</li>
+<li>хранить копии на другом сервере</li>
+<li>использовать контрольные суммы</li>
+</ul>
+<h2 id="13">13. Ротация резервных копий</h2>
+<p>Используются схемы:</p>
+<ul>
+<li>7 ежедневных</li>
+<li>4 недельных</li>
+<li>12 месячных</li>
 </ul>
 <blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
+<p>Это называется стратегия GFS (Grandfather-Father-Son).</p>
 </blockquote>
-<h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<h2 id="14">14. Типичные ошибки</h2>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Причина</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Нет регулярного бэкапа</td>
+<td>Отсутствие политики</td>
+</tr>
+<tr>
+<td>Хранение на том же сервере</td>
+<td>Риск потери</td>
+</tr>
+<tr>
+<td>Нет тестирования восстановления</td>
+<td>Ложное чувство безопасности</td>
+</tr>
+<tr>
+<td>Нет архивирования WAL</td>
+<td>Потеря данных между бэкапами</td>
+</tr>
+</tbody>
+</table>
+<h2 id="15">15. Когда использовать каждый тип</h2>
+<table>
+<thead>
+<tr>
+<th>Сценарий</th>
+<th>Рекомендуемый метод</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Маленькая БД</td>
+<td>pg_dump</td>
+</tr>
+<tr>
+<td>Большая БД</td>
+<td>pg_basebackup</td>
+</tr>
+<tr>
+<td>Критическая система</td>
+<td>Base backup + WAL</td>
+</tr>
+<tr>
+<td>Миграция</td>
+<td>Логический дамп</td>
+</tr>
+</tbody>
+</table>
+<h2 id="16">16. Архитектурный вывод</h2>
+<p>Резервное копирование — это не разовая операция а стратегия связанная с RPO и RTO требующая регулярного тестирования</p>
+<h2 id="17">17. Выводы</h2>
+<p>Резервное копирование в PostgreSQL:</p>
+<ul>
+<li>реализуется через pg_dump и pg_basebackup</li>
+<li>поддерживает PITR через WAL</li>
+<li>требует продуманной политики хранения</li>
+<li>является критически важным элементом администрирования</li>
+</ul>
+<h2 id="_1">Домашнее задание</h2>
+<h3 id="1-pg_dump">Задание 1. Логический бэкап (pg_dump)</h3>
+<p>Создать логический бэкап всей базы данных в формате SQL.</p>
+<p>Создать бэкап в формате custom (-Fc).</p>
+<p>Сравнить размер файлов.</p>
+<p>Описать различия форматов.</p>
+<blockquote>
+<p>В отчёте указать использованные команды.</p>
+</blockquote>
+<h3 id="2_1">Задание 2. Восстановление</h3>
+<p>Создать новую пустую базу <code>company_restore</code>.</p>
+<p>Восстановить данные:</p>
+<ul>
+<li>из SQL-файла</li>
+<li>из custom-формата через pg_restore.</li>
+</ul>
+<p>Проверить корректность восстановления (количество таблиц, строк).</p>
+<blockquote>
+<p>Объяснить разницу между psql &lt; file.sql и pg_restore.</p>
+</blockquote>
+<h3 id="3_1">Задание 3. Частичное восстановление</h3>
+<p>Создать бэкап только одной таблицы <code>employees</code>.</p>
+<p>Восстановить её в новую БД.</p>
+<p>Проверить результат.</p>
+<blockquote>
+<p>Объяснить, в каком случае это удобно.</p>
+</blockquote>
+<h3 id="4">Задание 4. Анализ стратегии</h3>
+<p>Смоделировать ситуацию:</p>
+<ul>
+<li>БД размером 200 ГБ</li>
+<li>24/7 нагрузка</li>
+<li>допустимая потеря данных — 5 минут</li>
+</ul>
+<p>Ответить:</p>
+<ul>
+<li>какой тип бэкапа использовать?</li>
+<li>нужно ли архивирование WAL?</li>
+<li>как часто выполнять полный бэкап?</li>
+</ul>
+<h3 id="5_1">Задание 5</h3>
+<p>Составить стратегию резервного копирования для:</p>
+<ul>
+<li>интернет-магазина</li>
+<li>бухгалтерской системы</li>
+<li>тестового учебного проекта</li>
+</ul>
+<p>Указать:</p>
+<ul>
+<li>тип бэкапа</li>
+<li>периодичность</li>
+<li>RPO</li>
+<li>RTO</li>
+</ul>
+<h2 id="_2">Контрольные вопросы</h2>
+<ol>
+<li>В чём разница между логическим и физическим бэкапом?</li>
+<li>Что такое WAL и какую роль он играет?</li>
+<li>Что такое Point-In-Time Recovery (PITR)?</li>
+<li>Чем отличается pg_dump от pg_basebackup?</li>
+<li>Что такое горячий и холодный бэкап?</li>
+<li>Что означают RPO и RTO?</li>
+<li>Почему хранить бэкап на том же сервере — плохая практика?</li>
+<li>Почему необходимо регулярно тестировать восстановление?</li>
+<li>Можно ли восстановить одну таблицу из физического бэкапа?</li>
+<li>В каком случае предпочтителен логический бэкап?</li>
+</ol>
 
 
 

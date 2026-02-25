@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_6/practic-15-backup-and-recovery/">
       
       
+        <link rel="prev" href="../practic-14-setting-up-access-rights/">
+      
+      
+        <link rel="next" href="../../Chapter_7/practic-16-database-implementation-and-protection/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>Практика 13. Бэкап и восстановление - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#15" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              Практика 13. Бэкап и восстановление
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -1244,18 +1248,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1276,7 +1282,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1294,7 +1300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/6.1-users-and-roles/" class="md-nav__link">
+      <a href="../6.1-users-and-roles/" class="md-nav__link">
         
   
   
@@ -1322,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/6.2-access-rights/" class="md-nav__link">
+      <a href="../6.2-access-rights/" class="md-nav__link">
         
   
   
@@ -1350,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/6.3-backup/" class="md-nav__link">
+      <a href="../6.3-backup/" class="md-nav__link">
         
   
   
@@ -1378,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/practic-14-setting-up-access-rights/" class="md-nav__link">
+      <a href="../practic-14-setting-up-access-rights/" class="md-nav__link">
         
   
   
@@ -1403,10 +1409,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_6/practic-15-backup-and-recovery/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика 13. Бэкап и восстановление
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1422,6 +1455,136 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подготовка
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-sql-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. SQL-формат
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-custom-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Custom-формат
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Восстановление из SQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pg_restore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Восстановление через pg_restore
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 6
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 7
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 8
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Индивидуальные задания
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1574,7 +1737,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Исходная предметная область
+        Подготовка
       
     </span>
   </a>
@@ -1582,10 +1745,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#1-sql-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 1
+        Задание 1. SQL-формат
       
     </span>
   </a>
@@ -1593,10 +1756,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2-custom-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 2
+        Задание 2. Custom-формат
       
     </span>
   </a>
@@ -1604,10 +1767,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-sql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 3
+        Задание 3. Восстановление из SQL
       
     </span>
   </a>
@@ -1615,10 +1778,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#4-pg_restore" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 4
+        Задание 4. Восстановление через pg_restore
       
     </span>
   </a>
@@ -1648,7 +1811,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
         Задание 7
@@ -1663,28 +1826,6 @@
     <span class="md-ellipsis">
       
         Задание 8
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 9
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 10
       
     </span>
   </a>
@@ -1719,111 +1860,95 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
-<h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
-<pre><code class="language-sql">clients (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT,
-    city TEXT
-);
-
-orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
-);
+<h1 id="15">Практическое занятие 15. Бэкап и восстановление</h1>
+<p><strong>Цель:</strong> научить студентов выполнять логическое резервное копирование, восстанавливать базу полностью и частично, сравнивать форматы бэкапа, проверять корректность восстановления, понимать различие логического и физического бэкапа</p>
+<h2 id="_1">Подготовка</h2>
+<p>Создать тестовую базу данных:</p>
+<pre><code class="language-sql">createdb company_db
 </code></pre>
+<p>Создать таблицы и заполнить данными:</p>
+<ul>
+<li>employees</li>
+<li>clients</li>
+<li>orders</li>
+</ul>
 <blockquote>
-<p>Заполните таблицы тестовыми данными</p>
+<p>добавить не менее 1000 строк.</p>
 </blockquote>
-<h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
-<ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
-</ul>
-<p>Требования:</p>
-<ul>
-<li>минимум 2 JOIN</li>
-<li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
-</ul>
-<h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
-<ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
-</ul>
-<p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
+<h2 id="1-sql-">Задание 1. SQL-формат</h2>
+<p>Выполнить:</p>
+<pre><code class="language-sql">pg_dump -U postgres company_db &gt; company_backup.sql
 </code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
-<blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
-</blockquote>
+<p>Проверить:</p>
+<ul>
+<li>размер файла</li>
+<li>читаемость (открыть в редакторе)</li>
+</ul>
+<h2 id="2-custom-">Задание 2. Custom-формат</h2>
+<pre><code class="language-sql">pg_dump -U postgres -Fc company_db -f company_backup.dump
+</code></pre>
+<p>Сравнить:</p>
+<ul>
+<li>размер файла</li>
+<li>содержимое (не текстовый формат)</li>
+</ul>
+<h2 id="3-sql">Задание 3. Восстановление из SQL</h2>
+<p>Создать новую БД:</p>
+<pre><code class="language-sql">createdb company_restore
+</code></pre>
+<p>Восстановить:</p>
+<pre><code class="language-sql">psql -U postgres -d company_restore &lt; company_backup.sql
+</code></pre>
+<p>Проверить:</p>
+<ul>
+<li>список таблиц</li>
+<li>количество строк</li>
+</ul>
+<h2 id="4-pg_restore">Задание 4. Восстановление через pg_restore</h2>
+<p>Удалить базу и создать заново.</p>
+<pre><code class="language-sql">pg_restore -U postgres -d company_restore company_backup.dump
+</code></pre>
+<p>Сравнить скорость восстановления.</p>
 <h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
-<blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
-</blockquote>
+<p>Создать бэкап только таблицы employees:</p>
+<pre><code class="language-sql">pg_dump -U postgres -t employees company_db &gt; employees_backup.sql
+</code></pre>
+<p>Создать новую БД и восстановить только эту таблицу.</p>
+<p>Проверить структуру и данные.</p>
 <h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
-<blockquote>
-<p>Использовать EXISTS.</p>
-</blockquote>
-<h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
-<blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
+<p>Удалить таблицу <code>orders</code>.</p>
+<p>Попробовать восстановить её из бэкапа.</p>
+<p>Проверить результат.</p>
+<p>Объяснить почему важно тестировать восстановление.</p>
+<h2 id="7">Задание 7</h2>
+<p>Выполнить:</p>
+<pre><code class="language-sql">pg_basebackup -U postgres -D /tmp/basebackup -Fp -Xs -P
+</code></pre>
+<p>Объяснить:</p>
 <ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
+<li>что копируется</li>
+<li>зачем нужны WAL</li>
+<li>чем отличается от pg_dump</li>
 </ul>
-<blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
-</blockquote>
+<h2 id="8">Задание 8</h2>
+<p>Смоделировать ситуацию:</p>
+<ul>
+<li>база 100 ГБ</li>
+<li>24/7 работа</li>
+<li>допустимая потеря данных — 10 минут</li>
+</ul>
+<p>Ответить:</p>
+<ul>
+<li>использовать ли только pg_dump?</li>
+<li>нужно ли архивирование WAL?</li>
+<li>как часто делать base backup?</li>
+</ul>
 <h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<p><strong>Вариант 1.</strong> Создать автоматизированный скрипт бэкапа.</p>
+<p><strong>Вариант 2.</strong> Настроить ротацию файлов (ежедневные копии).</p>
+<p><strong>Вариант 3.</strong> Восстановить базу в новую среду.</p>
+<p><strong>Вариант 4.</strong> Создать стратегию резервирования для интернет-магазина.</p>
+<p><strong>Вариант 5.</strong> Рассчитать RPO и RTO для учебной системы.</p>
 
 
 

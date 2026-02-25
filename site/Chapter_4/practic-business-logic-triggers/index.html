@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_4/practic-business-logic-triggers/">
       
       
+        <link rel="prev" href="../practic-data-control-triggers/">
+      
+      
+        <link rel="next" href="../../Chapter_5/5.1-transactions-and-ACID/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>Практика 9. Триггеры бизнес-логики - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#11-" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              Практика 9. Триггеры бизнес-логики
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -800,18 +804,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -832,7 +838,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -850,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/4.1-stored-functions/" class="md-nav__link">
+      <a href="../4.1-stored-functions/" class="md-nav__link">
         
   
   
@@ -878,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/4.2-PL-pgSQL/" class="md-nav__link">
+      <a href="../4.2-PL-pgSQL/" class="md-nav__link">
         
   
   
@@ -906,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/4.3-triggers/" class="md-nav__link">
+      <a href="../4.3-triggers/" class="md-nav__link">
         
   
   
@@ -934,7 +940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-functions-with-parameters/" class="md-nav__link">
+      <a href="../practic-functions-with-parameters/" class="md-nav__link">
         
   
   
@@ -962,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-data-control-triggers/" class="md-nav__link">
+      <a href="../practic-data-control-triggers/" class="md-nav__link">
         
   
   
@@ -987,10 +993,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-business-logic-triggers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика 9. Триггеры бизнес-логики
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1006,6 +1039,136 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Исходная предметная область
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 6
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 7
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 8
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Индивидуальные задания
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1648,7 +1811,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
         Задание 7
@@ -1663,28 +1826,6 @@
     <span class="md-ellipsis">
       
         Задание 8
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 9
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 10
       
     </span>
   </a>
@@ -1719,20 +1860,22 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
+<h1 id="11-">Практическое занятие 11. Триггеры бизнес-логики</h1>
+<p><strong>Цель:</strong> научить студентов: реализовывать бизнес-правила через триггеры; автоматически изменять связанные данные; использовать <code>AFTER</code> и <code>BEFORE</code> триггеры осознанно; понимать риски скрытой логики; избегать рекурсии и логических ошибок</p>
 <h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
+<p>Система продаж:</p>
 <pre><code class="language-sql">clients (
     id SERIAL PRIMARY KEY,
     full_name TEXT,
-    city TEXT
+    city TEXT,
+    status TEXT
 );
 
 orders (
     id SERIAL PRIMARY KEY,
     client_id INT REFERENCES clients(id),
-    order_date DATE
+    order_date DATE,
+    total_amount NUMERIC
 );
 
 order_items (
@@ -1743,87 +1886,62 @@ order_items (
     price NUMERIC
 );
 </code></pre>
-<blockquote>
-<p>Заполните таблицы тестовыми данными</p>
-</blockquote>
 <h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
+<p>Создать триггер при добавлении строки в <code>order_items</code>, автоматически пересчитывать orders.total_amount</p>
+<p>Использовать:</p>
 <ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
-</ul>
-<p>Требования:</p>
-<ul>
-<li>минимум 2 JOIN</li>
-<li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
+<li>AFTER INSERT OR UPDATE OR DELETE</li>
+<li>агрегат SUM(quantity * price)</li>
 </ul>
 <h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
+<p>Обеспечить корректную работу при удалении позиции заказа и изменении количества</p>
 <h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
-<ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
-</ul>
-<p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
-</code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
+<p>Создать триггер если сумма заказов клиента превышает 100 000, автоматически установить status = 'VIP'</p>
 <blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
+<p>Использовать AFTER INSERT ON orders.</p>
+</blockquote>
+<h2 id="4">Задание 4</h2>
+<p>Дополнить логику:</p>
+<ul>
+<li>если сумма &lt; 50 000 → 'New'</li>
+<li>50 000–100 000 → 'Regular'</li>
+</ul>
+<blockquote>
+<p>Вся логика должна находиться в триггерной функции.</p>
 </blockquote>
 <h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
+<p>Запретить создание заказа клиентом со статусом 'Blocked'</p>
 <blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
+<p>Использовать BEFORE INSERT.</p>
 </blockquote>
 <h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
+<p>Запретить удаление заказа, если он старше 30 дней</p>
 <blockquote>
-<p>Использовать EXISTS.</p>
+<p>Использовать сравнение дат.</p>
+</blockquote>
+<h2 id="7">Задание 7</h2>
+<p>Реализовать при удалении заказа автоматически перерасчёт статус клиента</p>
+<blockquote>
+<p>Убедиться, что логика работает корректно в обе стороны.</p>
 </blockquote>
 <h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
+<p>Реализовать логирование изменения статуса клиента в таблицу <code>client_status_log</code></p>
+<pre><code class="language-sql">client_status_log (
+    client_id INT,
+    old_status TEXT,
+    new_status TEXT,
+    changed_at TIMESTAMP
+);
+</code></pre>
 <blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
-<ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
-</ul>
-<blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
+<p>Использовать AFTER UPDATE с условием WHEN.</p>
 </blockquote>
 <h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<p><strong>Вариант 1.</strong> Автоматически начислять бонус клиенту при заказе &gt; 200 000.</p>
+<p><strong>Вариант 2.</strong> Запретить создание заказа без товаров.</p>
+<p><strong>Вариант 3.</strong> Переводить клиента в статус 'Inactive', если нет заказов более года.</p>
+<p><strong>Вариант 4.</strong> Ограничить максимальное количество заказов в месяц.</p>
+<p><strong>Вариант 5.</strong> Реализовать автоматический пересчёт среднего чека клиента.</p>
 
 
 

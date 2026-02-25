@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_5/5.1-transactions-and-ACID/">
       
       
+        <link rel="prev" href="../../Chapter_4/practic-business-logic-triggers/">
+      
+      
+        <link rel="next" href="../5.2-Isolation-levels/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>Транзакции и ACID - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#acid" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              Транзакции и ACID
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -1022,18 +1026,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1054,7 +1060,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1069,10 +1075,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_5/5.1-transactions-and-ACID/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Транзакции и ACID
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1088,6 +1121,396 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Что такое транзакция
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Зачем нужны транзакции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Базовые команды управления транзакциями
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Базовые команды управления транзакциями">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BEGIN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COMMIT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROLLBACK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#savepoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SAVEPOINT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Пример транзакции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-acid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Свойства ACID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-atomicity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Atomicity (Атомарность)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Consistency (Согласованность)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Isolation (Изолированность)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Уровни изоляции
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Уровни изоляции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-committed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read Committed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeatable-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeatable Read
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serializable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serializable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-durability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Durability (Надёжность)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Проблемы конкурентного доступа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Автоматические транзакции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Транзакции и триггеры
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Транзакции и функции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Когда обязательно использовать транзакции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Архитектурный аспект
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-atomicity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Атомарность (Atomicity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-savepoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. SAVEPOINT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Consistency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Изоляция (анализ)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1100,7 +1523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.2-Isolation-levels/" class="md-nav__link">
+      <a href="../5.2-Isolation-levels/" class="md-nav__link">
         
   
   
@@ -1128,7 +1551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.3-indexes/" class="md-nav__link">
+      <a href="../5.3-indexes/" class="md-nav__link">
         
   
   
@@ -1156,7 +1579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.4-explane-analyze/" class="md-nav__link">
+      <a href="../5.4-explane-analyze/" class="md-nav__link">
         
   
   
@@ -1184,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/practic-12-working-with-transactions/" class="md-nav__link">
+      <a href="../practic-12-working-with-transactions/" class="md-nav__link">
         
   
   
@@ -1212,7 +1635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/practic-13-query-optimization/" class="md-nav__link">
+      <a href="../practic-13-query-optimization/" class="md-nav__link">
         
   
   
@@ -1571,21 +1994,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Исходная предметная область
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 1
+        1. Что такое транзакция
       
     </span>
   </a>
@@ -1596,7 +2008,7 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 2
+        2. Зачем нужны транзакции
       
     </span>
   </a>
@@ -1607,10 +2019,60 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 3
+        3. Базовые команды управления транзакциями
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. Базовые команды управления транзакциями">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BEGIN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COMMIT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROLLBACK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#savepoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SAVEPOINT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1618,7 +2080,7 @@
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 4
+        4. Пример транзакции
       
     </span>
   </a>
@@ -1626,10 +2088,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#5-acid" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 5
+        5. Свойства ACID
       
     </span>
   </a>
@@ -1637,10 +2099,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
+  <a href="#6-atomicity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 6
+        6. Atomicity (Атомарность)
       
     </span>
   </a>
@@ -1648,10 +2110,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
+  <a href="#7-consistency" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 7
+        7. Consistency (Согласованность)
       
     </span>
   </a>
@@ -1659,10 +2121,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
+  <a href="#8-isolation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 8
+        8. Isolation (Изолированность)
       
     </span>
   </a>
@@ -1673,7 +2135,57 @@
   <a href="#9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 9
+        9. Уровни изоляции
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Уровни изоляции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-committed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read Committed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeatable-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeatable Read
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serializable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serializable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-durability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Durability (Надёжность)
       
     </span>
   </a>
@@ -1681,13 +2193,162 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
+  <a href="#11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 10
+        11. Проблемы конкурентного доступа
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Автоматические транзакции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Транзакции и триггеры
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Транзакции и функции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Когда обязательно использовать транзакции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Архитектурный аспект
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-atomicity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Атомарность (Atomicity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-savepoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. SAVEPOINT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Consistency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Изоляция (анализ)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1695,7 +2356,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Индивидуальные задания
+        Контрольные вопросы
       
     </span>
   </a>
@@ -1719,111 +2380,294 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
-<h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
-<pre><code class="language-sql">clients (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT,
-    city TEXT
-);
-
-orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
-);
+<h1 id="acid">Транзакции и ACID</h1>
+<p><strong>Тип:</strong> лекция</p>
+<h2 id="1">1. Что такое транзакция</h2>
+<p><strong>Транзакция</strong> — это логически завершённая последовательность операций с БД, которая выполняется как единое целое.</p>
+<p>Главный принцип: либо выполняются все операции, либо не выполняется ни одна.</p>
+<h2 id="2">2. Зачем нужны транзакции</h2>
+<p>Транзакции обеспечивают:</p>
+<ul>
+<li>целостность данных</li>
+<li>согласованность системы</li>
+<li>защиту от частичных изменений</li>
+<li>корректность при одновременной работе пользователей</li>
+</ul>
+<h2 id="3">3. Базовые команды управления транзакциями</h2>
+<h3 id="begin">BEGIN</h3>
+<pre><code class="language-sql">BEGIN;
 </code></pre>
-<blockquote>
-<p>Заполните таблицы тестовыми данными</p>
-</blockquote>
-<h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
-<ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
-</ul>
-<p>Требования:</p>
-<ul>
-<li>минимум 2 JOIN</li>
-<li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
-</ul>
-<h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
-<ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
-</ul>
-<p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
+<p>Начало транзакции.</p>
+<h3 id="commit">COMMIT</h3>
+<pre><code class="language-sql">COMMIT;
 </code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
+<p>Фиксирует изменения.</p>
+<h3 id="rollback">ROLLBACK</h3>
+<p>ROLLBACK;</p>
+<p>Отменяет все изменения в рамках транзакции.</p>
+<h3 id="savepoint">SAVEPOINT</h3>
+<pre><code class="language-sql">SAVEPOINT sp1;
+</code></pre>
+<p>Создаёт точку частичного отката.</p>
+<pre><code class="language-sql">ROLLBACK TO sp1;
+</code></pre>
+<h2 id="4">4. Пример транзакции</h2>
+<p>Перевод денег между счетами:</p>
+<pre><code class="language-sql">BEGIN;
+
+UPDATE accounts
+SET balance = balance - 1000
+WHERE id = 1;
+
+UPDATE accounts
+SET balance = balance + 1000
+WHERE id = 2;
+
+COMMIT;
+</code></pre>
+<p>Если вторая операция завершится ошибкой → выполняется ROLLBACK.</p>
+<h2 id="5-acid">5. Свойства ACID</h2>
+<p>ACID — четыре ключевых свойства транзакций:</p>
+<table>
+<thead>
+<tr>
+<th>Свойство</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Atomicity</td>
+<td>Атомарность</td>
+</tr>
+<tr>
+<td>Consistency</td>
+<td>Согласованность</td>
+</tr>
+<tr>
+<td>Isolation</td>
+<td>Изолированность</td>
+</tr>
+<tr>
+<td>Durability</td>
+<td>Надёжность</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-atomicity">6. Atomicity (Атомарность)</h2>
+<p>Транзакция выполняется полностью или не выполняется вовсе.</p>
 <blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
+<p>Если одна операция завершается ошибкой — вся транзакция отменяется.</p>
 </blockquote>
-<h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
-<blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
-</blockquote>
-<h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
-<blockquote>
-<p>Использовать EXISTS.</p>
-</blockquote>
-<h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
-<blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
+<h2 id="7-consistency">7. Consistency (Согласованность)</h2>
+<p>После завершения транзакции БД остаётся в корректном состоянии.</p>
+<p>Это обеспечивается:</p>
 <ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
+<li>ограничениями</li>
+<li>триггерами</li>
+<li>внешними ключами</li>
+<li>бизнес-логикой</li>
+</ul>
+<h2 id="8-isolation">8. Isolation (Изолированность)</h2>
+<p>Транзакции не должны мешать друг другу.</p>
+<p>Одновременная работа может приводить к:</p>
+<ul>
+<li>грязному чтению</li>
+<li>неповторяемому чтению</li>
+<li>фантомным строкам</li>
+</ul>
+<h2 id="9">9. Уровни изоляции</h2>
+<p>В PostgreSQL поддерживаются:</p>
+<ul>
+<li>Read Committed (по умолчанию)</li>
+<li>Repeatable Read</li>
+<li>Serializable</li>
+</ul>
+<h3 id="read-committed">Read Committed</h3>
+<p>Видны только зафиксированные данные</p>
+<p>Возможны неповторяемые чтения</p>
+<h3 id="repeatable-read">Repeatable Read</h3>
+<ul>
+<li>Повторное чтение даёт те же данные</li>
+<li>Нет неповторяемого чтения</li>
+<li>Возможны фантомы (ограниченно)</li>
+</ul>
+<h3 id="serializable">Serializable</h3>
+<ul>
+<li>Максимальная изоляция</li>
+<li>Поведение как при последовательном выполнении</li>
+<li>Возможны ошибки сериализации</li>
+</ul>
+<h2 id="10-durability">10. Durability (Надёжность)</h2>
+<p>После COMMIT данные сохраняются даже при сбое системы.</p>
+<p>Обеспечивается:</p>
+<ul>
+<li>журналированием (WAL)</li>
+<li>механизмом восстановления</li>
+</ul>
+<h2 id="11">11. Проблемы конкурентного доступа</h2>
+<p><strong>Грязное чтение</strong> - чтение незафиксированных данных.</p>
+<p><strong>Неповторяемое чтение</strong> - повторный SELECT возвращает разные значения.</p>
+<p><strong>Фантомные строки</strong> - повторный SELECT возвращает новые строки.</p>
+<h2 id="12">12. Автоматические транзакции</h2>
+<pre><code class="language-sql">UPDATE employees SET salary = 100000;
+</code></pre>
+<p>Если нет BEGIN, операция автоматически фиксируется.</p>
+<h2 id="13">13. Транзакции и триггеры</h2>
+<ul>
+<li>Триггеры выполняются внутри транзакции</li>
+<li>Если триггер вызывает ошибку — вся транзакция откатывается</li>
+</ul>
+<h2 id="14">14. Транзакции и функции</h2>
+<p>Функции:</p>
+<ul>
+<li>выполняются в контексте текущей транзакции</li>
+<li>не могут самостоятельно выполнить COMMIT (в функциях)</li>
 </ul>
 <blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
+<p>Процедуры (CALL) могут управлять транзакцией.</p>
 </blockquote>
-<h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<h2 id="15">15. Типичные ошибки</h2>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Причина</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UPDATE без транзакции</td>
+<td>Потеря данных</td>
+</tr>
+<tr>
+<td>Непонимание уровня изоляции</td>
+<td>Логические ошибки</td>
+</tr>
+<tr>
+<td>Ожидание dirty read</td>
+<td>PostgreSQL не допускает</td>
+</tr>
+<tr>
+<td>Игнорирование ROLLBACK</td>
+<td>Повреждение данных</td>
+</tr>
+</tbody>
+</table>
+<h2 id="16">16. Когда обязательно использовать транзакции</h2>
+<ul>
+<li>финансовые операции</li>
+<li>пакетные обновления</li>
+<li>связанные изменения нескольких таблиц</li>
+<li>бизнес-процессы с несколькими шагами</li>
+</ul>
+<h2 id="17">17. Архитектурный аспект</h2>
+<p>Транзакции:</p>
+<ul>
+<li>основа целостности данных</li>
+<li>критичны для многопользовательских систем</li>
+<li>тесно связаны с производительностью</li>
+</ul>
+<p>Неправильная настройка изоляции может:</p>
+<ul>
+<li>снижать производительность</li>
+<li>вызывать блокировки</li>
+<li>создавать взаимные блокировки (deadlocks)</li>
+</ul>
+<h2 id="18">18. Выводы</h2>
+<p>Транзакции:</p>
+<ul>
+<li>объединяют операции в единое целое</li>
+<li>обеспечивают свойства ACID</li>
+<li>управляются через BEGIN / COMMIT / ROLLBACK</li>
+<li>защищают данные при конкурентной работе</li>
+<li>являются фундаментом надёжности БД</li>
+</ul>
+<h2 id="_1">Домашнее задание</h2>
+<p>Таблица предметной области</p>
+<pre><code class="language-sql">accounts (id SERIAL PRIMARY KEY, owner TEXT, balance NUMERIC);
+orders (id SERIAL PRIMARY KEY, client_id INT, total_amount NUMERIC);
+employees (id SERIAL PRIMARY KEY, salary NUMERIC);
+</code></pre>
+<h3 id="1-atomicity">Задание 1. Атомарность (Atomicity)</h3>
+<p>Реализовать перевод средств между счетами:</p>
+<ul>
+<li>Уменьшить баланс одного счёта</li>
+<li>Увеличить баланс другого</li>
+<li>Зафиксировать изменения</li>
+</ul>
+<p>Реализовать:</p>
+<ul>
+<li>корректную транзакцию</li>
+<li>вариант с ошибкой</li>
+<li>вариант с ROLLBACK</li>
+</ul>
+<blockquote>
+<p>Объяснить, как обеспечивается атомарность.</p>
+</blockquote>
+<h3 id="2-savepoint">Задание 2. SAVEPOINT</h3>
+<ol>
+<li>Начать транзакцию</li>
+<li>Изменить зарплаты нескольких сотрудников</li>
+<li>Создать SAVEPOINT</li>
+<li>Выполнить ошибочную операцию</li>
+<li>Откатиться к SAVEPOINT</li>
+</ol>
+<p>Зафиксировать результат.</p>
+<blockquote>
+<p>Объяснить разницу между ROLLBACK и ROLLBACK TO.</p>
+</blockquote>
+<h3 id="3-consistency">Задание 3. Consistency</h3>
+<p>Создать транзакцию, которая:</p>
+<ul>
+<li>добавляет заказ</li>
+<li>обновляет суммарный баланс клиента</li>
+<li>проверяет, что сумма не отрицательная</li>
+</ul>
+<p>Объяснить, какие механизмы обеспечивают согласованность:</p>
+<ul>
+<li>ограничения</li>
+<li>триггеры</li>
+<li>транзакция</li>
+</ul>
+<h3 id="4_1">Задание 4. Изоляция (анализ)</h3>
+<p>Смоделировать ситуацию в двух сессиях:</p>
+<ul>
+<li>Первая сессия обновляет баланс</li>
+<li>Вторая выполняет SELECT</li>
+</ul>
+<p>Выполнить при уровне:</p>
+<ul>
+<li>READ COMMITTED</li>
+<li>REPEATABLE READ</li>
+</ul>
+<blockquote>
+<p>Описать различия в поведении.</p>
+</blockquote>
+<h3 id="5">Задание 5</h3>
+<p>Создать сценарий, в котором:</p>
+<ul>
+<li>две транзакции одновременно изменяют один и тот же набор строк</li>
+<li>возникает блокировка</li>
+</ul>
+<blockquote>
+<p>Ответить:</p>
+<p>что такое deadlock</p>
+<p>как PostgreSQL его разрешает</p>
+</blockquote>
+<h2 id="_2">Контрольные вопросы</h2>
+<ol>
+<li>Что такое транзакция и зачем она нужна?</li>
+<li>Расшифруйте ACID и объясните каждое свойство.</li>
+<li>Чем отличается COMMIT от ROLLBACK?</li>
+<li>Что такое SAVEPOINT и когда он используется?</li>
+<li>Какие проблемы конкурентного доступа существуют?</li>
+<li>Какие уровни изоляции поддерживает PostgreSQL?</li>
+<li>Почему PostgreSQL не допускает Dirty Read?</li>
+<li>Что такое deadlock и как он возникает?</li>
+<li>Почему функции не могут выполнять COMMIT?</li>
+<li>В каких случаях использование транзакций обязательно?</li>
+</ol>
 
 
 

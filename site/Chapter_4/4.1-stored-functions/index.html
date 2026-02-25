@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_4/4.1-stored-functions/">
       
       
+        <link rel="prev" href="../../Chapter_3/3.3-presentations/">
+      
+      
+        <link rel="next" href="../4.2-PL-pgSQL/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>Хранимые функции - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#postgresql" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              Хранимые функции
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -800,18 +804,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -832,7 +838,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -847,10 +853,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_4/4.1-stored-functions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Хранимые функции
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -866,6 +899,263 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Что такое хранимая функция
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Общий синтаксис
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Простая функция
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Функция с параметрами
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-plpgsql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. PL/pgSQL — процедурный язык
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-plpgsql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Пример функции на PL/pgSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Переменные
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Условные конструкции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Возврат нескольких строк
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-function-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Разница между FUNCTION и PROCEDURE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Права доступа и безопасность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Производительность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Когда использовать хранимые функции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -878,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/4.2-PL-pgSQL/" class="md-nav__link">
+      <a href="../4.2-PL-pgSQL/" class="md-nav__link">
         
   
   
@@ -906,7 +1196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/4.3-triggers/" class="md-nav__link">
+      <a href="../4.3-triggers/" class="md-nav__link">
         
   
   
@@ -934,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-functions-with-parameters/" class="md-nav__link">
+      <a href="../practic-functions-with-parameters/" class="md-nav__link">
         
   
   
@@ -962,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-data-control-triggers/" class="md-nav__link">
+      <a href="../practic-data-control-triggers/" class="md-nav__link">
         
   
   
@@ -990,7 +1280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-business-logic-triggers/" class="md-nav__link">
+      <a href="../practic-business-logic-triggers/" class="md-nav__link">
         
   
   
@@ -1571,21 +1861,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Исходная предметная область
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 1
+        1. Что такое хранимая функция
       
     </span>
   </a>
@@ -1596,7 +1875,7 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 2
+        2. Общий синтаксис
       
     </span>
   </a>
@@ -1607,7 +1886,7 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 3
+        3. Простая функция
       
     </span>
   </a>
@@ -1618,7 +1897,7 @@
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 4
+        4. Функция с параметрами
       
     </span>
   </a>
@@ -1626,10 +1905,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#5-plpgsql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 5
+        5. PL/pgSQL — процедурный язык
       
     </span>
   </a>
@@ -1637,10 +1916,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
+  <a href="#6-plpgsql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 6
+        6. Пример функции на PL/pgSQL
       
     </span>
   </a>
@@ -1648,10 +1927,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 7
+        7. Переменные
       
     </span>
   </a>
@@ -1662,7 +1941,7 @@
   <a href="#8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 8
+        8. Условные конструкции
       
     </span>
   </a>
@@ -1673,7 +1952,7 @@
   <a href="#9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 9
+        9. Возврат нескольких строк
       
     </span>
   </a>
@@ -1681,13 +1960,129 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
+  <a href="#10-function-procedure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 10
+        10. Разница между FUNCTION и PROCEDURE
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Права доступа и безопасность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Производительность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Типичные ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Когда использовать хранимые функции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1695,7 +2090,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Индивидуальные задания
+        Контрольные вопросы
       
     </span>
   </a>
@@ -1719,111 +2114,293 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
-<h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
-<pre><code class="language-sql">clients (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT,
-    city TEXT
-);
-
-orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
-);
+<h1 id="postgresql">Хранимые функции в PostgreSQL</h1>
+<p><strong>Тип занятия:</strong> лекция</p>
+<p><strong>Продолжительность:</strong> 2 академических часа</p>
+<h2 id="1">1. Что такое хранимая функция</h2>
+<p><strong>Хранимая функция (Stored Function)</strong> — это программный объект базы данных, который:</p>
+<ul>
+<li>хранится в БД</li>
+<li>принимает параметры</li>
+<li>выполняет SQL-операции</li>
+<li>возвращает значение</li>
+</ul>
+<blockquote>
+<p>Функция — это способ перенести часть бизнес-логики внутрь СУБД.</p>
+</blockquote>
+<p>Хранимые функции применяются для:</p>
+<ul>
+<li>инкапсуляции бизнес-логики</li>
+<li>повторного использования кода</li>
+<li>обеспечения целостности данных</li>
+<li>ограничения доступа к таблицам</li>
+<li>повышения безопасности</li>
+</ul>
+<h2 id="2">2. Общий синтаксис</h2>
+<p>В PostgreSQL функции создаются через <code>CREATE FUNCTION</code>.</p>
+<pre><code class="language-sql">CREATE FUNCTION function_name(parameter_list)
+RETURNS return_type
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    -- тело функции
+END;
+$$;
+</code></pre>
+<h2 id="3">3. Простая функция</h2>
+<p>Пример: функция, возвращающая среднюю зарплату.</p>
+<pre><code class="language-sql">CREATE FUNCTION avg_salary()
+RETURNS NUMERIC
+LANGUAGE SQL
+AS $$
+    SELECT AVG(salary) FROM employees;
+$$;
+</code></pre>
+<p>Вызов функции:</p>
+<pre><code class="language-sql">SELECT avg_salary();
 </code></pre>
 <blockquote>
-<p>Заполните таблицы тестовыми данными</p>
+<p>Это SQL-функция без процедурной логики.</p>
 </blockquote>
-<h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
+<h2 id="4">4. Функция с параметрами</h2>
+<pre><code class="language-sql">CREATE FUNCTION get_client_total(client_id INT)
+RETURNS NUMERIC
+LANGUAGE SQL
+AS $$
+    SELECT SUM(oi.quantity * oi.price)
+    FROM orders o
+    JOIN order_items oi ON oi.order_id = o.id
+    WHERE o.client_id = get_client_total.client_id;
+$$;
+</code></pre>
+<p>Вызов: </p>
+<pre><code class="language-sql">SELECT get_client_total(5);
+</code></pre>
+<h2 id="5-plpgsql">5. PL/pgSQL — процедурный язык</h2>
+<p>PostgreSQL поддерживает процедурный язык plpgsql.</p>
+<p>Позволяет использовать:</p>
 <ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
+<li>переменные</li>
+<li>условия (IF)</li>
+<li>циклы (LOOP)</li>
+<li>обработку ошибок</li>
 </ul>
-<p>Требования:</p>
+<h2 id="6-plpgsql">6. Пример функции на PL/pgSQL</h2>
+<pre><code class="language-sql">CREATE FUNCTION increase_salary(emp_id INT, percent NUMERIC)
+RETURNS VOID
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    UPDATE employees
+    SET salary = salary * (1 + percent / 100)
+    WHERE id = emp_id;
+END;
+$$;
+</code></pre>
+<pre><code class="language-sql">SELECT increase_salary(3, 10);
+</code></pre>
+<h2 id="7">7. Переменные</h2>
+<p>В PL/pgSQL можно объявлять переменные:</p>
+<pre><code class="language-sql">DECLARE
+    total NUMERIC;
+BEGIN
+    SELECT SUM(salary) INTO total
+    FROM employees;
+
+    RETURN total;
+END;
+</code></pre>
+<h2 id="8">8. Условные конструкции</h2>
+<pre><code class="language-sql">IF total &gt; 100000 THEN
+    RETURN 'VIP';
+ELSE
+    RETURN 'Standard';
+END IF;
+</code></pre>
+<h2 id="9">9. Возврат нескольких строк</h2>
+<pre><code class="language-sql">CREATE FUNCTION get_high_salary_employees(min_salary NUMERIC)
+RETURNS TABLE(id INT, full_name TEXT, salary NUMERIC)
+LANGUAGE SQL
+AS $$
+    SELECT id, full_name, salary
+    FROM employees
+    WHERE salary &gt; min_salary;
+$$;
+</code></pre>
+<p>Использование:</p>
+<pre><code class="language-sql">SELECT * FROM get_high_salary_employees(70000);
+</code></pre>
+<h2 id="10-function-procedure">10. Разница между FUNCTION и PROCEDURE</h2>
+<table>
+<thead>
+<tr>
+<th>FUNCTION</th>
+<th>PROCEDURE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Возвращает значение</td>
+<td>Может не возвращать</td>
+</tr>
+<tr>
+<td>Вызывается через SELECT</td>
+<td>Вызывается через CALL</td>
+</tr>
+<tr>
+<td>Используется в запросах</td>
+<td>Нет</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>В PostgreSQL процедуры появились с версии 11.</p>
+</blockquote>
+<h2 id="11">11. Права доступа и безопасность</h2>
+<p>Можно дать доступ только к функции:</p>
+<pre><code class="language-sql">GRANT EXECUTE ON FUNCTION get_client_total(INT) TO analyst;
+</code></pre>
+<blockquote>
+<p>Пользователь может выполнять функцию, не имея доступа к таблицам.</p>
+</blockquote>
+<h2 id="12">12. Производительность</h2>
+<p>Функции:</p>
 <ul>
-<li>минимум 2 JOIN</li>
-<li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
+<li>уменьшают сетевой трафик</li>
+<li>выполняются на сервере</li>
+<li>могут кэшироваться</li>
 </ul>
-<h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
+<p>Но:</p>
 <ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
+<li>чрезмерная логика внутри БД усложняет поддержку</li>
+<li>сложные функции могут ухудшать план выполнения</li>
+</ul>
+<h2 id="14">14. Типичные ошибки</h2>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Причина</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Забытый RETURN</td>
+<td>Синтаксическая ошибка</td>
+</tr>
+<tr>
+<td>Несоответствие типа возврата</td>
+<td>Ошибка выполнения</td>
+</tr>
+<tr>
+<td>SELECT без INTO</td>
+<td>Ошибка в PL/pgSQL</td>
+</tr>
+<tr>
+<td>Логика, дублирующая приложение</td>
+<td>Архитектурная ошибка</td>
+</tr>
+</tbody>
+</table>
+<h2 id="15">15. Когда использовать хранимые функции</h2>
+<p>Использовать, если:</p>
+<ul>
+<li>логика должна быть централизована</li>
+<li>необходимо обеспечить безопасность</li>
+<li>требуется атомарность операций</li>
+<li>нужна повторяемость расчётов</li>
+</ul>
+<p>Не использовать, если:</p>
+<ul>
+<li>логика специфична для одного клиента</li>
+<li>код постоянно меняется</li>
+<li>требуется высокая масштабируемость приложения</li>
+</ul>
+<h2 id="16">16. Выводы</h2>
+<p>Хранимые функции:</p>
+<ul>
+<li>переносят бизнес-логику в БД</li>
+<li>обеспечивают повторное использование кода</li>
+<li>повышают безопасность</li>
+<li>могут возвращать скалярные значения или таблицы</li>
+<li>являются основой для триггеров</li>
+</ul>
+<h2 id="_1">Домашнее задание</h2>
+<p>Таблицы:</p>
+<ul>
+<li>clients</li>
+<li>orders</li>
+<li>order_items</li>
+<li>employees</li>
+</ul>
+<h3 id="1_1">Задание 1</h3>
+<p>Создать функцию <code>get_avg_salary()</code></p>
+<p>Которая:</p>
+<ul>
+<li>возвращает среднюю зарплату сотрудников</li>
+<li>не принимает параметров</li>
+</ul>
+<blockquote>
+<p>Тип возврата — NUMERIC.</p>
+</blockquote>
+<h3 id="2_1">Задание 2.</h3>
+<p>Создать функцию <code>get_client_total(p_client_id INT)</code></p>
+<p>Которая:</p>
+<ul>
+<li>возвращает общую сумму заказов клиента</li>
+<li>если заказов нет — возвращает 0</li>
+</ul>
+<blockquote>
+<p>Обработать возможный NULL.</p>
+</blockquote>
+<h3 id="3_1">Задание 3</h3>
+<p>Создать функцию <code>get_client_status(p_client_id INT)</code></p>
+<p>Которая:</p>
+<ul>
+<li>если сумма заказов &gt; 100 000 → возвращает 'VIP'</li>
+<li>если сумма &gt; 50 000 → 'Regular'</li>
+<li>иначе → 'New'</li>
+</ul>
+<blockquote>
+<p>Использовать: переменную и IF / ELSIF</p>
+</blockquote>
+<p>Задание 4. Функция, возвращающая таблицу</p>
+<p>Создать функцию <code>get_high_value_clients(min_total NUMERIC)</code></p>
+<p>Которая:</p>
+<p>возвращает таблицу:</p>
+<ul>
+<li>id клиента</li>
+<li>ФИО</li>
+<li>сумму заказов</li>
+</ul>
+<p>только для клиентов с суммой выше <code>min_total</code>.</p>
+<blockquote>
+<p>Использовать RETURNS TABLE.</p>
+</blockquote>
+<h3 id="5">Задание 5</h3>
+<p>Создать функцию <code>increase_salary_by_department(p_department TEXT, p_percent NUMERIC)</code></p>
+<p>Которая:</p>
+<ul>
+<li>увеличивает зарплату сотрудникам указанного отдела</li>
+<li>возвращает количество обновлённых строк</li>
 </ul>
 <p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
-</code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
-<blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
-</blockquote>
-<h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
-<blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
-</blockquote>
-<h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
-<blockquote>
-<p>Использовать EXISTS.</p>
-</blockquote>
-<h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
-<blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
 <ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
+<li>UPDATE</li>
+<li>RETURNING</li>
+<li>переменную для подсчёта</li>
 </ul>
-<blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
-</blockquote>
-<h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<h2 id="_2">Контрольные вопросы</h2>
+<ol>
+<li>Что такое хранимая функция и где она хранится?</li>
+<li>Чем отличается функция от процедуры в PostgreSQL?</li>
+<li>В чём разница между LANGUAGE SQL и LANGUAGE plpgsql?</li>
+<li>Что произойдёт, если тип возврата функции не соответствует фактическому результату?</li>
+<li>Как вернуть несколько строк из функции?</li>
+<li>Почему функции могут использоваться для ограничения доступа к данным?</li>
+<li>Что такое переменная в PL/pgSQL и как она объявляется?</li>
+<li>Когда перенос бизнес-логики в БД оправдан, а когда нет?</li>
+</ol>
 
 
 

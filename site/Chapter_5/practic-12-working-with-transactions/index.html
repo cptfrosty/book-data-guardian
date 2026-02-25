@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_5/practic-12-working-with-transactions/">
       
       
+        <link rel="prev" href="../5.4-explane-analyze/">
+      
+      
+        <link rel="next" href="../practic-13-query-optimization/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>Практика 10. Работа с транзакциями - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#12" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              Практика 10. Работа с транзакциями
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -1022,18 +1026,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1054,7 +1060,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1072,7 +1078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.1-transactions-and-ACID/" class="md-nav__link">
+      <a href="../5.1-transactions-and-ACID/" class="md-nav__link">
         
   
   
@@ -1100,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.2-Isolation-levels/" class="md-nav__link">
+      <a href="../5.2-Isolation-levels/" class="md-nav__link">
         
   
   
@@ -1128,7 +1134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.3-indexes/" class="md-nav__link">
+      <a href="../5.3-indexes/" class="md-nav__link">
         
   
   
@@ -1156,7 +1162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.4-explane-analyze/" class="md-nav__link">
+      <a href="../5.4-explane-analyze/" class="md-nav__link">
         
   
   
@@ -1181,10 +1187,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_5/practic-12-working-with-transactions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика 10. Работа с транзакциями
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1200,6 +1233,125 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Исходная модель данных
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. COMMIT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. ROLLBACK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Перевод средств
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 6. Анализ блокировок
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 7
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 8
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Индивидуальные задания
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1212,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/practic-13-query-optimization/" class="md-nav__link">
+      <a href="../practic-13-query-optimization/" class="md-nav__link">
         
   
   
@@ -1574,7 +1726,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Исходная предметная область
+        Исходная модель данных
       
     </span>
   </a>
@@ -1582,10 +1734,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#1-commit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 1
+        Задание 1. COMMIT
       
     </span>
   </a>
@@ -1593,10 +1745,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2-rollback" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 2
+        Задание 2. ROLLBACK
       
     </span>
   </a>
@@ -1607,7 +1759,7 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 3
+        Задание 3. Перевод средств
       
     </span>
   </a>
@@ -1626,21 +1778,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 5
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 6
+        Задание 6. Анализ блокировок
       
     </span>
   </a>
@@ -1648,7 +1789,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
         Задание 7
@@ -1663,28 +1804,6 @@
     <span class="md-ellipsis">
       
         Задание 8
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 9
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 10
       
     </span>
   </a>
@@ -1719,111 +1838,167 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
-<h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
-<pre><code class="language-sql">clients (
+<h1 id="12">Практическое занятие 12. Работа с транзакциями</h1>
+<p><strong>Цель:</strong> сформировать навыки: управления транзакциями вручную; обеспечения атомарности операций; использования SAVEPOINT; моделирования конкурентных сценариев; анализа блокировок</p>
+<h2 id="_1">Исходная модель данных</h2>
+<pre><code class="language-sql">accounts (
+    id SERIAL PRIMARY KEY,
+    owner TEXT,
+    balance NUMERIC
+);
+
+employees (
     id SERIAL PRIMARY KEY,
     full_name TEXT,
-    city TEXT
+    salary NUMERIC
 );
-
-orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
-);
+</code></pre>
+<p>Предварительно заполнить тестовыми данными.</p>
+<h2 id="1-commit">Задание 1. COMMIT</h2>
+<ol>
+<li>Начать транзакцию:</li>
+</ol>
+<pre><code class="language-sql">BEGIN;
+</code></pre>
+<ol>
+<li>
+<p>Изменить баланс одного счёта.</p>
+</li>
+<li>
+<p>Проверить изменение в той же сессии.</p>
+</li>
+<li>
+<p>Выполнить:</p>
+</li>
+</ol>
+<pre><code class="language-sql">COMMIT;
 </code></pre>
 <blockquote>
-<p>Заполните таблицы тестовыми данными</p>
+<p>Проверить, сохранились ли изменения.</p>
 </blockquote>
-<h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
-<ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
-</ul>
-<p>Требования:</p>
-<ul>
-<li>минимум 2 JOIN</li>
-<li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
-</ul>
-<h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
-<ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
-</ul>
-<p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
+<h2 id="2-rollback">Задание 2. ROLLBACK</h2>
+<ol>
+<li>
+<p>Начать транзакцию.</p>
+</li>
+<li>
+<p>Выполнить <code>UPDATE</code>.</p>
+</li>
+<li>
+<p>Проверить изменение.</p>
+</li>
+<li>
+<p>Выполнить:</p>
+</li>
+</ol>
+<pre><code class="language-sql">ROLLBACK;
 </code></pre>
+<blockquote>
+<p>Убедиться, что данные вернулись к исходному состоянию.</p>
+</blockquote>
+<h2 id="3">Задание 3. Перевод средств</h2>
+<p>Реализовать перевод между счетами:</p>
+<pre><code class="language-sql">BEGIN;
+
+UPDATE accounts
+SET balance = balance - 1000
+WHERE id = 1;
+
+UPDATE accounts
+SET balance = balance + 1000
+WHERE id = 2;
+
+COMMIT;
+</code></pre>
+<p>Смоделировать ошибку во второй операции.</p>
+<p>Использовать ROLLBACK.</p>
+<blockquote>
+<p>Ответить: как обеспечивается Atomicity.</p>
+</blockquote>
 <h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
+<ol>
+<li>
+<p>Начать транзакцию.</p>
+</li>
+<li>
+<p>Изменить зарплаты нескольких сотрудников.</p>
+</li>
+<li>
+<p>Создать:</p>
+</li>
+</ol>
+<pre><code class="language-sql">SAVEPOINT sp1;
+</code></pre>
+<ol>
+<li>Выполнить ошибочную операцию.</li>
+</ol>
+<p>Выполнить:</p>
+<pre><code class="language-sql">ROLLBACK TO sp1;
+</code></pre>
+<ol>
+<li>Зафиксировать изменения через COMMIT.</li>
+</ol>
 <blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
+<p>Объяснить разницу между ROLLBACK и ROLLBACK TO</p>
 </blockquote>
-<h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
+<p>Задание 5. Блокировка строки</p>
 <blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
+<p>Требуется открыть две сессии psql.</p>
 </blockquote>
-<h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
+<p>Сессия A:</p>
+<pre><code class="language-sql">BEGIN;
+UPDATE accounts
+SET balance = balance + 500
+WHERE id = 1;
+</code></pre>
+<p>(не выполнять COMMIT)</p>
+<p>Сессия B:</p>
+<pre><code class="language-sql">UPDATE accounts
+SET balance = balance - 200
+WHERE id = 1;
+</code></pre>
 <blockquote>
-<p>Использовать EXISTS.</p>
+<p>Что происходит? Почему запрос «зависает»?</p>
+</blockquote>
+<p>После этого выполнить <code>COMMIT</code> в первой сессии.</p>
+<h2 id="6">Задание 6. Анализ блокировок</h2>
+<p>Во время блокировки выполнить:</p>
+<pre><code class="language-sql">SELECT * FROM pg_locks;
+</code></pre>
+<p>Определить:</p>
+<ul>
+<li>тип блокировки</li>
+<li>объект блокировки</li>
+</ul>
+<h2 id="7">Задание 7</h2>
+<p>В двух сессиях:</p>
+<ul>
+<li>выполнить SELECT</li>
+<li>затем UPDATE в другой сессии</li>
+<li>повторить SELECT</li>
+</ul>
+<p>Проверить поведение при:</p>
+<pre><code class="language-sql">SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+</code></pre>
+<blockquote>
+<p>Объяснить различия.</p>
 </blockquote>
 <h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
+<p>Установить:</p>
+<pre><code class="language-sql">SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+</code></pre>
+<p>В двух сессиях одновременно изменить одну и ту же строку.</p>
 <blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
-<ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
-</ul>
-<blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
+<p>Зафиксировать ошибку сериализации.</p>
+<p>Объяснить причину.</p>
 </blockquote>
 <h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<p><strong>Вариант 1.</strong> Реализовать транзакцию начисления премии сотрудникам.</p>
+<p><strong>Вариант 2.</strong> Смоделировать откат части операции через SAVEPOINT.</p>
+<p><strong>Вариант 3.</strong> Создать конфликт обновления и объяснить поведение.</p>
+<p><strong>Вариант 4.</strong> Показать работу SERIALIZABLE с ошибкой.</p>
+<p><strong>Вариант 5.</strong> Объяснить механизм MVCC на примере.</p>
 
 
 

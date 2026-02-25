@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_4/4.3-triggers/">
       
       
+        <link rel="prev" href="../4.2-PL-pgSQL/">
+      
+      
+        <link rel="next" href="../practic-functions-with-parameters/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>Триггеры - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#postgresql" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              Триггеры
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -800,18 +804,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -832,7 +838,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -850,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/4.1-stored-functions/" class="md-nav__link">
+      <a href="../4.1-stored-functions/" class="md-nav__link">
         
   
   
@@ -878,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/4.2-PL-pgSQL/" class="md-nav__link">
+      <a href="../4.2-PL-pgSQL/" class="md-nav__link">
         
   
   
@@ -903,10 +909,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_4/4.3-triggers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Триггеры
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -922,6 +955,285 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Что такое триггер
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Зачем нужны триггеры
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Архитектура триггера
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Синтаксис создания функции-триггера
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Создание триггера
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-before-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. BEFORE и AFTER
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-for-each-row-vs-for-each-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. FOR EACH ROW vs FOR EACH STATEMENT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-new-old" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. NEW и OLD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Пример 1: Автоматическая установка даты
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Пример 2: Контроль бизнес-логики
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Пример 3: Логирование изменений
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Удаление триггера
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-when" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. WHEN (условие триггера)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Порядок выполнения
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Типичные ошибки студентов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Когда использовать триггеры
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -934,7 +1246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-functions-with-parameters/" class="md-nav__link">
+      <a href="../practic-functions-with-parameters/" class="md-nav__link">
         
   
   
@@ -962,7 +1274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-data-control-triggers/" class="md-nav__link">
+      <a href="../practic-data-control-triggers/" class="md-nav__link">
         
   
   
@@ -990,7 +1302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_4/practic-business-logic-triggers/" class="md-nav__link">
+      <a href="../practic-business-logic-triggers/" class="md-nav__link">
         
   
   
@@ -1571,21 +1883,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Исходная предметная область
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 1
+        1. Что такое триггер
       
     </span>
   </a>
@@ -1596,7 +1897,7 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 2
+        2. Зачем нужны триггеры
       
     </span>
   </a>
@@ -1607,7 +1908,7 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 3
+        3. Архитектура триггера
       
     </span>
   </a>
@@ -1615,10 +1916,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#4-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 4
+        4. Синтаксис создания функции-триггера
       
     </span>
   </a>
@@ -1629,65 +1930,203 @@
   <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
       
+        5. Создание триггера
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-before-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. BEFORE и AFTER
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-for-each-row-vs-for-each-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. FOR EACH ROW vs FOR EACH STATEMENT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-new-old" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. NEW и OLD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Пример 1: Автоматическая установка даты
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Пример 2: Контроль бизнес-логики
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Пример 3: Логирование изменений
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Удаление триггера
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-when" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. WHEN (условие триггера)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Порядок выполнения
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Типичные ошибки студентов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Когда использовать триггеры
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Задание 5
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 6
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 7
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 8
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 9
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 10
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1695,7 +2134,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Индивидуальные задания
+        Контрольные вопросы
       
     </span>
   </a>
@@ -1719,111 +2158,282 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
-<h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
-<pre><code class="language-sql">clients (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT,
-    city TEXT
-);
+<h1 id="postgresql">Триггеры в PostgreSQL</h1>
+<p><strong>Тип занятия:</strong> лекция</p>
+<p><strong>Продолжительность:</strong> 2 академических часа</p>
+<h2 id="1">1. Что такое триггер</h2>
+<p><strong>Триггер (Trigger)</strong> — это механизм автоматического выполнения функции при наступлении определённого события в таблице.</p>
+<p>Триггер срабатывает:</p>
+<ul>
+<li>при INSERT</li>
+<li>при UPDATE</li>
+<li>при DELETE</li>
+<li>при TRUNCATE</li>
+</ul>
+<h2 id="2">2. Зачем нужны триггеры</h2>
+<p>Триггеры применяются для:</p>
+<ul>
+<li>автоматической проверки данных</li>
+<li>реализации бизнес-правил</li>
+<li>ведения журнала изменений</li>
+<li>автоматического расчёта значений</li>
+<li>обеспечения сложной целостности</li>
+</ul>
+<blockquote>
+<p>Главное свойство: триггер выполняется автоматически, без явного вызова.</p>
+</blockquote>
+<h2 id="3">3. Архитектура триггера</h2>
+<p>Триггер состоит из двух частей:</p>
+<ul>
+<li>Функция (trigger function) — содержит логику</li>
+<li>Сам триггер — привязывает функцию к событию</li>
+</ul>
+<h2 id="4-">4. Синтаксис создания функции-триггера</h2>
+<pre><code class="language-sql">CREATE FUNCTION function_name()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    -- логика
+    RETURN NEW;
+END;
+$$;
+</code></pre>
+<p>Возвращаемое значение:</p>
+<ul>
+<li>NEW — новая строка</li>
+<li>OLD — старая строка</li>
+<li>NULL — отмена операции</li>
+</ul>
+<h2 id="5">5. Создание триггера</h2>
+<pre><code class="language-sql">CREATE TRIGGER trigger_name
+BEFORE INSERT ON table_name
+FOR EACH ROW
+EXECUTE FUNCTION function_name();
+</code></pre>
+<h2 id="6-before-after">6. BEFORE и AFTER</h2>
+<table>
+<thead>
+<tr>
+<th>Тип</th>
+<th>Когда выполняется</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BEFORE</td>
+<td>До изменения данных</td>
+</tr>
+<tr>
+<td>AFTER</td>
+<td>После изменения</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>BEFORE можно изменить данные</li>
+<li>AFTER используется для логирования</li>
+</ul>
+<h2 id="7-for-each-row-vs-for-each-statement">7. FOR EACH ROW vs FOR EACH STATEMENT</h2>
+<table>
+<thead>
+<tr>
+<th>Тип</th>
+<th>Особенность</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FOR EACH ROW</td>
+<td>Выполняется для каждой строки</td>
+</tr>
+<tr>
+<td>FOR EACH STATEMENT</td>
+<td>Один раз для всей операции</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-new-old">8. NEW и OLD</h2>
+<p>При:</p>
+<ul>
+<li>INSERT → доступен NEW</li>
+<li>UPDATE → доступны NEW и OLD</li>
+<li>DELETE → доступен OLD</li>
+</ul>
+<p>Пример:</p>
+<pre><code class="language-sql">RAISE NOTICE 'Старое значение: %, Новое значение: %', OLD.salary, NEW.salary;
+</code></pre>
+<h2 id="9-1">9. Пример 1: Автоматическая установка даты</h2>
+<pre><code class="language-sql">CREATE FUNCTION set_created_at()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    NEW.created_at := CURRENT_TIMESTAMP;
+    RETURN NEW;
+END;
+$$;
 
-orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
+CREATE TRIGGER trg_set_created_at
+BEFORE INSERT ON orders
+FOR EACH ROW
+EXECUTE FUNCTION set_created_at();
+</code></pre>
+<h2 id="10-2-">10. Пример 2: Контроль бизнес-логики</h2>
+<p>Запретить уменьшение зарплаты:</p>
+<pre><code class="language-sql">CREATE FUNCTION prevent_salary_decrease()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    IF NEW.salary &lt; OLD.salary THEN
+        RAISE EXCEPTION 'Запрещено уменьшать зарплату';
+    END IF;
 
-order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
+    RETURN NEW;
+END;
+$$;
+</code></pre>
+<h2 id="11-3">11. Пример 3: Логирование изменений</h2>
+<pre><code class="language-sql">CREATE TABLE salary_log (
+    employee_id INT,
+    old_salary NUMERIC,
+    new_salary NUMERIC,
+    changed_at TIMESTAMP
 );
 </code></pre>
+<p>Триггер:</p>
+<pre><code class="language-sql">CREATE FUNCTION log_salary_change()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    INSERT INTO salary_log
+    VALUES (OLD.id, OLD.salary, NEW.salary, CURRENT_TIMESTAMP);
+
+    RETURN NEW;
+END;
+$$;
+</code></pre>
+<h2 id="12">12. Удаление триггера</h2>
+<pre><code class="language-sql">DROP TRIGGER trigger_name ON table_name;
+</code></pre>
+<h2 id="13-when">13. WHEN (условие триггера)</h2>
+<p>Можно добавить условие:</p>
+<pre><code class="language-sql">CREATE TRIGGER trg_salary_update
+AFTER UPDATE ON employees
+FOR EACH ROW
+WHEN (OLD.salary IS DISTINCT FROM NEW.salary)
+EXECUTE FUNCTION log_salary_change();
+</code></pre>
 <blockquote>
-<p>Заполните таблицы тестовыми данными</p>
+<p>Триггер выполнится только при изменении зарплаты.</p>
 </blockquote>
-<h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
+<h2 id="14">14. Порядок выполнения</h2>
+<p>При INSERT:</p>
 <ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
+<li>BEFORE-триггер</li>
+<li>Проверка ограничений</li>
+<li>Вставка</li>
+<li>AFTER-триггер</li>
 </ul>
-<p>Требования:</p>
-<ul>
-<li>минимум 2 JOIN</li>
-<li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
-</ul>
-<h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
-<ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
-</ul>
+<h2 id="15">15. Типичные ошибки студентов</h2>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Причина</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Забытый RETURN NEW</td>
+<td>Ошибка выполнения</td>
+</tr>
+<tr>
+<td>Использование OLD в INSERT</td>
+<td>Недоступно</td>
+</tr>
+<tr>
+<td>Бесконечная рекурсия</td>
+<td>Триггер изменяет ту же таблицу</td>
+</tr>
+<tr>
+<td>Логика, которую можно реализовать CHECK</td>
+<td>Избыточность</td>
+</tr>
+</tbody>
+</table>
+<h2 id="16">16. Когда использовать триггеры</h2>
 <p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
-</code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
-<blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
-</blockquote>
-<h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
-<blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
-</blockquote>
-<h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
-<blockquote>
-<p>Использовать EXISTS.</p>
-</blockquote>
-<h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
-<blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
 <ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
+<li>при сложных бизнес-правилах</li>
+<li>при автоматическом логировании</li>
+<li>при поддержании сложной целостности</li>
+</ul>
+<p>Не использовать:</p>
+<ul>
+<li>если можно обойтись ограничениями</li>
+<li>если логика принадлежит приложению</li>
+<li>
+<p>если требуется прозрачность</p>
+</li>
+<li>
+<p>Производительность и риски</p>
+</li>
+</ul>
+<p>Триггеры:</p>
+<ul>
+<li>увеличивают нагрузку</li>
+<li>усложняют отладку</li>
+<li>могут скрывать логику</li>
 </ul>
 <blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
+<p>Важно документировать триггеры.</p>
 </blockquote>
-<h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<ol>
+<li>Выводы</li>
+</ol>
+<p>Триггеры:</p>
+<ul>
+<li>реализуют автоматическую реакцию на события</li>
+<li>тесно связаны с PL/pgSQL</li>
+<li>используются для бизнес-логики и контроля</li>
+<li>требуют осторожного проектирования</li>
+</ul>
+<h2 id="_1">Домашнее задание</h2>
+<h3 id="1_1">Задание 1.</h3>
+<p>Создать триггер автоматически заполняющий <code>created_at</code> при вставке нового сотрудника</p>
+<p>Использовать BEFORE INSERT.</p>
+<p>Проверить, что дата устанавливается автоматически.</p>
+<h3 id="2_1">Задание 2.</h3>
+<p>Создать триггер запрещающий уменьшение зарплаты, при попытке уменьшить — выбрасывать RAISE EXCEPTION</p>
+<p>Использовать OLD и NEW.</p>
+<h3 id="3_1">Задание 3</h3>
+<p>Создать триггер записывающий изменения зарплаты в таблицу <code>salary_log</code> с указанием времени изменения</p>
+<p>Добавить условие WHEN, чтобы логирование происходило только при реальном изменении зарплаты.</p>
+<h3 id="4">Задание 4</h3>
+<p>Создать триггер при добавлении заказа автоматически проверять если <code>total_amount &gt; 100000</code> установить клиенту статус 'VIP'</p>
+<p>Использовать UPDATE внутри триггерной функции.</p>
+<h3 id="5_1">Задание 5</h3>
+<p>Создать триггер при удалении сотрудника записывать информацию в таблицу <code>employee_archive</code> запрещать удаление, если сотрудник руководит отделом</p>
+<p>Использовать:</p>
+<ul>
+<li>OLD</li>
+<li>условную проверку</li>
+<li>RAISE EXCEPTION</li>
+</ul>
+<h2 id="_2">Контрольные вопросы</h2>
+<ol>
+<li>Что такое триггер и из каких двух частей он состоит?</li>
+<li>В чём разница между BEFORE и AFTER триггером?</li>
+<li>Чем отличается FOR EACH ROW от FOR EACH STATEMENT?</li>
+<li>Когда доступны NEW и OLD?</li>
+<li>Почему триггеры могут усложнять сопровождение БД?</li>
+<li>В каком порядке выполняются триггеры, ограничения, сама операция?</li>
+<li>Почему иногда лучше использовать CHECK, а не триггер?</li>
+<li>Что может вызвать бесконечную рекурсию триггера?</li>
+</ol>
 
 
 

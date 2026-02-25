@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_5/5.3-indexes/">
       
       
+        <link rel="prev" href="../5.2-Isolation-levels/">
+      
+      
+        <link rel="next" href="../5.4-explane-analyze/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>Индексы - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              Индексы
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -1022,18 +1026,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1054,7 +1060,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1072,7 +1078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.1-transactions-and-ACID/" class="md-nav__link">
+      <a href="../5.1-transactions-and-ACID/" class="md-nav__link">
         
   
   
@@ -1100,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.2-Isolation-levels/" class="md-nav__link">
+      <a href="../5.2-Isolation-levels/" class="md-nav__link">
         
   
   
@@ -1125,10 +1131,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_5/5.3-indexes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Индексы
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1144,6 +1177,351 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Что такое индекс
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Зачем нужны индексы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Как создаётся индекс
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Первичный ключ и индекс
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Типы индексов в PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-b-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. B-Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Hash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-gin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. GIN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-gist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. GiST
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-brin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. BRIN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Составные (мультиколоночные) индексы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Уникальные индексы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Частичные индексы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Индексы и EXPLAIN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Когда индекс НЕ используется
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Индексы и функции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Индексы и производительность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Избыточные индексы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Как правильно выбирать индекс
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. Индексы и транзакции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. Типичные ошибки студентов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-where" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Индекс и WHERE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Составной индекс
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Частичный индекс
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Функциональный индекс
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1156,7 +1534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.4-explane-analyze/" class="md-nav__link">
+      <a href="../5.4-explane-analyze/" class="md-nav__link">
         
   
   
@@ -1184,7 +1562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/practic-12-working-with-transactions/" class="md-nav__link">
+      <a href="../practic-12-working-with-transactions/" class="md-nav__link">
         
   
   
@@ -1212,7 +1590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/practic-13-query-optimization/" class="md-nav__link">
+      <a href="../practic-13-query-optimization/" class="md-nav__link">
         
   
   
@@ -1571,21 +1949,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Исходная предметная область
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 1
+        1. Что такое индекс
       
     </span>
   </a>
@@ -1596,7 +1963,7 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 2
+        2. Зачем нужны индексы
       
     </span>
   </a>
@@ -1607,7 +1974,7 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 3
+        3. Как создаётся индекс
       
     </span>
   </a>
@@ -1618,7 +1985,7 @@
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 4
+        4. Первичный ключ и индекс
       
     </span>
   </a>
@@ -1626,10 +1993,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#5-postgresql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 5
+        5. Типы индексов в PostgreSQL
       
     </span>
   </a>
@@ -1637,10 +2004,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
+  <a href="#6-b-tree" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 6
+        6. B-Tree
       
     </span>
   </a>
@@ -1648,10 +2015,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
+  <a href="#7-hash" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 7
+        7. Hash
       
     </span>
   </a>
@@ -1659,10 +2026,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
+  <a href="#8-gin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 8
+        8. GIN
       
     </span>
   </a>
@@ -1670,10 +2037,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
+  <a href="#9-gist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 9
+        9. GiST
       
     </span>
   </a>
@@ -1681,10 +2048,142 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
+  <a href="#10-brin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 10
+        10. BRIN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Составные (мультиколоночные) индексы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Уникальные индексы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Частичные индексы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Индексы и EXPLAIN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Когда индекс НЕ используется
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Индексы и функции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Индексы и производительность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Избыточные индексы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Как правильно выбирать индекс
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. Индексы и транзакции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. Типичные ошибки студентов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. Выводы
       
     </span>
   </a>
@@ -1695,10 +2194,82 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Индивидуальные задания
+        Домашнее задание
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-where" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Индекс и WHERE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Составной индекс
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Частичный индекс
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Функциональный индекс
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1719,111 +2290,281 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
-<h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
-<pre><code class="language-sql">clients (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT,
-    city TEXT
-);
-
-orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
-);
-</code></pre>
+<h1 id="_1">Индексы</h1>
+<p><strong>Тип:</strong> лекция</p>
+<h2 id="1">1. Что такое индекс</h2>
+<p><strong>Индекс</strong> — это вспомогательная структура данных, предназначенная для ускорения поиска строк в таблице.</p>
 <blockquote>
-<p>Заполните таблицы тестовыми данными</p>
+<p>Аналогия: индекс в БД — это как оглавление в книге.</p>
 </blockquote>
-<h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
+<p>Без индекса:</p>
 <ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
+<li>выполняется последовательное сканирование</li>
+<li>проверяется каждая строка</li>
 </ul>
-<p>Требования:</p>
+<p>С индексом:</p>
 <ul>
-<li>минимум 2 JOIN</li>
+<li>используется индексное сканирование</li>
+<li>происходит быстрый поиск по ключу</li>
+</ul>
+<h2 id="2">2. Зачем нужны индексы</h2>
+<p>Индексы ускоряют:</p>
+<ul>
+<li>WHERE</li>
+<li>JOIN</li>
+<li>ORDER BY</li>
 <li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
+<li>DISTINCT</li>
 </ul>
-<h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
+<p>Но замедляют:</p>
 <ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
+<li>INSERT</li>
+<li>UPDATE</li>
+<li>DELETE</li>
 </ul>
-<p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
+<h2 id="3">3. Как создаётся индекс</h2>
+<pre><code class="language-sql">CREATE INDEX index_name
+ON table_name (column_name);
 </code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
-<blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
-</blockquote>
-<h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
-<blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
-</blockquote>
-<h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
-<blockquote>
-<p>Использовать EXISTS.</p>
-</blockquote>
-<h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
-<blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
+<p>Пример:</p>
+<pre><code class="language-sql">CREATE INDEX idx_employees_salary
+ON employees (salary);
+</code></pre>
+<h2 id="4">4. Первичный ключ и индекс</h2>
+<p><code>PRIMARY KEY</code></p>
+<p>Автоматически создаёт:</p>
 <ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
+<li>уникальный индекс</li>
+<li>ограничение уникальности</li>
+</ul>
+<h2 id="5-postgresql">5. Типы индексов в PostgreSQL</h2>
+<p>PostgreSQL поддерживает несколько типов:</p>
+<ul>
+<li>B-Tree (по умолчанию)</li>
+<li>Hash</li>
+<li>GIN</li>
+<li>GiST</li>
+<li>BRIN</li>
+</ul>
+<h2 id="6-b-tree">6. B-Tree</h2>
+<p>Используется по умолчанию.</p>
+<p>Подходит для:</p>
+<ul>
+<li><code>=</code></li>
+<li><code>&lt;</code>, <code>&gt;</code></li>
+<li><code>BETWEEN</code></li>
+<li><code>ORDER BY</code></li>
 </ul>
 <blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
+<p>Универсальный и самый часто используемый тип.</p>
 </blockquote>
-<h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<h2 id="7-hash">7. Hash</h2>
+<p>Подходит только для операций равенства (<code>=</code>)</p>
+<p>Используется редко.</p>
+<h2 id="8-gin">8. GIN</h2>
+<p>Подходит для:</p>
+<ul>
+<li>массивов</li>
+<li>JSONB</li>
+<li>полнотекстового поиска</li>
+</ul>
+<h2 id="9-gist">9. GiST</h2>
+<p>Используется для:</p>
+<ul>
+<li>геоданных</li>
+<li>диапазонов</li>
+<li>сложных типов данных</li>
+</ul>
+<h2 id="10-brin">10. BRIN</h2>
+<p>Подходит для:</p>
+<ul>
+<li>очень больших таблиц</li>
+<li>данных с естественной сортировкой (по дате, id)</li>
+</ul>
+<p>Работает эффективно при:</p>
+<ul>
+<li>больших объёмах</li>
+<li>минимальной памяти</li>
+</ul>
+<h2 id="11">11. Составные (мультиколоночные) индексы</h2>
+<pre><code class="language-sql">CREATE INDEX idx_orders_client_date
+ON orders (client_id, order_date);
+</code></pre>
+<blockquote>
+<p>Порядок столбцов имеет значение.</p>
+</blockquote>
+<p>Используется, если фильтрация начинается с первого столбца</p>
+<h2 id="12">12. Уникальные индексы</h2>
+<pre><code class="language-sql">CREATE UNIQUE INDEX idx_unique_email
+ON users (email);
+</code></pre>
+<p>Гарантируют отсутствие дубликатов.</p>
+<h2 id="13">13. Частичные индексы</h2>
+<p>Создаются для части строк:</p>
+<pre><code class="language-sql">CREATE INDEX idx_active_clients
+ON clients (city)
+WHERE status = 'active';
+</code></pre>
+<blockquote>
+<p>Ускоряют выборки по часто используемым условиям.</p>
+</blockquote>
+<h2 id="14-explain">14. Индексы и EXPLAIN</h2>
+<p>Для анализа используется:</p>
+<pre><code class="language-sql">EXPLAIN ANALYZE SELECT ...
+</code></pre>
+<p>Показывает:</p>
+<ul>
+<li>Seq Scan</li>
+<li>Index Scan</li>
+<li>Bitmap Index Scan</li>
+</ul>
+<h2 id="15">15. Когда индекс НЕ используется</h2>
+<p>Индекс может не применяться, если:</p>
+<ul>
+<li>таблица маленькая</li>
+<li>используется функция на столбце</li>
+<li>условие не селективно</li>
+<li>статистика устарела</li>
+</ul>
+<h2 id="16">16. Индексы и функции</h2>
+<p>Если используется:</p>
+<pre><code class="language-sql">WHERE LOWER(name) = 'ivan'
+</code></pre>
+<p>Обычный индекс не работает.</p>
+<p>Нужно создать функциональный индекс:</p>
+<pre><code class="language-sql">CREATE INDEX idx_lower_name
+ON users (LOWER(name));
+</code></pre>
+<h2 id="17">17. Индексы и производительность</h2>
+<p>Индекс ускоряет чтение, но:</p>
+<ul>
+<li>увеличивает размер БД</li>
+<li>замедляет вставку и обновление</li>
+<li>требует обслуживания</li>
+</ul>
+<h2 id="18">18. Избыточные индексы</h2>
+<p>Опасности:</p>
+<ul>
+<li>дублирующие индексы</li>
+<li>ненужные индексы</li>
+<li>чрезмерная нагрузка на запись</li>
+</ul>
+<h2 id="19">19. Как правильно выбирать индекс</h2>
+<p>Анализировать:</p>
+<ul>
+<li>какие запросы выполняются чаще</li>
+<li>по каким столбцам фильтрация</li>
+<li>селективность данных</li>
+<li>объём таблицы</li>
+</ul>
+<h2 id="20">20. Индексы и транзакции</h2>
+<p>Индексы:</p>
+<ul>
+<li>участвуют в блокировках</li>
+<li>могут влиять на deadlock</li>
+<li>используются при поиске строк для UPDATE</li>
+</ul>
+<h2 id="21">21. Типичные ошибки студентов</h2>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Причина</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Индекс на каждый столбец</td>
+<td>Избыточность</td>
+</tr>
+<tr>
+<td>Игнорирование порядка в составном индексе</td>
+<td>Непонимание работы</td>
+</tr>
+<tr>
+<td>Отсутствие анализа EXPLAIN</td>
+<td>Нет проверки</td>
+</tr>
+<tr>
+<td>Индекс на маленькую таблицу</td>
+<td>Бесполезно</td>
+</tr>
+</tbody>
+</table>
+<h2 id="22">22. Выводы</h2>
+<p>Индексы:</p>
+<ul>
+<li>ускоряют поиск</li>
+<li>требуют осознанного проектирования</li>
+<li>влияют на производительность записи</li>
+<li>должны создаваться на основе анализа запросов</li>
+</ul>
+<h2 id="_2">Домашнее задание</h2>
+<p>Предметная область:</p>
+<pre><code class="language-sql">employees (id SERIAL PRIMARY KEY, full_name TEXT, salary NUMERIC, department TEXT);
+orders (id SERIAL PRIMARY KEY, client_id INT, order_date DATE, total_amount NUMERIC);
+clients (id SERIAL PRIMARY KEY, full_name TEXT, city TEXT, status TEXT);
+</code></pre>
+<blockquote>
+<p>Заполните таблицы минимум 10 000 строками (для анализа производительности), можно использовать ИИ.</p>
+</blockquote>
+<h3 id="1-where">Задание 1. Индекс и WHERE</h3>
+<p>Выполнить запрос:</p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT * FROM employees WHERE salary &gt; 100000;
+</code></pre>
+<p>Создать индекс по salary.</p>
+<p>Повторить EXPLAIN ANALYZE.</p>
+<blockquote>
+<p>Сравнить:</p>
+<p>-тип сканирования</p>
+<p>-время выполнения</p>
+<p>-план запроса</p>
+</blockquote>
+<h3 id="2_1">Задание 2. Составной индекс</h3>
+<p>Выполнить запрос:</p>
+<pre><code class="language-sql">SELECT * FROM orders
+WHERE client_id = 10
+AND order_date &gt;= '2024-01-01';
+</code></pre>
+<p>Создать составной индекс (client_id, order_date).</p>
+<p>Проанализировать план выполнения.</p>
+<blockquote>
+<p>Объяснить: почему порядок столбцов важен.</p>
+</blockquote>
+<h3 id="3_1">Задание 3. Частичный индекс</h3>
+<p>Создать частичный индекс для:</p>
+<pre><code class="language-sql">WHERE status = 'active';
+</code></pre>
+<p>Выполнить запрос для активных клиентов.</p>
+<p>Проверить использование индекса.</p>
+<blockquote>
+<p>Объяснить, в каких случаях частичный индекс выгоден.</p>
+</blockquote>
+<h3 id="4_1">Задание 4. Функциональный индекс</h3>
+<p>Выполнить запрос:</p>
+<pre><code class="language-sql">SELECT * FROM clients
+WHERE LOWER(full_name) = 'ivan ivanov';
+</code></pre>
+<p>Создать функциональный индекс.</p>
+<p>Проверить план выполнения.</p>
+<h3 id="5">Задание 5</h3>
+<p>Определить избыточные индексы в таблице (если создать несколько).</p>
+<p>Обосновать, какие индексы можно удалить и почему.</p>
+<p>Использовать анализ планов и частоты запросов.</p>
+<h3 id="_3">Контрольные вопросы</h3>
+<ol>
+<li>Что такое индекс и зачем он нужен?</li>
+<li>Почему индекс ускоряет SELECT, но замедляет INSERT?</li>
+<li>Какие типы индексов поддерживает PostgreSQL?</li>
+<li>Чем отличается B-Tree от Hash?</li>
+<li>Почему порядок столбцов важен в составном индексе?</li>
+<li>Когда индекс может не использоваться?</li>
+<li>Что такое частичный индекс и когда он полезен?</li>
+<li>Что такое функциональный индекс?</li>
+<li>Почему избыточные индексы вредны?</li>
+<li>Как определить, используется ли индекс?</li>
+</ol>
 
 
 

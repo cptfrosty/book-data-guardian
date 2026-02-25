@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_3/practic-complex-analytical-queries/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_5/5.4-explane-analyze/">
       
       
+        <link rel="prev" href="../5.3-indexes/">
+      
+      
+        <link rel="next" href="../practic-12-working-with-transactions/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Практическое занятие 7. Сложные аналитические запросы - МДК 11.01</title>
+        <title>EXPLAIN ANALYZE - МДК 11.01</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7" class="md-skip">
+        <a href="#explain-analyze" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практическое занятие 7. Сложные аналитические запросы
+              EXPLAIN ANALYZE
             
           </span>
         </div>
@@ -712,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-subqueries/" class="md-nav__link">
+      <a href="../../Chapter_3/3.1-subqueries/" class="md-nav__link">
         
   
   
@@ -740,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.2-CTE/" class="md-nav__link">
+      <a href="../../Chapter_3/3.2-CTE/" class="md-nav__link">
         
   
   
@@ -768,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-presentations/" class="md-nav__link">
+      <a href="../../Chapter_3/3.3-presentations/" class="md-nav__link">
         
   
   
@@ -1022,18 +1026,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1054,7 +1060,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1072,7 +1078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.1-transactions-and-ACID/" class="md-nav__link">
+      <a href="../5.1-transactions-and-ACID/" class="md-nav__link">
         
   
   
@@ -1100,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.2-Isolation-levels/" class="md-nav__link">
+      <a href="../5.2-Isolation-levels/" class="md-nav__link">
         
   
   
@@ -1128,7 +1134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/5.3-indexes/" class="md-nav__link">
+      <a href="../5.3-indexes/" class="md-nav__link">
         
   
   
@@ -1153,10 +1159,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_5/5.4-explane-analyze/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EXPLAIN ANALYZE
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1172,6 +1205,418 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Зачем нужен EXPLAIN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-explain-vs-explain-analyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. EXPLAIN vs EXPLAIN ANALYZE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. EXPLAIN vs EXPLAIN ANALYZE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EXPLAIN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Основные элементы плана
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Разбор параметров
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Разбор параметров">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cost
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actual-rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        actual rows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actual-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        actual time
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Основные типы операций
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Основные типы операций">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#seq-scan-sequential-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seq Scan (Sequential Scan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index Scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitmap-index-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bitmap Index Scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nested Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash Join
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge Join
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Порядок чтения плана
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Пример анализа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-analyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. ANALYZE и статистика
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. BUFFERS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-format-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. FORMAT JSON
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Типичные проблемы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-explain-analyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Когда использовать EXPLAIN ANALYZE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Важные принципы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Частые ошибки студентов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Архитектурный вывод
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-seq-scan-vs-index-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Seq Scan vs Index Scan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. JOIN и тип соединения
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Ошибка оценки строк
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bitmap-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Bitmap Scan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1184,7 +1629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/practic-12-working-with-transactions/" class="md-nav__link">
+      <a href="../practic-12-working-with-transactions/" class="md-nav__link">
         
   
   
@@ -1212,7 +1657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_5/practic-13-query-optimization/" class="md-nav__link">
+      <a href="../practic-13-query-optimization/" class="md-nav__link">
         
   
   
@@ -1571,10 +2016,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1-explain" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Исходная предметная область
+        1. Зачем нужен EXPLAIN
       
     </span>
   </a>
@@ -1582,24 +2027,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#2-explain-vs-explain-analyze" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 1
+        2. EXPLAIN vs EXPLAIN ANALYZE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. EXPLAIN vs EXPLAIN ANALYZE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EXPLAIN
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 2
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1607,7 +2058,7 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 3
+        3. Основные элементы плана
       
     </span>
   </a>
@@ -1618,7 +2069,151 @@
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 4
+        4. Разбор параметров
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Разбор параметров">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cost
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actual-rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        actual rows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actual-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        actual time
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Основные типы операций
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Основные типы операций">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#seq-scan-sequential-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seq Scan (Sequential Scan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index Scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitmap-index-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bitmap Index Scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nested Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash Join
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge Join
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Порядок чтения плана
       
     </span>
   </a>
@@ -1626,7 +2221,172 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Пример анализа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-analyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. ANALYZE и статистика
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. BUFFERS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-format-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. FORMAT JSON
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Типичные проблемы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-explain-analyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Когда использовать EXPLAIN ANALYZE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Важные принципы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Частые ошибки студентов
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Архитектурный вывод
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Выводы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-seq-scan-vs-index-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Seq Scan vs Index Scan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. JOIN и тип соединения
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Ошибка оценки строк
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bitmap-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. Bitmap Scan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Задание 5
@@ -1637,65 +2397,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 6
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 7
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 8
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 9
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 10
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Индивидуальные задания
+        Контрольные вопросы
       
     </span>
   </a>
@@ -1719,111 +2424,298 @@
 
 
 
-<h1 id="7">Практическое занятие 7. Сложные аналитические запросы</h1>
-<p><strong>Цель:</strong> научить студентов строить многоуровневые аналитические SELECT-запросы; комбинировать JOIN + GROUP BY + HAVING; использовать CTE для декомпозиции логики; сравнивать показатели (выше среднего, максимум в группе); анализировать данные по периодам</p>
-<h2 id="_1">Исходная предметная область</h2>
-<p>Модель продаж</p>
-<pre><code class="language-sql">clients (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT,
-    city TEXT
-);
-
-orders (
-    id SERIAL PRIMARY KEY,
-    client_id INT REFERENCES clients(id),
-    order_date DATE
-);
-
-order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders(id),
-    product_name TEXT,
-    quantity INT,
-    price NUMERIC
-);
-</code></pre>
-<blockquote>
-<p>Заполните таблицы тестовыми данными</p>
-</blockquote>
-<h2 id="1">Задание 1</h2>
-<p>Вывести:</p>
+<h1 id="explain-analyze">EXPLAIN ANALYZE</h1>
+<p><strong>Тип:</strong> лекция</p>
+<h2 id="1-explain">1. Зачем нужен EXPLAIN</h2>
+<p>Когда запрос работает медленно, возникает вопрос:</p>
 <ul>
-<li>клиента</li>
-<li>количество заказов</li>
-<li>общую сумму</li>
-<li>средний чек</li>
+<li>Что именно делает СУБД при выполнении запроса?</li>
 </ul>
-<p>Требования:</p>
+<p>Ответ: Команда EXPLAIN показывает план выполнения запроса — то есть стратегию, выбранную оптимизатором.</p>
+<h2 id="2-explain-vs-explain-analyze">2. EXPLAIN vs EXPLAIN ANALYZE</h2>
+<h3 id="explain">EXPLAIN</h3>
+<pre><code class="language-sql">EXPLAIN SELECT * FROM employees WHERE salary &gt; 100000;
+</code></pre>
 <ul>
-<li>минимум 2 JOIN</li>
+<li>Показывает предполагаемый план</li>
+<li>Запрос НЕ выполняется</li>
+</ul>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+EXPLAIN ANALYZE SELECT * FROM employees WHERE salary &gt; 100000;
+</code></pre>
+<ul>
+<li>Выполняет запрос</li>
+<li>Показывает фактическое время выполнения</li>
+<li>Показывает реальное количество строк</li>
+</ul>
+<blockquote>
+<p>Для анализа производительности используется именно EXPLAIN ANALYZE.</p>
+</blockquote>
+<h2 id="3">3. Основные элементы плана</h2>
+<p>Пример:</p>
+<pre><code class="language-sql">Seq Scan on employees
+  (cost=0.00..431.00 rows=100 width=48)
+  (actual time=0.020..5.120 rows=120 loops=1)
+</code></pre>
+<h2 id="4">4. Разбор параметров</h2>
+<h3 id="cost">cost</h3>
+<pre><code class="language-sql">cost=0.00..431.00
+</code></pre>
+<ul>
+<li>Оценка оптимизатора</li>
+<li>Не реальное время</li>
+<li>Внутренние единицы стоимости</li>
+</ul>
+<h3 id="rows">rows</h3>
+<pre><code class="language-sql">rows=100
+</code></pre>
+<p>Ожидаемое количество строк</p>
+<h3 id="actual-rows">actual rows</h3>
+<pre><code class="language-sql">actual rows=120
+</code></pre>
+<p>Реальное количество строк</p>
+<blockquote>
+<p>Если сильно отличается — статистика устарела.</p>
+</blockquote>
+<h3 id="actual-time">actual time</h3>
+<pre><code class="language-sql">actual time=0.020..5.120
+</code></pre>
+<p>Время начала и окончания операции</p>
+<h2 id="5">5. Основные типы операций</h2>
+<h3 id="seq-scan-sequential-scan">Seq Scan (Sequential Scan)</h3>
+<p>Полное сканирование таблицы.</p>
+<pre><code class="language-sql">Seq Scan on employees
+</code></pre>
+<p>Используется если:</p>
+<ul>
+<li>нет индекса</li>
+<li>таблица маленькая</li>
+<li>условие не селективное</li>
+</ul>
+<h3 id="index-scan">Index Scan</h3>
+<p>Поиск через индекс.</p>
+<pre><code class="language-sql">Index Scan using idx_salary on employees
+</code></pre>
+<p>Быстрее при селективных условиях.</p>
+<h3 id="bitmap-index-scan">Bitmap Index Scan</h3>
+<p>Используется при:</p>
+<ul>
+<li>большом количестве совпадений</li>
+<li>сложных условиях</li>
+</ul>
+<p>Комбинируется с:</p>
+<pre><code class="language-sql">Bitmap Heap Scan
+</code></pre>
+<h3 id="nested-loop">Nested Loop</h3>
+<p>Соединение таблиц.</p>
+<p>Подходит для:</p>
+<ul>
+<li>маленьких таблиц</li>
+<li>индексированных JOIN</li>
+</ul>
+<h3 id="hash-join">Hash Join</h3>
+<p>Создаётся хеш-таблица.</p>
+<p>Используется при:</p>
+<ul>
+<li>больших таблицах</li>
+<li>отсутствии индекса</li>
+</ul>
+<h3 id="merge-join">Merge Join</h3>
+<p>Требует отсортированные данные.</p>
+<p>Используется если:</p>
+<ul>
+<li>есть индексы</li>
+<li>данные уже отсортированы</li>
+</ul>
+<h2 id="6">6. Порядок чтения плана</h2>
+<p>План читается снизу вверх.</p>
+<p>Пример:</p>
+<pre><code class="language-sql">Nested Loop
+  -&gt; Seq Scan on clients
+  -&gt; Index Scan on orders
+</code></pre>
+<p>Сначала выполняется нижняя операция, затем верхняя.</p>
+<h2 id="7">7. Пример анализа</h2>
+<p>Запрос:</p>
+<pre><code class="language-sql">SELECT *
+FROM orders
+WHERE client_id = 10;
+</code></pre>
+<p>Без индекса → Seq Scan
+С индексом → Index Scan</p>
+<blockquote>
+<p>Сравнение через EXPLAIN ANALYZE показывает реальную разницу.</p>
+</blockquote>
+<h2 id="8-analyze">8. ANALYZE и статистика</h2>
+<p>Оптимизатор опирается на статистику.</p>
+<p>Если статистика устарела:</p>
+<pre><code class="language-sql">ANALYZE table_name;
+</code></pre>
+<p>или</p>
+<pre><code class="language-sql">VACUUM ANALYZE;
+</code></pre>
+<h2 id="9-buffers">9. BUFFERS</h2>
+<pre><code class="language-sql">EXPLAIN (ANALYZE, BUFFERS) SELECT ...
+</code></pre>
+<p>Показывает:</p>
+<ul>
+<li>чтения из памяти</li>
+<li>чтения с диска</li>
+</ul>
+<p>Помогает выявить I/O-проблемы.</p>
+<h2 id="10-format-json">10. FORMAT JSON</h2>
+<pre><code class="language-sql">EXPLAIN (ANALYZE, FORMAT JSON) SELECT ...
+</code></pre>
+<p>Используется:</p>
+<ul>
+<li>для инструментов анализа</li>
+<li>для визуализации плана</li>
+</ul>
+<h2 id="11">11. Типичные проблемы</h2>
+<table>
+<thead>
+<tr>
+<th>Проблема</th>
+<th>Причина</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seq Scan на большой таблице</td>
+<td>Нет индекса</td>
+</tr>
+<tr>
+<td>Большой разрыв rows/actual rows</td>
+<td>Плохая статистика</td>
+</tr>
+<tr>
+<td>Nested Loop на больших таблицах</td>
+<td>Неоптимальный план</td>
+</tr>
+<tr>
+<td>Долгий Hash Join</td>
+<td>Недостаточно памяти</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-explain-analyze">12. Когда использовать EXPLAIN ANALYZE</h2>
+<ul>
+<li>медленный <code>SELECT</code></li>
+<li>сложный <code>JOIN</code></li>
 <li>GROUP BY</li>
-<li>минимум 2 агрегатные функции</li>
+<li>проблемы с индексами</li>
+<li>оптимизация аналитики</li>
 </ul>
-<h2 id="2">Задание 2</h2>
-<p>Найти клиентов у которых сумма заказов выше средней по всем клиентам</p>
-<p>Использовать подзапрос или CTE</p>
-<h2 id="3">Задание 3</h2>
-<p>Вывести:</p>
+<h2 id="13">13. Важные принципы</h2>
 <ul>
-<li>месяц</li>
-<li>общую выручку</li>
-<li>количество заказов</li>
+<li>Не ориентироваться только на cost</li>
+<li>Сравнивать actual rows и rows</li>
+<li>Анализировать тип сканирования</li>
+<li>Проверять использование индекса</li>
+<li>Сначала понимать запрос, потом оптимизировать</li>
 </ul>
-<p>Использовать:</p>
-<pre><code class="language-sql">DATE_TRUNC('month', order_date)
+<h2 id="14">14. Частые ошибки студентов</h2>
+<p>Ошибка  Причина
+Смотрят только на время Игнорируют план
+Не понимают порядок операций    Читают сверху вниз
+Создают индекс без анализа  Нет понимания селективности
+Не обновляют статистику Некорректные планы</p>
+<h2 id="15">15. Архитектурный вывод</h2>
+<p>EXPLAIN ANALYZE — основной инструмент:</p>
+<ul>
+<li>DBA</li>
+<li>backend-разработчика</li>
+<li>аналитика</li>
+</ul>
+<p>Он показывает:</p>
+<ul>
+<li>как думает оптимизатор</li>
+<li>почему запрос медленный</li>
+<li>где узкое место</li>
+</ul>
+<h2 id="16">16. Выводы</h2>
+<p>EXPLAIN ANALYZE:</p>
+<ul>
+<li>показывает реальный план выполнения</li>
+<li>помогает выявить неэффективные операции</li>
+<li>необходим для оптимизации</li>
+<li>требует понимания индексов и JOIN</li>
+</ul>
+<h2 id="_1">Домашнее задание</h2>
+<p>Предметная область</p>
+<pre><code class="language-sql">employees (id SERIAL PRIMARY KEY, full_name TEXT, salary NUMERIC, department TEXT);
+clients (id SERIAL PRIMARY KEY, full_name TEXT, city TEXT, status TEXT);
+orders (id SERIAL PRIMARY KEY, client_id INT, order_date DATE, total_amount NUMERIC);
 </code></pre>
-<h2 id="4">Задание 4</h2>
-<p>Найти месяц с максимальной выручкой</p>
 <blockquote>
-<p>Использовать вложенный запрос или CTE.</p>
+<p>Заполнить таблицы минимум 20 000 строк для анализа</p>
 </blockquote>
-<h2 id="5">Задание 5</h2>
-<p>Найти клиентов чья сумма заказов выше средней по их городу</p>
+<h2 id="1-seq-scan-vs-index-scan">Задание 1. Seq Scan vs Index Scan</h2>
+<p>Выполнить:</p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT * FROM employees WHERE salary &gt; 100000;
+</code></pre>
+<p>Создать индекс по salary.</p>
+<p>Повторить анализ.</p>
 <blockquote>
-<p>Подсказка:</p>
-<p>CTE с агрегацией по городу, затем сравнение</p>
+<p>Ответить: какой тип сканирования используется? как изменилось время? почему?</p>
 </blockquote>
-<h2 id="6">Задание 6</h2>
-<p>Найти товары которые продаются чаще среднего количества по всем товарам</p>
-<h2 id="7_1">Задание 7</h2>
-<p>Найти клиентов у которых есть заказы за последние 3 месяца</p>
+<h2 id="2-join">Задание 2. JOIN и тип соединения</h2>
+<p>Выполнить:</p>
+<pre><code class="language-sql">EXPLAIN ANALYZE
+SELECT *
+FROM orders o
+JOIN clients c ON c.id = o.client_id;
+</code></pre>
 <blockquote>
-<p>Использовать EXISTS.</p>
+<p>Ответить: используется Nested Loop, Hash Join или Merge Join? почему выбран именно этот тип? как повлияет индекс на orders.client_id?</p>
 </blockquote>
-<h2 id="8">Задание 8</h2>
-<p>Найти клиентов у которых не было заказов за последний год</p>
-<blockquote>
-<p>Использовать NOT EXISTS или LEFT JOIN + IS NULL</p>
-</blockquote>
-<p>Сравнить подходы.</p>
-<h2 id="9">Задание 9</h2>
-<p>Вывести:
-- город
-- количество клиентов
-- общую выручку
-- средний чек
-- долю города в общей выручке (%)</p>
-<blockquote>
-<p>Использовать: CTE минимум 2 уровня агрегации</p>
-</blockquote>
-<h2 id="10">Задание 10</h2>
-<p>Вывести:</p>
+<h2 id="3_1">Задание 3. Ошибка оценки строк</h2>
+<p>Выполнить запрос с фильтрацией по редко встречающемуся значению.</p>
+<p>Сравнить:</p>
 <ul>
-<li>клиента</li>
-<li>дату последнего заказа</li>
-<li>сумму последнего заказа</li>
-<li>общее количество заказов</li>
+<li>rows</li>
+<li>actual rows</li>
+</ul>
+<p>Выполнить:</p>
+<pre><code class="language-sql">ANALYZE table_name;
+</code></pre>
+<p>Повторить <code>EXPLAIN ANALYZE</code>.</p>
+<blockquote>
+<p>Объяснить влияние статистики.</p>
+</blockquote>
+<h2 id="4-bitmap-scan">Задание 4. Bitmap Scan</h2>
+<p>Создать индекс и выполнить запрос с условием:</p>
+<pre><code class="language-sql">WHERE salary &gt; 50000 AND department = 'IT';
+</code></pre>
+<blockquote>
+<p>Ответить: используется ли Bitmap Index Scan? почему не Index Scan?</p>
+</blockquote>
+<h2 id="5_1">Задание 5</h2>
+<p>Найти медленный запрос (с JOIN + GROUP BY).</p>
+<p>Проанализировать план.</p>
+<p>Предложить:</p>
+<ul>
+<li>индекс</li>
+<li>переписывание запроса</li>
+<li>изменение структуры</li>
 </ul>
 <blockquote>
-<p>Разрешено использовать: CTE, подзапрос, JOIN</p>
+<p>Обосновать выбор.</p>
 </blockquote>
-<h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти клиента с наибольшим средним чеком.</p>
-<p><strong>Вариант 2.</strong> Найти город с минимальной выручкой.</p>
-<p><strong>Вариант 3.</strong> Найти товар, который принёс максимальную выручку.</p>
-<p><strong>Вариант 4.</strong> Найти клиентов, сделавших заказы в разные месяцы.</p>
-<p><strong>Вариант 5.</strong> Найти клиентов, количество заказов которых выше среднего.</p>
+<h2 id="_2">Контрольные вопросы</h2>
+<ol>
+<li>В чём разница между EXPLAIN и EXPLAIN ANALYZE?</li>
+<li>Что означает параметр cost?</li>
+<li>Почему важно сравнивать rows и actual rows?</li>
+<li>Что такое Seq Scan и когда он допустим?</li>
+<li>Чем отличается Index Scan от Bitmap Index Scan?</li>
+<li>Какой тип JOIN используется чаще всего для больших таблиц?</li>
+<li>Почему оптимизатор может не использовать индекс?</li>
+<li>Как обновить статистику таблицы?</li>
+<li>Почему план читается снизу вверх?</li>
+<li>Почему нельзя ориентироваться только на время выполнения?</li>
+</ol>
 
 
 

@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_2/practic-queries-to-data/">
+        <link rel="canonical" href="https://cptfrosty.data-guardian.github.io/Chapter_6/6.2-access-rights/">
       
       
-        <link rel="prev" href="../2.3-aggregate-functions/">
+        <link rel="prev" href="../6.1-users-and-roles/">
       
       
-        <link rel="next" href="../practic-analytical-samples/">
+        <link rel="next" href="../6.3-backup/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Практика 4. Запросы к данным - МДК 11.01</title>
+        <title>Права доступа - МДК 11.01</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#4-select" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Практика 4. Запросы к данным
+              Права доступа
             
           </span>
         </div>
@@ -444,20 +444,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -478,7 +476,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -496,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.1-SELECT-INSERT-UPDATE-DELETE/" class="md-nav__link">
+      <a href="../../Chapter_2/2.1-SELECT-INSERT-UPDATE-DELETE/" class="md-nav__link">
         
   
   
@@ -524,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.2-JOIN/" class="md-nav__link">
+      <a href="../../Chapter_2/2.2-JOIN/" class="md-nav__link">
         
   
   
@@ -552,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.3-aggregate-functions/" class="md-nav__link">
+      <a href="../../Chapter_2/2.3-aggregate-functions/" class="md-nav__link">
         
   
   
@@ -577,37 +575,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Практика 4. Запросы к данным
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Chapter_2/practic-queries-to-data/" class="md-nav__link">
         
   
   
@@ -623,276 +594,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Исходная структура БД
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 1. Базовые выборки
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 1. Базовые выборки">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 1
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 2
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 3
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 4
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 2. Условия и логические операторы
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 2. Условия и логические операторы">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 5
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 6
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 7
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 3. Сортировка и ограничение
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 3. Сортировка и ограничение">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 8
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 9
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 10
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-join" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 4. JOIN (связанные данные)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 4. JOIN (связанные данные)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 11
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 12
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 5. Комплексный запрос
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 5. Комплексный запрос">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 13
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Индивидуальные задания
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -905,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practic-analytical-samples/" class="md-nav__link">
+      <a href="../../Chapter_2/practic-analytical-samples/" class="md-nav__link">
         
   
   
@@ -933,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practic-complex-SELECT-queries/" class="md-nav__link">
+      <a href="../../Chapter_2/practic-complex-SELECT-queries/" class="md-nav__link">
         
   
   
@@ -1547,18 +1248,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1579,7 +1282,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1597,7 +1300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/6.1-users-and-roles/" class="md-nav__link">
+      <a href="../6.1-users-and-roles/" class="md-nav__link">
         
   
   
@@ -1622,10 +1325,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Chapter_6/6.2-access-rights/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Права доступа
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1641,6 +1371,413 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Общая модель разграничения доступа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Объекты, к которым применяются права
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Основные типы привилегий
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Основные типы привилегий">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Для таблиц
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Для базы данных
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Для схемы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Для функций
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-grant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Команда GRANT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Команда GRANT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Общий синтаксис:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример для таблицы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Несколько прав
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-revoke" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. REVOKE — отзыв прав
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Права на все объекты схемы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Права по умолчанию
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Права по умолчанию">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8-public" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. PUBLIC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Владение объектами
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-with-grant-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. WITH GRANT OPTION
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Проверка прав
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Типичные сценарии доступа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Принцип наименьших привилегий
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Частые ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Права и представления
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Права и функции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-rls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Права и RLS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Архитектурный вывод
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Базовые привилегии
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Частичный доступ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Работа со схемой
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-with-grant-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. WITH GRANT OPTION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-default-privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5. DEFAULT PRIVILEGES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 6
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Контрольные вопросы
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1653,7 +1790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/6.3-backup/" class="md-nav__link">
+      <a href="../6.3-backup/" class="md-nav__link">
         
   
   
@@ -1681,7 +1818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/practic-14-setting-up-access-rights/" class="md-nav__link">
+      <a href="../practic-14-setting-up-access-rights/" class="md-nav__link">
         
   
   
@@ -1709,7 +1846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Chapter_6/practic-15-backup-and-recovery/" class="md-nav__link">
+      <a href="../practic-15-backup-and-recovery/" class="md-nav__link">
         
   
   
@@ -1874,10 +2011,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Исходная структура БД
+        1. Общая модель разграничения доступа
       
     </span>
   </a>
@@ -1885,44 +2022,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 1. Базовые выборки
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 1. Базовые выборки">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 1
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 2
+        2. Объекты, к которым применяются права
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 3
+        3. Основные типы привилегий
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Основные типы привилегий">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Для таблиц
       
     </span>
   </a>
@@ -1930,10 +2056,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 4
+        Для базы данных
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Для схемы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Для функций
       
     </span>
   </a>
@@ -1946,22 +2094,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2_1" class="md-nav__link">
+  <a href="#4-grant" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Этап 2. Условия и логические операторы
+        4. Команда GRANT
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Этап 2. Условия и логические операторы">
+    <nav class="md-nav" aria-label="4. Команда GRANT">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Задание 5
+        Общий синтаксис:
       
     </span>
   </a>
@@ -1969,7 +2117,261 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример для таблицы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Несколько прав
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-revoke" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. REVOKE — отзыв прав
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Права на все объекты схемы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Права по умолчанию
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Права по умолчанию">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8-public" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. PUBLIC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Владение объектами
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-with-grant-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. WITH GRANT OPTION
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Проверка прав
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Типичные сценарии доступа
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Принцип наименьших привилегий
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Частые ошибки
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Права и представления
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Права и функции
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-rls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Права и RLS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Архитектурный вывод
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Домашнее задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Домашнее задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 1. Базовые привилегии
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 2. Частичный доступ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 3. Работа со схемой
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-with-grant-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 4. WITH GRANT OPTION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-default-privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание 5. DEFAULT PRIVILEGES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Задание 6
@@ -1979,144 +2381,16 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 7
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Этап 3. Сортировка и ограничение
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 3. Сортировка и ограничение">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 8
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 9
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 10
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-join" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 4. JOIN (связанные данные)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 4. JOIN (связанные данные)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 11
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 12
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Этап 5. Комплексный запрос
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Этап 5. Комплексный запрос">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Задание 13
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Индивидуальные задания
+        Контрольные вопросы
       
     </span>
   </a>
@@ -2140,117 +2414,322 @@
 
 
 
-<h1 id="4-select">Практическое занятие 4. Запросы к данным (SELECT)</h1>
-<p><strong>Продолжительность:</strong> 2 академических часа (90 минут)</p>
-<p><strong>Тип:</strong> практическое занятие</p>
-<p><strong>Цель занятия:</strong> сформировать устойчивые навыки выборки данных из одной и нескольких таблиц; фильтрации (WHERE); сортировки (ORDER BY); ограничения выборки (LIMIT); работы с условиями (IN, BETWEEN, LIKE, IS NULL); соединения таблиц (JOIN)</p>
-<h2 id="_1">Исходная структура БД</h2>
-<pre><code class="language-sql">CREATE TABLE groups (
-    id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL UNIQUE
-);
-
-CREATE TABLE students (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT NOT NULL,
-    birth_date DATE,
-    group_id INT REFERENCES groups(id),
-    scholarship NUMERIC
-);
-
-CREATE TABLE teachers (
-    id SERIAL PRIMARY KEY,
-    full_name TEXT NOT NULL,
-    department TEXT
-);
+<h1 id="_1">Права доступа</h1>
+<p><strong>Тип:</strong> лекция</p>
+<h2 id="1">1. Общая модель разграничения доступа</h2>
+<p>В PostgreSQL используется модель RBAC (Role-Based Access Control):</p>
+<ul>
+<li>доступ выдаётся ролям</li>
+<li>роли могут быть пользователями или группами</li>
+<li>права назначаются на объекты</li>
+</ul>
+<blockquote>
+<p>Без выданных привилегий пользователь не может работать с объектом.</p>
+</blockquote>
+<h2 id="2">2. Объекты, к которым применяются права</h2>
+<p>Права можно назначать на:</p>
+<ul>
+<li>базы данных</li>
+<li>схемы</li>
+<li>таблицы</li>
+<li>представления</li>
+<li>функции</li>
+<li>последовательности</li>
+<li>процедуры</li>
+</ul>
+<h2 id="3">3. Основные типы привилегий</h2>
+<h3 id="_2">Для таблиц</h3>
+<ol>
+<li>SELECT - чтение данных</li>
+<li>INSERT - добавление строк</li>
+<li>UPDATE - изменение строк</li>
+<li>DELETE - удаление строк</li>
+<li>TRUNCATE - очистка таблицы</li>
+<li>REFERENCES - создание внешних ключей</li>
+<li>TRIGGER - создание триггеров</li>
+</ol>
+<h3 id="_3">Для базы данных</h3>
+<table>
+<thead>
+<tr>
+<th>Привилегия</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONNECT</td>
+<td>Подключение к БД</td>
+</tr>
+<tr>
+<td>CREATE</td>
+<td>Создание объектов</td>
+</tr>
+<tr>
+<td>TEMPORARY</td>
+<td>Создание временных таблиц</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">Для схемы</h3>
+<table>
+<thead>
+<tr>
+<th>Привилегия</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USAGE</td>
+<td>Доступ к объектам схемы</td>
+</tr>
+<tr>
+<td>CREATE</td>
+<td>Создание объектов</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">Для функций</h3>
+<ol>
+<li>EXECUTE - выполнение функции</li>
+</ol>
+<h2 id="4-grant">4. Команда GRANT</h2>
+<h3 id="_6">Общий синтаксис:</h3>
+<pre><code class="language-sql">GRANT privilege
+ON object
+TO role;
+</code></pre>
+<h3 id="_7">Пример для таблицы</h3>
+<pre><code class="language-sql">GRANT SELECT ON employees TO analyst;
+</code></pre>
+<h3 id="_8">Несколько прав</h3>
+<p>GRANT SELECT, INSERT, UPDATE
+ON employees
+TO manager;</p>
+<h2 id="5-revoke">5. REVOKE — отзыв прав</h2>
+<pre><code class="language-sql">REVOKE INSERT ON employees FROM analyst;
+</code></pre>
+<p>Можно отозвать все права:</p>
+<pre><code class="language-sql">REVOKE ALL ON employees FROM analyst;
+</code></pre>
+<h2 id="6">6. Права на все объекты схемы</h2>
+<pre><code class="language-sql">GRANT SELECT
+ON ALL TABLES IN SCHEMA public
+TO analyst;
 </code></pre>
 <blockquote>
-<p>Перед началом занятия таблицы должны быть заполнены тестовыми данными (10–20 строк).</p>
+<p>Это не распространяется на будущие таблицы.</p>
 </blockquote>
-<h2 id="1">Этап 1. Базовые выборки</h2>
-<h3 id="1_1">Задание 1</h3>
-<p>Вывести всех студентов.</p>
-<h3 id="2">Задание 2</h3>
-<p>Вывести:</p>
-<ul>
-<li>ФИО</li>
-<li>дату рождения</li>
-</ul>
-<h3 id="3">Задание 3</h3>
-<p>Вывести студентов с стипендией больше 3000.</p>
-<h3 id="4">Задание 4</h3>
-<p>Вывести студентов без стипендии.</p>
+<h2 id="7">7. Права по умолчанию</h2>
+<p>Чтобы права автоматически назначались на будущие объекты:</p>
+<pre><code class="language-sql">ALTER DEFAULT PRIVILEGES
+IN SCHEMA public
+GRANT SELECT ON TABLES TO analyst;
+</code></pre>
+<h3 id="8-public">8. PUBLIC</h3>
+<p>PUBLIC — специальная роль, включающая всех пользователей.</p>
+<p>Если выполнить <code>GRANT SELECT ON employees TO PUBLIC;</code></p>
+<p>Все пользователи получат доступ.</p>
 <blockquote>
-<p>Использовать IS NULL.</p>
+<p>Рекомендуется ограничивать <code>PUBLIC</code>:</p>
 </blockquote>
-<h2 id="2_1">Этап 2. Условия и логические операторы</h2>
-<h3 id="5">Задание 5</h3>
-<p>Найти студентов:</p>
+<pre><code class="language-sql">REVOKE ALL ON SCHEMA public FROM PUBLIC;
+</code></pre>
+<h2 id="9">9. Владение объектами</h2>
+<p>Владелец:</p>
 <ul>
-<li>из определённой группы</li>
-<li>со стипендией больше 2500</li>
+<li>имеет полный контроль</li>
+<li>может выдавать права</li>
+<li>может удалять объект</li>
 </ul>
-<h3 id="6">Задание 6</h3>
-<p>Вывести студентов, родившихся:</p>
-<ul>
-<li>между 2004 и 2006 годами.</li>
-<li>Использовать BETWEEN.</li>
-</ul>
-<h3 id="7">Задание 7</h3>
-<p>Найти студентов:</p>
-<ul>
-<li>у которых фамилия начинается на «И».</li>
-<li>Использовать LIKE.</li>
-</ul>
-<h2 id="3_1">Этап 3. Сортировка и ограничение</h2>
-<h3 id="8">Задание 8</h3>
-<p>Вывести студентов:</p>
-<ul>
-<li>отсортированных по стипендии по убыванию.</li>
-</ul>
-<h3 id="9">Задание 9</h3>
-<p>Вывести 5 студентов с самой высокой стипендией.</p>
+<p>Изменение владельца:</p>
+<pre><code class="language-sql">ALTER TABLE employees OWNER TO admin_role;
+</code></pre>
+<h2 id="10-with-grant-option">10. WITH GRANT OPTION</h2>
+<p>Позволяет пользователю передавать право дальше:</p>
+<pre><code class="language-sql">GRANT SELECT ON employees
+TO analyst
+WITH GRANT OPTION;
+</code></pre>
 <blockquote>
-<p>Использовать ORDER BY + LIMIT.</p>
+<p>Может создавать сложную иерархию прав.</p>
 </blockquote>
-<h3 id="10">Задание 10</h3>
-<p>Вывести 3–7 записи (использовать OFFSET).</p>
-<h2 id="4-join">Этап 4. JOIN (связанные данные)</h2>
-<h3 id="11">Задание 11</h3>
-<p>Вывести:</p>
+<h2 id="11">11. Проверка прав</h2>
+<p>В psql:</p>
+<pre><code class="language-sql">\z employees
+</code></pre>
+<p>Показать роли:</p>
+<pre><code class="language-sql">\du
+</code></pre>
+<h2 id="12">12. Типичные сценарии доступа</h2>
+<p>Аналитик</p>
 <ul>
-<li>ФИО студента</li>
-<li>название группы</li>
+<li>SELECT</li>
+<li>EXECUTE функций</li>
+</ul>
+<p>Приложение</p>
+<ul>
+<li>SELECT</li>
+<li>INSERT</li>
+<li>UPDATE</li>
+</ul>
+<p>Администратор</p>
+<ul>
+<li>ALL PRIVILEGES</li>
+<li>CREATEDB</li>
+<li>CREATEROLE</li>
+</ul>
+<h2 id="13">13. Принцип наименьших привилегий</h2>
+<blockquote>
+<p>Пользователь должен иметь минимально необходимый доступ.</p>
+</blockquote>
+<p>Это предотвращает:</p>
+<ul>
+<li>утечки</li>
+<li>случайные изменения</li>
+<li>удаление данных</li>
+</ul>
+<h2 id="14">14. Частые ошибки</h2>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Причина</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Использование SUPERUSER</td>
+<td>Нарушение безопасности</td>
+</tr>
+<tr>
+<td>Права через PUBLIC</td>
+<td>Потенциальная утечка</td>
+</tr>
+<tr>
+<td>Выдача ALL PRIVILEGES</td>
+<td>Избыточность</td>
+</tr>
+<tr>
+<td>Отсутствие DEFAULT PRIVILEGES</td>
+<td>Проблемы с новыми таблицами</td>
+</tr>
+</tbody>
+</table>
+<h2 id="15">15. Права и представления</h2>
+<p>Можно:
+- дать SELECT на VIEW
+- не давать доступ к исходной таблице</p>
+<p>Это создаёт уровень абстракции и безопасности.</p>
+<h2 id="16">16. Права и функции</h2>
+<p>Можно разрешить EXECUTE без доступа к таблицам.</p>
+<blockquote>
+<p>Это позволяет скрыть структуру данных.</p>
+</blockquote>
+<h2 id="17-rls">17. Права и RLS</h2>
+<p>Даже при наличии SELECT, RLS может ограничить строки.</p>
+<p>RLS — дополнительный уровень защиты.</p>
+<h2 id="18">18. Архитектурный вывод</h2>
+<p>Права доступа:</p>
+<ul>
+<li>реализуют разграничение ответственности</li>
+<li>защищают данные</li>
+<li>поддерживают безопасную архитектуру</li>
+<li>
+<p>должны проектироваться заранее</p>
+</li>
+<li>
+<p>Выводы</p>
+</li>
+</ul>
+<p>Права доступа:</p>
+<ul>
+<li>управляются через GRANT / REVOKE</li>
+<li>назначаются на конкретные объекты</li>
+<li>должны выдаваться по принципу минимальности</li>
+<li>являются основой безопасности БД</li>
+</ul>
+<h2 id="_9">Домашнее задание</h2>
+<p>Предметная область: 
+- employees
+- clients
+- orders</p>
+<h3 id="1_1">Задание 1. Базовые привилегии</h3>
+<p>Создать роль analyst_role.</p>
+<p>Дать ей право:</p>
+<ul>
+<li>SELECT</li>
+<li>на таблицы employees, clients, orders.</li>
+</ul>
+<p>Проверить:</p>
+<ul>
+<li>что SELECT работает</li>
+<li>что INSERT вызывает ошибку</li>
 </ul>
 <blockquote>
-<p>Использовать JOIN.</p>
+<p>Зафиксировать ошибку и объяснить причину.</p>
 </blockquote>
-<h3 id="12">Задание 12</h3>
-<p>Вывести всех студентов, включая тех, у кого нет группы.</p>
-<p>Использовать LEFT JOIN.</p>
+<h3 id="2_1">Задание 2. Частичный доступ</h3>
+<p>Дать роли <code>app_user_role</code> права:</p>
+<p><code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>
+только на таблицу orders.</p>
+<p>Проверить невозможность доступа к employees.</p>
 <blockquote>
-<p>Объяснить разницу между INNER и LEFT JOIN.</p>
+<p>Объяснить принцип минимальных привилегий.</p>
 </blockquote>
-<h2 id="5_1">Этап 5. Комплексный запрос</h2>
-<h3 id="13">Задание 13</h3>
-<p>Вывести:</p>
+<h3 id="3_1">Задание 3. Работа со схемой</h3>
+<p>Отозвать у PUBLIC права на схему public.</p>
+<p>Дать <code>analyst_role</code> право USAGE на схему.</p>
+<p>Проверить подключение и доступ.</p>
+<blockquote>
+<p>Объяснить разницу между:</p>
+</blockquote>
 <ul>
-<li>ФИО студента</li>
-<li>название группы</li>
-<li>возраст (вычислить)</li>
-<li>стипендию</li>
+<li>USAGE</li>
+<li>SELECT</li>
 </ul>
-<p>Условия:</p>
-<ul>
-<li>стипендия больше средней по таблице</li>
-<li>отсортировать по возрасту</li>
-</ul>
-<h2 id="_2">Индивидуальные задания</h2>
-<p><strong>Вариант 1.</strong> Найти студента с минимальной стипендией.</p>
-<p><strong>Вариант 2.</strong> Найти студентов старше 20 лет.</p>
-<p><strong>Вариант 3.</strong> Найти группы без студентов.</p>
-<p><strong>Вариант 4.</strong> Найти студентов, чьё имя состоит более чем из 15 символов.</p>
-<p><strong>Вариант 5.</strong> Найти студентов, у которых стипендия выше средней по группе.</p>
+<h3 id="4-with-grant-option">Задание 4. WITH GRANT OPTION</h3>
+<p>Выдать:</p>
+<pre><code class="language-sql">GRANT SELECT ON employees TO analyst_role WITH GRANT OPTION;
+</code></pre>
+<p>Под ролью аналитика передать право другому пользователю.</p>
+<p>Проверить цепочку прав.</p>
+<blockquote>
+<p>Объяснить риски использования GRANT OPTION.</p>
+</blockquote>
+<h3 id="5-default-privileges">Задание 5. DEFAULT PRIVILEGES</h3>
+<p>Настроить:</p>
+<pre><code class="language-sql">ALTER DEFAULT PRIVILEGES
+IN SCHEMA public
+GRANT SELECT ON TABLES TO analyst_role;
+</code></pre>
+<p>Создать новую таблицу.</p>
+<p>Проверить, получил ли аналитик доступ автоматически.</p>
+<blockquote>
+<p>Объяснить, зачем это используется в промышленной среде.</p>
+</blockquote>
+<h3 id="6_1">Задание 6</h3>
+<p>Создать <code>VIEW</code> для аналитиков.</p>
+<p>Дать <code>SELECT</code> на <code>VIEW</code>.</p>
+<p>Отозвать доступ к исходной таблице.</p>
+<p>Проверить, что доступ к данным сохраняется через представление.</p>
+<blockquote>
+<p>Объяснить архитектурное преимущество такого подхода.</p>
+</blockquote>
+<h2 id="_10">Контрольные вопросы</h2>
+<ol>
+<li>В чём разница между ролью и пользователем?</li>
+<li>Какие права можно выдать на таблицу?</li>
+<li>Чем отличается USAGE на схему от SELECT на таблицу?</li>
+<li>Что делает команда REVOKE?</li>
+<li>Что такое WITH GRANT OPTION и чем он опасен?</li>
+<li>Что такое DEFAULT PRIVILEGES?</li>
+<li>Почему не рекомендуется использовать SUPERUSER в приложении?</li>
+<li>Как проверить текущие привилегии на объект?</li>
+<li>Почему PUBLIC может быть угрозой безопасности?</li>
+<li>В чём заключается принцип наименьших привилегий?</li>
+</ol>
 
 
 
